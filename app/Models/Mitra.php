@@ -8,17 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Mitra extends Model
 {
     use HasFactory;
+    public $table = 'mitra';
+    public $incrementing = false;
 
-    // Dont Change No Matter What
-    // ID => NAME
-    public const MITRATIMELINE = [
-        1 => 'FORM',
-        2 => 'a',
-        3 => 'b',
-        4 => 'c',
-        5 => 'd',
-        6 => 'e',
-        7 => 'f',
-        8 => 'g'
-    ];
+    public const TYPEMITRA = [ 'clinic', 'salon', 'store'];
+    public const STATUSMITRA = [ 'pending', 'in_progress', 'rejected', 'success'];
 }
