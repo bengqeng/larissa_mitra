@@ -43,7 +43,7 @@
             <hr class="sidebar-divider my-0">
 
             <!-- Nav Item - Dashboard -->
-            <li class="nav-item active">
+            <li class="nav-item">
                 <a class="nav-link" href="admin_larissa_mitra_index.html">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
@@ -61,6 +61,8 @@
                     <i class="fas fa-fw fa-chart-area"></i>
                     <span>New Subscriber </span><small class="badge badge-warning">20</small>
                 </a>
+            </li>
+            <li class="nav-item active">
                 <a class="nav-link" href="#">
                     <i class="fas fa-fw fa-chart-area"></i>
                     <span>Pending Request </span><small class="badge badge-warning">18</small>
@@ -76,7 +78,7 @@
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <!-- <h6 class="collapse-header">Custom Components:</h6> -->
-                        <a class="collapse-item active" href="admin_larissa_mitra_on_going.html">On Going Outlet</a>
+                        <a class="collapse-item" href="admin_larissa_mitra_on_going.html">On Going Outlet</a>
                         <a class="collapse-item" href="admin_larissa_mitra_gerai.html">Outlet</a>
                     </div>
                 </div>
@@ -184,7 +186,7 @@
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-2 text-gray-800">On Going Outlet</h1>
+                    <h1 class="h3 mb-2 text-gray-800">Pending Request</h1>
                     <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
                         For more information about DataTables, please visit the <a target="_blank"
                             href="https://datatables.net">official DataTables documentation</a>.</p>
@@ -192,7 +194,7 @@
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">Larissa on Going Outlet</h6>
+                            <h6 class="m-0 font-weight-bold text-primary">Larissa Pending Request</h6>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
@@ -217,9 +219,9 @@
                                     </div>
                                     <div class="row">
                                         <div class="col-sm-12">
-                                            <table class="table table-hover table-bordered table-sm dataTable"
-                                                id="dataTable" width="100%" cellspacing="0" role="grid"
-                                                aria-describedby="dataTable_info" style="width: 100%;">
+                                            <table class="table table-hover dataTable" id="dataTable" width="100%"
+                                                cellspacing="0" role="grid" aria-describedby="dataTable_info"
+                                                style="width: 100%;">
                                                 <thead>
                                                     <tr role="row">
                                                         <th>No</th>
@@ -240,11 +242,11 @@
                                                             rowspan="1" colspan="1"
                                                             aria-label="Age: activate to sort column ascending">Status
                                                             Terakhir</th>
-                                                        <th></th>
+                                                        <th class="text-center">Action</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <tr class="odd">
+                                                    <tr class="pendingRequest">
                                                         <td>1</td>
                                                         <td class="sorting_1">Airi Satou</td>
                                                         <td>Accountant</td>
@@ -252,11 +254,19 @@
                                                         <td>Proses Interview dengan tim manajemen
                                                         </td>
                                                         <td class="text-center">
-                                                            <button type="button" data-toggle="modal"
-                                                                data-target="#modalDetailGerai"
-                                                                class="btn btn-sm btn-outline-primary">Show</button>
+                                                            <a href="#" class="btn" data-toggle="modal"
+                                                                data-target="#detailRequestModal" data-toggle2="tooltip"
+                                                                data-placement="left" title="view detail request"><i
+                                                                    class="fas fa-eye text-primary"></i></a>
+                                                            <a href="#" class="btn" data-toggle="modal"
+                                                                data-target="#verificationModal"><i
+                                                                    class="fas fa-check text-success"></i></a>
+                                                            <a href="#" class="btn" data-toggle="modal"
+                                                                data-target="#verificationModal"><i
+                                                                    class="fas fa-times text-danger"></i></a>
+
                                                         </td>
-                                                    <tr class="even">
+                                                    <tr class="pendingRequest">
                                                         <td>2</td>
                                                         <td class="sorting_1">Angelica Ramos</td>
                                                         <td>Chief Executive Officer (CEO)</td>
@@ -264,11 +274,19 @@
                                                         <td>Proses Interview dengan tim manajemen
                                                         </td>
                                                         <td class="text-center">
-                                                            <button type="button" data-toggle="modal"
-                                                                data-target="#modalDetailGerai"
-                                                                class="btn btn-sm btn-outline-primary">Show</button>
+                                                            <a href="#" class="btn" data-toggle="modal"
+                                                                data-target="#detailRequestModal" data-toggle2="tooltip"
+                                                                data-placement="left" title="view detail request"><i
+                                                                    class="fas fa-eye text-primary"></i></a>
+                                                            <a href="#" class="btn" data-toggle="modal"
+                                                                data-target="#verificationModal"><i
+                                                                    class="fas fa-check text-success"></i></a>
+                                                            <a href="#" class="btn" data-toggle="modal"
+                                                                data-target="#verificationModal"><i
+                                                                    class="fas fa-times text-danger"></i></a>
+
                                                         </td>
-                                                    <tr class="odd">
+                                                    <tr class="pendingRequest">
                                                         <td>3</td>
                                                         <td class="sorting_1">Ashton Cox</td>
                                                         <td>Junior Technical Author</td>
@@ -276,11 +294,19 @@
                                                         <td>Proses Interview dengan tim manajemen
                                                         </td>
                                                         <td class="text-center">
-                                                            <button type="button" data-toggle="modal"
-                                                                data-target="#modalDetailGerai"
-                                                                class="btn btn-sm btn-outline-primary">Show</button>
+                                                            <a href="#" class="btn" data-toggle="modal"
+                                                                data-target="#detailRequestModal" data-toggle2="tooltip"
+                                                                data-placement="left" title="view detail request"><i
+                                                                    class="fas fa-eye text-primary"></i></a>
+                                                            <a href="#" class="btn" data-toggle="modal"
+                                                                data-target="#verificationModal"><i
+                                                                    class="fas fa-check text-success"></i></a>
+                                                            <a href="#" class="btn" data-toggle="modal"
+                                                                data-target="#verificationModal"><i
+                                                                    class="fas fa-times text-danger"></i></a>
+
                                                         </td>
-                                                    <tr class="even">
+                                                    <tr class="pendingRequest">
                                                         <td>4</td>
                                                         <td class="sorting_1">Bradley Greer</td>
                                                         <td>Software Engineer</td>
@@ -288,11 +314,19 @@
                                                         <td>Proses Interview dengan tim manajemen
                                                         </td>
                                                         <td class="text-center">
-                                                            <button type="button" data-toggle="modal"
-                                                                data-target="#modalDetailGerai"
-                                                                class="btn btn-sm btn-outline-primary">Show</button>
+                                                            <a href="#" class="btn" data-toggle="modal"
+                                                                data-target="#detailRequestModal" data-toggle2="tooltip"
+                                                                data-placement="left" title="view detail request"><i
+                                                                    class="fas fa-eye text-primary"></i></a>
+                                                            <a href="#" class="btn" data-toggle="modal"
+                                                                data-target="#verificationModal"><i
+                                                                    class="fas fa-check text-success"></i></a>
+                                                            <a href="#" class="btn" data-toggle="modal"
+                                                                data-target="#verificationModal"><i
+                                                                    class="fas fa-times text-danger"></i></a>
+
                                                         </td>
-                                                    <tr class="odd">
+                                                    <tr class="pendingRequest">
                                                         <td>5</td>
                                                         <td class="sorting_1">Brenden Wagner</td>
                                                         <td>Software Engineer</td>
@@ -300,11 +334,19 @@
                                                         <td>Proses Interview dengan tim manajemen
                                                         </td>
                                                         <td class="text-center">
-                                                            <button type="button" data-toggle="modal"
-                                                                data-target="#modalDetailGerai"
-                                                                class="btn btn-sm btn-outline-primary">Show</button>
+                                                            <a href="#" class="btn" data-toggle="modal"
+                                                                data-target="#detailRequestModal" data-toggle2="tooltip"
+                                                                data-placement="left" title="view detail request"><i
+                                                                    class="fas fa-eye text-primary"></i></a>
+                                                            <a href="#" class="btn" data-toggle="modal"
+                                                                data-target="#verificationModal"><i
+                                                                    class="fas fa-check text-success"></i></a>
+                                                            <a href="#" class="btn" data-toggle="modal"
+                                                                data-target="#verificationModal"><i
+                                                                    class="fas fa-times text-danger"></i></a>
+
                                                         </td>
-                                                    <tr class="even">
+                                                    <tr class="pendingRequest">
                                                         <td>6</td>
                                                         <td class="sorting_1">Brielle Williamson</td>
                                                         <td>Integration Specialist</td>
@@ -312,11 +354,19 @@
                                                         <td>Proses Interview dengan tim manajemen
                                                         </td>
                                                         <td class="text-center">
-                                                            <button type="button" data-toggle="modal"
-                                                                data-target="#modalDetailGerai"
-                                                                class="btn btn-sm btn-outline-primary">Show</button>
+                                                            <a href="#" class="btn" data-toggle="modal"
+                                                                data-target="#detailRequestModal" data-toggle2="tooltip"
+                                                                data-placement="left" title="view detail request"><i
+                                                                    class="fas fa-eye text-primary"></i></a>
+                                                            <a href="#" class="btn" data-toggle="modal"
+                                                                data-target="#verificationModal"><i
+                                                                    class="fas fa-check text-success"></i></a>
+                                                            <a href="#" class="btn" data-toggle="modal"
+                                                                data-target="#verificationModal"><i
+                                                                    class="fas fa-times text-danger"></i></a>
+
                                                         </td>
-                                                    <tr class="odd">
+                                                    <tr class="pendingRequest">
                                                         <td>7</td>
                                                         <td class="sorting_1">Bruno Nash</td>
                                                         <td>Software Engineer</td>
@@ -324,11 +374,19 @@
                                                         <td>Proses Interview dengan tim manajemen
                                                         </td>
                                                         <td class="text-center">
-                                                            <button type="button" data-toggle="modal"
-                                                                data-target="#modalDetailGerai"
-                                                                class="btn btn-sm btn-outline-primary">Show</button>
+                                                            <a href="#" class="btn" data-toggle="modal"
+                                                                data-target="#detailRequestModal" data-toggle2="tooltip"
+                                                                data-placement="left" title="view detail request"><i
+                                                                    class="fas fa-eye text-primary"></i></a>
+                                                            <a href="#" class="btn" data-toggle="modal"
+                                                                data-target="#verificationModal"><i
+                                                                    class="fas fa-check text-success"></i></a>
+                                                            <a href="#" class="btn" data-toggle="modal"
+                                                                data-target="#verificationModal"><i
+                                                                    class="fas fa-times text-danger"></i></a>
+
                                                         </td>
-                                                    <tr class="even">
+                                                    <tr class="pendingRequest">
                                                         <td>8</td>
                                                         <td class="sorting_1">Caesar Vance</td>
                                                         <td>Pre-Sales Support</td>
@@ -336,11 +394,19 @@
                                                         <td>Proses Interview dengan tim manajemen
                                                         </td>
                                                         <td class="text-center">
-                                                            <button type="button" data-toggle="modal"
-                                                                data-target="#modalDetailGerai"
-                                                                class="btn btn-sm btn-outline-primary">Show</button>
+                                                            <a href="#" class="btn" data-toggle="modal"
+                                                                data-target="#detailRequestModal" data-toggle2="tooltip"
+                                                                data-placement="left" title="view detail request"><i
+                                                                    class="fas fa-eye text-primary"></i></a>
+                                                            <a href="#" class="btn" data-toggle="modal"
+                                                                data-target="#verificationModal"><i
+                                                                    class="fas fa-check text-success"></i></a>
+                                                            <a href="#" class="btn" data-toggle="modal"
+                                                                data-target="#verificationModal"><i
+                                                                    class="fas fa-times text-danger"></i></a>
+
                                                         </td>
-                                                    <tr class="odd">
+                                                    <tr class="pendingRequest">
                                                         <td>9</td>
                                                         <td class="sorting_1">Cara Stevens</td>
                                                         <td>Sales Assistant</td>
@@ -348,11 +414,19 @@
                                                         <td>Proses Interview dengan tim manajemen
                                                         </td>
                                                         <td class="text-center">
-                                                            <button type="button" data-toggle="modal"
-                                                                data-target="#modalDetailGerai"
-                                                                class="btn btn-sm btn-outline-primary">Show</button>
+                                                            <a href="#" class="btn" data-toggle="modal"
+                                                                data-target="#detailRequestModal" data-toggle2="tooltip"
+                                                                data-placement="left" title="view detail request"><i
+                                                                    class="fas fa-eye text-primary"></i></a>
+                                                            <a href="#" class="btn" data-toggle="modal"
+                                                                data-target="#verificationModal"><i
+                                                                    class="fas fa-check text-success"></i></a>
+                                                            <a href="#" class="btn" data-toggle="modal"
+                                                                data-target="#verificationModal"><i
+                                                                    class="fas fa-times text-danger"></i></a>
+
                                                         </td>
-                                                    <tr class="even">
+                                                    <tr class="pendingRequest">
                                                         <td>10</td>
                                                         <td class="sorting_1">Cedric Kelly</td>
                                                         <td>Senior Javascript Developer</td>
@@ -360,9 +434,17 @@
                                                         <td>Proses Interview dengan tim manajemen
                                                         </td>
                                                         <td class="text-center">
-                                                            <button type="button" data-toggle="modal"
-                                                                data-target="#modalDetailGerai"
-                                                                class="btn btn-sm btn-outline-primary">Show</button>
+                                                            <a href="#" class="btn" data-toggle="modal"
+                                                                data-target="#detailRequestModal" data-toggle2="tooltip"
+                                                                data-placement="left" title="view detail request"><i
+                                                                    class="fas fa-eye text-primary"></i></a>
+                                                            <a href="#" class="btn" data-toggle="modal"
+                                                                data-target="#verificationModal"><i
+                                                                    class="fas fa-check text-success"></i></a>
+                                                            <a href="#" class="btn" data-toggle="modal"
+                                                                data-target="#verificationModal"><i
+                                                                    class="fas fa-times text-danger"></i></a>
+
                                                         </td>
                                                 </tbody>
                                             </table>
@@ -459,8 +541,28 @@
         </div>
     </div>
 
+    <!-- Verification Modal-->
+    <div class="modal fade" id="verificationModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header border-0">
+                    <h5 class="modal-title" id="exampleModalLabel">Confirmation</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body text-center">Are you sure you want to delete or accept the request?.</div>
+                <div class="modal-footer border-0">
+                    <button class="btn btn-default" type="button" data-dismiss="modal">Cancel</button>
+                    <button class="btn btn-success" href="#">Sure!</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Large modal -->
-    <div class="modal fade" id="modalDetailGerai" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+    <div class="modal fade" id="detailRequestModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
         aria-hidden="true">
         <div class="modal-dialog modal-dialog-scrollable modal-lg">
             <div class="modal-content">
@@ -518,97 +620,11 @@
                     </table>
                     <hr>
                     <h5>Riwayat</h5>
-                    <div class="col-md-12 col-lg-12">
-                        <div id="tracking-pre"></div>
-                        <div id="tracking bg-light">
-                            <div class="tracking-list">
-                                <div class="tracking-item">
-                                    <div class="tracking-icon bg-success text-light">
-                                        <i class="fas fa-check"></i>
-                                    </div>
-                                    <div class="tracking-date">Aug 10, 2023<span>05:01 PM</span></div>
-                                    <div class="tracking-content">Isi Form Calon Mitra
-                                        <span>Catatan: Mohon cek kembali alamat... <a href="#">lebih
-                                                lengkap</a></span>
-                                    </div>
-                                </div>
-                                <div class="tracking-item">
-                                    <div class="tracking-icon bg-success">
-                                        <i class="fas fa-check"></i>
-                                    </div>
-                                    <div class="tracking-date">Aug 10, 2023<span>11:19 AM</span></div>
-                                    <div class="tracking-content">Presentasi Program Kemitraan
-                                        <span>Catatan: Persentasi dieselnggarakan pada... <a href="#">lebih
-                                                lengkap</a></span>
-                                    </div>
-                                </div>
-                                <div class="tracking-item">
-                                    <div class="tracking-icon bg-success">
-                                        <i class="fas fa-check"></i>
-                                    </div>
-                                    <div class="tracking-date">Aug 12, 2023<span>11:19 AM</span></div>
-                                    <div class="tracking-content">Survey lokasi
-                                        <span>Catatan: kami akan menghubungi Anda... <a href="#">lebih
-                                                lengkap</a></span>
-                                    </div>
-                                </div>
-                                <div class="tracking-item">
-                                    <div class="tracking-icon bg-success">
-                                        <i class="fas fa-check"></i>
-                                    </div>
-                                    <div class="tracking-date">Aug 14, 2023<span>11:19 AM</span></div>
-                                    <div class="tracking-content">Interview dengan Tim Manajemen Larissa
-                                        <span>Catatan: Interview dieselnggarakan pada... <a href="#">lebih
-                                                lengkap</a></span>
-                                    </div>
-                                </div>
-                                <div class="tracking-item">
-                                    <div class="tracking-icon bg-success">
-                                        <i class="fas fa-check"></i>
-                                    </div>
-                                    <div class="tracking-date">Aug 20, 2023<span>11:19 AM</span></div>
-                                    <div class="tracking-content">Tanda tangan Perjanjian Kemitraan
-                                        <span>Catatan: Siapkan materia 10.000 dan... <a href="#">lebih
-                                                lengkap</a></span>
-                                    </div>
-                                </div>
-                                <div class="tracking-item">
-                                    <div class="tracking-icon bg-success">
-                                        <i class="fas fa-check"></i>
-                                    </div>
-                                    <div class="tracking-date">Aug 30, 2023<span>11:19 AM</span></div>
-                                    <div class="tracking-content">(Proses): Rekrutmen dan Training
-                                        <span>Catatan: Training dilaksanakan di gedung... <a href="#">lebih
-                                                lengkap</a></span>
-                                    </div>
-                                </div>
-                                <div class="tracking-item">
-                                    <div class="tracking-icon bg-success">
-                                        <i class="fas fa-check"></i>
-                                    </div>
-                                    <div class="tracking-date">Jul 19, 2023<span>07:36 AM</span></div>
-                                    <div class="tracking-content">Pengurusan Perijinan Operasional Gerai
-                                        <span>Catatan: Training dilaksanakan di gedung... <a href="#">lebih
-                                                lengkap</a></span>
-                                    </div>
-                                </div>
-                                <div class="tracking-item">
-                                    <div class="tracking-icon bg-success">
-                                        <i class="fas fa-check"></i>
-                                    </div>
-                                    <div class="tracking-date">Jul 17, 2023<span>10:54 AM</span></div>
-                                    <div class="tracking-content">Pembukaan Gerai
-                                        <span>Catatan: Training dilaksanakan di gedung... <a href="#">lebih
-                                                lengkap</a></span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Print <i class="fas fa-print"></i></button>
+                    <button type="button" class="btn btn-success">Approve <i class="fas fa-check"></i></button>
+                    <button type="button" class="btn btn-danger">Reject <i class="fas fa-times"></i></button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>
@@ -629,6 +645,9 @@
     <!-- Page level custom scripts -->
     <script src="js/demo/chart-area-demo.js"></script>
     <script src="js/demo/chart-pie-demo.js"></script>
+
+    <!-- style -->
+    <script src="js/style.js"></script>
 
 </body>
 
