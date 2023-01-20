@@ -21,4 +21,9 @@ class MitraTimeline extends Model
         8 => 'g'
     ];
     public const STATUSMITRATIMELINE = [ 'pending', 'success'];
+
+    public function mitra()
+    {
+        return $this->belongsTo(Mitra::class);
+    }
 }
