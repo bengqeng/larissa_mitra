@@ -1,4 +1,4 @@
-@extends('admin.shared.main')
+@extends('shared.main')
 
 @section('content')
 <div class="card shadow mb-4">
