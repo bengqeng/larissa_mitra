@@ -38,7 +38,8 @@
                 <a class="collapse-item {{ (request()->is('admin/dashboard/mitra/potential*')) ? 'active' : '' }}"
                     href="{{ route('admin.potential_mitra.index') }}">Pending Request <small
                         class="badge badge-warning">18</small></a>
-                <a class="collapse-item" href="admin_larissa_mitra_on_going.html">On Going</a>
+                <a class="collapse-item {{ (request()->is('admin/dashboard/mitra/on_going')) ? 'active' : '' }}"
+                    href="{{ route('admin.on_going_mitra.index') }}">On Going</a>
                 <a class="collapse-item {{ (request()->is('admin/dashboard/mitra')) ? 'active' : '' }}"
                     href="{{ route('admin.mitra.index') }}">List</a>
             </div>
@@ -59,16 +60,18 @@
         </div>
     </li>
 
-    <li class="nav-item">
+    <li class="nav-item {{ (request()->is('admin/dashboard/users*')) ? 'active' : '' }}">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsefour" aria-expanded="true"
             aria-controls="collapsefour">
             <i class="far fa-file-alt"></i>
             <span>User</span>
         </a>
-        <div id="collapsefour" class="collapse" aria-labelledby="headingThree" data-parent="#accordionSidebar">
+        <div id="collapsefour" class="collapse {{ (request()->is('admin/dashboard/users*')) ? 'show' : '' }}"
+            aria-labelledby="headingThree" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <!-- <h6 class="collapse-header">Custom Components:</h6> -->
-                <a class="collapse-item" href="{{route('admin.users.index')}}">List</a>
+                <a class="collapse-item {{ (request()->is('admin/dashboard/users')) ? 'active' : '' }}"
+                    href="{{route('admin.users.index')}}">List</a>
             </div>
         </div>
     </li>

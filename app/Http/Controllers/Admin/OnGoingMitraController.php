@@ -15,7 +15,7 @@ class OnGoingMitraController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.mitra.on_going.index');
     }
 
     /**
