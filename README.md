@@ -15,12 +15,12 @@
 7. run 'php artisan:serve'
 8. go to your browser and access 'localhost:8000'
 
-##Docker
+##Docker (Development Purpose)
 1. clone repository
 2. copy file .env.example and rename to .env
 4. run 'composer install'
 5. run 'npm install'
-6. run 'php artisan migrate:fresh'
-7. run 'php artisan:serve'
-8. run 'docker compose -f docker-compose_development.yml up'
-8. go to your browser and access 'localhost:8000'
+6. run 'docker compose -f docker-compose_development.yml up'
+7. run 'php artisan migrate:fresh'
+8. run 'php artisan:serve'
+9. go to your browser and access 'localhost:8000'
