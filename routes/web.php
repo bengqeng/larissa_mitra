@@ -12,6 +12,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::prefix('user')->group(function () {
+    Route::view('/mitra', 'user.dashboard')->name('user.dashboard');
+});
+
 Route::prefix('admin')->group(function () {
     Route::prefix('dashboard')->group(function () {
         Route::get('/', [\App\Http\Controllers\Admin\DashboardController::class, 'index'])->name('admin.dashboard');

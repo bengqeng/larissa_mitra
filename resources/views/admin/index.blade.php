@@ -1,4 +1,4 @@
-@extends('admin.shared.main')
+@extends('shared.main')
 
 @section('content')
 <div class="row">
@@ -53,9 +53,8 @@
                             </div>
                             <div class="col">
                                 <div class="progress progress-sm mr-2">
-                                    <div class="progress-bar bg-info" role="progressbar"
-                                        style="width: 50%" aria-valuenow="50" aria-valuemin="0"
-                                        aria-valuemax="100"></div>
+                                    <div class="progress-bar bg-info" role="progressbar" style="width: 50%"
+                                        aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
                                 </div>
                             </div>
                         </div>
@@ -105,8 +104,8 @@
                             <div class=""></div>
                         </div>
                     </div>
-                    <canvas id="myAreaChart" style="display: block; width: 1037px; height: 320px;"
-                        width="1037" height="320" class="chartjs-render-monitor"></canvas>
+                    <canvas id="myAreaChart" style="display: block; width: 1037px; height: 320px;" width="1037"
+                        height="320" class="chartjs-render-monitor"></canvas>
                 </div>
                 <hr>
                 Styling for the area chart can be found in the
@@ -126,19 +125,16 @@
                     <div id="dataTable_wrapper" class="dataTables_wrapper dt-bootstrap4">
                         <div class="row">
                             <div class="col-sm-12">
-                                <table class="table table-bordered dataTable" id="dataTable"
-                                    width="100%" cellspacing="0" role="grid"
-                                    aria-describedby="dataTable_info" style="width: 100%;">
+                                <table class="table table-bordered dataTable" id="dataTable" width="100%"
+                                    cellspacing="0" role="grid" aria-describedby="dataTable_info" style="width: 100%;">
                                     <thead>
                                         <tr role="row">
-                                            <th class="sorting sorting_asc" tabindex="0"
-                                                aria-controls="dataTable" rowspan="1" colspan="1"
-                                                aria-sort="ascending"
+                                            <th class="sorting sorting_asc" tabindex="0" aria-controls="dataTable"
+                                                rowspan="1" colspan="1" aria-sort="ascending"
                                                 aria-label="Name: activate to sort column descending">
                                                 Nama</th>
-                                            <th class="sorting" tabindex="0"
-                                                aria-controls="dataTable" rowspan="1" colspan="2"
-                                                aria-label="Position: activate to sort column ascending">
+                                            <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1"
+                                                colspan="2" aria-label="Position: activate to sort column ascending">
                                                 Gerai</th>
                                         </tr>
                                     </thead>
@@ -146,41 +142,41 @@
                                         <tr class="odd">
                                             <td class="sorting_1">Airi Satou</td>
                                             <td>Salon</td>
-                                            <td class="text-center"><a class="text-success"
-                                                    href="#"><i class="far fa-edit fa-xs"></i></a>
+                                            <td class="text-center"><a class="text-success" href="#"><i
+                                                        class="far fa-edit fa-xs"></i></a>
                                             </td>
                                         </tr>
                                         <tr class="even">
                                             <td class="sorting_1">Angelica Ramos</td>
                                             <td>Store</td>
-                                            <td class="text-center"><a class="text-success"
-                                                    href="#"><i class="far fa-edit fa-xs"></i></a>
+                                            <td class="text-center"><a class="text-success" href="#"><i
+                                                        class="far fa-edit fa-xs"></i></a>
                                             </td>
                                         </tr>
                                         <tr class="odd">
                                             <td class="sorting_1">Ashton Cox</td>
                                             <td>Store</td>
-                                            <td class="text-center"><a class="text-success"
-                                                    href="#"><i class="far fa-edit fa-xs"></i></a>
+                                            <td class="text-center"><a class="text-success" href="#"><i
+                                                        class="far fa-edit fa-xs"></i></a>
                                             </td>
                                         </tr>
                                         <tr class="even">
                                             <td class="sorting_1">Bradley Greer</td>
                                             <td>Salon</td>
-                                            <td class="text-center"><a class="text-success"
-                                                    href="#"><i class="far fa-edit fa-xs"></i></a>
+                                            <td class="text-center"><a class="text-success" href="#"><i
+                                                        class="far fa-edit fa-xs"></i></a>
                                             </td>
                                         </tr>
                                         <tr class="odd">
                                             <td class="sorting_1">Brenden Wagner</td>
                                             <td>Clinic</td>
-                                            <td class="text-center"><a class="text-success"
-                                                    href="#"><i class="far fa-edit fa-xs"></i></a>
+                                            <td class="text-center"><a class="text-success" href="#"><i
+                                                        class="far fa-edit fa-xs"></i></a>
                                             </td>
                                         </tr>
                                         <tr class="odd">
-                                            <td class="sorting_1 text-center" colspan="3"><a
-                                                    href="#"><small>Tampilkan lebih
+                                            <td class="sorting_1 text-center" colspan="3"><a href="#"><small>Tampilkan
+                                                        lebih
                                                         banyak</small></a>
                                             </td>
                                         </tr>

@@ -24,7 +24,7 @@
     <div id="wrapper">
 
         <!-- Sidebar -->
-        @include('admin.shared.left_sidebar')
+        @include('shared.left_sidebar')
         <!-- End of Sidebar -->
 
         <!-- Content Wrapper -->
@@ -34,11 +34,14 @@
             <div id="content">
 
                 <!-- Topbar -->
-                @include('admin.shared.top_sidebar')
+                @include('shared.top_sidebar')
                 <!-- End of Topbar -->
+
+
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
+                    @include('shared.alert')
                     @yield('content')
                 </div>
                 <!-- /.container-fluid -->
@@ -47,7 +50,7 @@
             <!-- End of Main Content -->
 
             <!-- Footer -->
-            @include('admin.shared.footer')
+            @include('shared.footer')
             <!-- End of Footer -->
 
         </div>
@@ -61,7 +64,7 @@
         <i class="fas fa-angle-up"></i>
     </a>
 
-    @include('admin.shared.modal')
+    @include('shared.modal')
 
     <script src="{{asset('vendor/datatables/jquery.dataTables.min.js')}}"></script>
     <script src="{{asset('vendor/datatables/dataTables.bootstrap4.min.js')}}"></script>
