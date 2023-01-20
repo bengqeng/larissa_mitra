@@ -41,6 +41,14 @@ Route::prefix('admin')->group(function () {
                 'edit' => 'admin.on_going_mitra.edit',
             ]);
         });
+        Route::resource('subscriber', \App\Http\Controllers\Admin\SubscriberController::class)->names([
+            'index' => 'admin.subscriber.index',
+            'show' => 'admin.subscriber.show',
+            'create' => 'admin.subscriber.create',
+            'store' => 'admin.subscriber.store',
+            'destroy' => 'admin.subscriber.destroy',
+            'edit' => 'admin.subscriber.edit',
+        ]);
         Route::resource('users', \App\Http\Controllers\Admin\UserController::class)->names([
             'index' => 'admin.users.index',
             'show' => 'admin.users.show',
@@ -49,6 +57,5 @@ Route::prefix('admin')->group(function () {
             'destroy' => 'admin.users.destroy',
             'edit' => 'admin.users.edit',
         ]);
-
     });
 });

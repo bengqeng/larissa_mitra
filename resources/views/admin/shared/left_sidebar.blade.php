@@ -44,15 +44,17 @@
             </div>
         </div>
     </li>
-    <li class="nav-item">
+    <li class="nav-item {{ (request()->is('admin/dashboard/subscriber*')) ? 'active' : '' }}">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true"
             aria-controls="collapseThree">
             <i class="far fa-file-alt"></i>
             <span>Subscriber</span>
         </a>
-        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionSidebar">
+        <div id="collapseThree" class="collapse {{ (request()->is('admin/dashboard/subscriber*')) ? 'show' : '' }}"
+            aria-labelledby="headingThree" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item" href="larissa_mitra_gerai.html">List</a>
+                <a class="collapse-item {{ (request()->is('admin/dashboard/subscriber')) ? 'active' : '' }}"
+                    href="{{ route('admin.subscriber.index') }}">List</a>
             </div>
         </div>
     </li>
