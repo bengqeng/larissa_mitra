@@ -99,8 +99,7 @@
                         height="320" class="chartjs-render-monitor"></canvas>
                 </div>
                 <hr>
-                Styling for the area chart can be found in the
-                <code>/js/demo/chart-area-demo.js</code> file.
+                Pertumbuhan pendaftar mitra tiap bulan dalam 1 tahun.
             </div>
         </div>
     </div>
