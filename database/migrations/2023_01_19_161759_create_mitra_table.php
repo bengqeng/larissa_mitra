@@ -14,7 +14,7 @@ class CreateMitraTable extends Migration
     public function up()
     {
         Schema::create('mitra', function (Blueprint $table) {
-            $table->uuid('id')->unique(true);
+            $table->uuid('id')->unique(true)->primary(true);
 
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');

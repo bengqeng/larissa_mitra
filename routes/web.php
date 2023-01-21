@@ -16,6 +16,22 @@ Route::prefix('user')->group(function () {
     Route::view('/mitra', 'user.dashboard')->name('user.dashboard');
 });
 
+Route::prefix('mitra')->group(function(){
+    Route::resource('join', \App\Http\Controllers\JoinController::class)
+        ->only(['index', 'show', 'store'])
+        ->names([
+            'index' => 'join.mitra.index',
+            'store' => 'join.mitra.store'
+    ]);
+    Route::resource('subscriber', \App\Http\Controllers\SubscriberController::class)
+        ->only(['index', 'show', 'create'])
+        ->names([
+            'index' => 'subscriber.mitra.index',
+            'show' => 'subscriber.mitra.show',
+            'create' => 'subscriber.mitra.create'
+    ]);
+});
+
 Route::prefix('admin')->group(function () {
     Route::prefix('dashboard')->group(function () {
         Route::get('/', [\App\Http\Controllers\Admin\DashboardController::class, 'index'])->name('admin.dashboard');
