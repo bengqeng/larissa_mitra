@@ -21,39 +21,43 @@
                                         Nama Mitra</th>
                                     <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
                                         aria-label="Position: activate to sort column ascending">
-                                        Nama Outlet</th>
+                                        Tipe Mitra</th>
                                     <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
                                         aria-label="Office: activate to sort column ascending">
-                                        Alamat</th>
+                                        Lokasi Mitra</th>
                                     <th class="text-center">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
+                            @forelse ($mitras as $mitra)
                                 <tr class="pendingRequest">
-                                    <td>1</td>
-                                    <td class="sorting_1">Airi Satou</td>
-                                    <td>Accountant</td>
-                                    <td>Tokyo</td>
+                                    <td>{{ $loop->iteration }}</td>
+                                    <td>{{ $mitra->user->full_name }}</td>
+                                    <td>{{ $mitra->type }}</td>
+                                    <td>{{ $mitra->location }}</td>
                                     <td class="text-center">
                                         <span data-toggle="modal" data-target="#detailRequestModal">
                                             <button class="btn" data-toggle="tooltip" data-placement="top"
-                                                title="view detail request">
+                                                    title="view detail request">
                                                 <i class="fas fa-eye text-primary"></i>
                                             </button>
                                         </span>
                                         <span data-toggle="modal" data-target="#verificationModal">
                                             <button class="btn" data-toggle="tooltip" data-placement="top"
-                                                title="approve request">
+                                                    title="approve request">
                                                 <i class="fas fa-check text-success"></i></button>
                                         </span>
                                         <span data-toggle="modal" data-target="#verificationModal">
                                             <button class="btn" data-toggle="tooltip" data-toggle="tooltip"
-                                                data-placement="top" title="reject request">
+                                                    data-placement="top" title="reject request">
                                                 <i class="fas fa-times text-danger"></i>
                                             </button>
                                         </span>
                                     </td>
                                 </tr>
+                            @empty
+                                <tr colspan="5">No Data Found</tr>
+                            @endforelse
                             </tbody>
                         </table>
                     </div>

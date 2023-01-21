@@ -10,8 +10,8 @@
                 <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                         <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                            Total (Gerai)</div>
-                        <div class="h5 mb-0 font-weight-bold text-gray-800">43</div>
+                            Total (Mitra)</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $totalMitra }}</div>
                     </div>
                     <div class="col-auto">
                         <i class="fas fa-calendar fa-2x text-gray-300"></i>
@@ -28,8 +28,8 @@
                 <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                         <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                            Total (Mitra)</div>
-                        <div class="h5 mb-0 font-weight-bold text-gray-800">56</div>
+                            Total (Subscriber)</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $totalSubscriber }}</div>
                     </div>
                     <div class="col-auto">
                         <i class="fas fa-user fa-2x text-gray-300"></i>
@@ -45,19 +45,10 @@
             <div class="card-body">
                 <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
-                        <div class="text-xs font-weight-bold text-info text-uppercase mb-1">ON GOING
+                        <div class="text-xs font-weight-bold text-info text-uppercase mb-1">
+                            Total (ON GOING)
                         </div>
-                        <div class="row no-gutters align-items-center">
-                            <div class="col-auto">
-                                <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">20</div>
-                            </div>
-                            <div class="col">
-                                <div class="progress progress-sm mr-2">
-                                    <div class="progress-bar bg-info" role="progressbar" style="width: 50%"
-                                        aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                            </div>
-                        </div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $totalOnGoing }}</div>
                     </div>
                     <div class="col-auto">
                         <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
@@ -75,7 +66,7 @@
                     <div class="col mr-2">
                         <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
                             Pending Requests</div>
-                        <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $totalPending }}</div>
                     </div>
                     <div class="col-auto">
                         <i class="fas fa-comments fa-2x text-gray-300"></i>
@@ -139,74 +130,35 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr class="odd">
-                                            <td class="sorting_1">Airi Satou</td>
-                                            <td>Salon</td>
-                                            <td class="text-center"><a class="text-success" href="#"><i
-                                                        class="far fa-edit fa-xs"></i></a>
-                                            </td>
-                                        </tr>
-                                        <tr class="even">
-                                            <td class="sorting_1">Angelica Ramos</td>
-                                            <td>Store</td>
-                                            <td class="text-center"><a class="text-success" href="#"><i
-                                                        class="far fa-edit fa-xs"></i></a>
-                                            </td>
-                                        </tr>
-                                        <tr class="odd">
-                                            <td class="sorting_1">Ashton Cox</td>
-                                            <td>Store</td>
-                                            <td class="text-center"><a class="text-success" href="#"><i
-                                                        class="far fa-edit fa-xs"></i></a>
-                                            </td>
-                                        </tr>
-                                        <tr class="even">
-                                            <td class="sorting_1">Bradley Greer</td>
-                                            <td>Salon</td>
-                                            <td class="text-center"><a class="text-success" href="#"><i
-                                                        class="far fa-edit fa-xs"></i></a>
-                                            </td>
-                                        </tr>
-                                        <tr class="odd">
-                                            <td class="sorting_1">Brenden Wagner</td>
-                                            <td>Clinic</td>
-                                            <td class="text-center"><a class="text-success" href="#"><i
-                                                        class="far fa-edit fa-xs"></i></a>
-                                            </td>
-                                        </tr>
-                                        <tr class="odd">
-                                            <td class="sorting_1 text-center" colspan="3"><a href="#"><small>Tampilkan
-                                                        lebih
-                                                        banyak</small></a>
-                                            </td>
-                                        </tr>
+                                        @forelse($mitrapendings as $mitra)
+                                            <tr class="odd">
+                                                <td class="sorting_1"> {{ $mitra->user->full_name }}</td>
+                                                <td>{{ $mitra->type }}</td>
+                                                <td class="text-center"><a class="text-success" href="#"><i
+                                                            class="far fa-edit fa-xs"></i></a>
+                                                </td>
+                                            </tr>
+
+                                            @if($loop->last)
+                                                <tr class="odd">
+                                                    <td class="sorting_1 text-center" colspan="3"><a href="{{ route('admin.potential_mitra.index') }}"><small>Tampilkan
+                                                                lebih
+                                                                banyak</small></a>
+                                                    </td>
+                                                </tr>
+                                            @endif
+
+                                        @empty
+                                            <tr role="row">
+                                                <td colspan="3">No Data Found</td>
+                                            </tr>
+                                        @endforelse
                                     </tbody>
                                 </table>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </div>
-
-</div>
-
-<div class="row">
-    <div class="col-12 mb-4">
-        <div class="card bg-warning text-white shadow">
-            <div class="card-body">
-                Pengajuan Anda telah kami terima dan sedang kami proses, mohon menunggu :)
-                <div class="text-white small">Pastikan email dan nomor telepon Anda aktif</div>
-            </div>
-        </div>
-    </div>
-    <div class="col-12 mb-4">
-        <div class="card bg-success text-white shadow">
-            <div class="card-body">
-                Pengajuan Anda berhasil!
-                <div class="text-white small">Silahkan lihat status pengajuan gerai pada link
-                    berikut <a href="">Status Pengajuan</a></div>
             </div>
         </div>
     </div>

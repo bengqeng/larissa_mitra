@@ -15,7 +15,9 @@ class PotentialMitraController extends Controller
      */
     public function index()
     {
-        return view('admin.mitra.potential.index');
+        return view('admin.mitra.potential.index', [
+            'mitras' => Mitra::with('user')->PendingMitra()->get()
+        ]);
     }
 
     /**
