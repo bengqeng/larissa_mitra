@@ -44,7 +44,8 @@ class PotentialMitraController extends Controller
     public function show(Mitra $potential)
     {
         return view('admin.mitra.show', [
-            'mitra' => $potential->with('user')->first()
+            'mitra' => $potential,
+            'user' => $potential->user()->first()
         ]);
     }
 }

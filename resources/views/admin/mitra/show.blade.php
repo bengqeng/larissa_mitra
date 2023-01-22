@@ -17,7 +17,7 @@
                     <tr>
                         <td class="align-top">Nama Pemilik</td>
                         <td class="text-center align-top" width="20px">:</td>
-                        <td class="align-top font-weight-bold">{{ $mitra->user->full_name }} <small><a href="#"
+                        <td class="align-top font-weight-bold">{{ $user->full_name }} <small><a href="#"
                                                                                        class="">Lihat
                                     Profil</a></small></td>
                     </tr>
@@ -39,7 +39,7 @@
                     <tr>
                         <td class="align-top">Telepon Gerai</td>
                         <td class="text-center align-top" width="20px">:</td>
-                        <td class="align-top font-weight-bold">{{ $mitra->user->phone_number }}</td>
+                        <td class="align-top font-weight-bold">{{ $user->phone_number }}</td>
                     </tr>
                     <tr>
                         <td class="align-top">Alamat Gerai</td>
