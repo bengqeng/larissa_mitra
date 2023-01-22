@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::view('/', 'public.index2');
+Route::view('/', 'public.index');
 
 Route::prefix('user')->group(function () {
     Route::view('/mitra', 'user.dashboard')->name('user.dashboard');

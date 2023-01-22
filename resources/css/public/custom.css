@@ -1,0 +1,17 @@
+/* ----------------------------------------------------------------
+	Custom CSS
+
+	Add all your Custom Styled CSS here for New Styles or
+	Overwriting Default Theme Styles for Better Handling Updates
+-----------------------------------------------------------------*/
+
+
+.hero-features{
+	transform: translateY(-50%) !important;
+}
+
+@media (max-width: 576px) {
+	.hero-features{
+		transform: translateY(-20%) !important;
+	}
+}
