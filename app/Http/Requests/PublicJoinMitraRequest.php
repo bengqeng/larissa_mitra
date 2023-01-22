@@ -33,7 +33,8 @@ class PublicJoinMitraRequest extends FormRequest
             'phone_number' => ['required'],
             'address' => ['required'],
             'type' => ['required', new typeMitraIsValid()],
-            'location' => ['required']
+            'location' => ['required'],
+            'mitra_name' => ['required']
         ];
     }
 }

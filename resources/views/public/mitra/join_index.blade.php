@@ -51,6 +51,11 @@
                             </div>
                             <hr>
                             <div class="form-group">
+                                <label class="sr-only" for="namaLengkapForm">Nama Mitra</label>
+                                <input type="text" name="mitra_name" class="form-control rounded-0" id="namaMitraForm"
+                                       aria-describedby="nameHelp" placeholder="Nama Mitra">
+                            </div>
+                            <div class="form-group">
                                 <label class="sr-only" for="nomorTelponForm">Tipe Mitra</label>
                                 <select class="form-control rounded-0" name="type" id="typeMitra">
                                     <option disabled selected>Tipe Kemitraan</option>
@@ -68,8 +73,6 @@
                                     id="lokasiKemitraanForm" aria-describedby="lokasiKemitraanForm"
                                     placeholder="Lokasi Kemitraan"></textarea>
                             </div>
-
-
                             <button type="submit" class="btn btn-success rounded-0 float-right">Register</button>
                             <p class="card-text"><small class="text-muted">Telah memiliki akun? <a href="#">Login di
                                         sini</a></small></p>

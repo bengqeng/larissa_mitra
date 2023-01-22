@@ -133,7 +133,7 @@
                                             <tr class="odd">
                                                 <td class="sorting_1"> {{ $mitra->user->full_name }}</td>
                                                 <td>{{ $mitra->type }}</td>
-                                                <td class="text-center"><a class="text-success" href="#"><i
+                                                <td class="text-center"><a class="text-success" href="{{ route('admin.potential_mitra.show', $mitra->id) }}"><i
                                                             class="far fa-edit fa-xs"></i></a>
                                                 </td>
                                             </tr>

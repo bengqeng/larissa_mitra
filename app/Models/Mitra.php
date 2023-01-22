@@ -17,7 +17,7 @@ class Mitra extends Model
     public const TYPEMITRA = [ 'clinic', 'salon', 'store'];
     public const STATUSMITRA = [ 'pending', 'in_progress', 'rejected', 'success'];
 
-    protected $fillable = [ 'user_id', 'type', 'location', 'status' ];
+    protected $fillable = [ 'user_id', 'type', 'location', 'status', 'mitra_name' ];
 
     public function scopeActivemitra($query)
     {

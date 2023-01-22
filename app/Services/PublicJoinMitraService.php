@@ -52,7 +52,7 @@ class PublicJoinMitraService
 
     private function mitraAttribute($attr)
     {
-        $attr = Arr::only($attr, ['type', 'location']);
+        $attr = Arr::only($attr, ['type', 'location', 'mitra_name']);
         return Arr::add($attr, 'status', true);
     }
 }

@@ -21,16 +21,6 @@ class PotentialMitraController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -38,7 +28,11 @@ class PotentialMitraController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        if($request->ajax()){
+            $mitra = Mitra::where('id', $request->id)->update(['status' => ($request->status == 'true' ? 'in_progress' : 'rejected')]);
+            flash()->success('Berhasil update request');
+            return json_encode(['result' => $mitra, 'status' => $request->status]);
+        }
     }
 
     /**
@@ -47,42 +41,10 @@ class PotentialMitraController extends Controller
      * @param  \App\Models\Mitra  $mitra
      * @return \Illuminate\Http\Response
      */
-    public function show(Mitra $mitra)
+    public function show(Mitra $potential)
     {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Mitra  $mitra
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Mitra $mitra)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Mitra  $mitra
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Mitra $mitra)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Mitra  $mitra
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Mitra $mitra)
-    {
-        //
+        return view('admin.mitra.show', [
+            'mitra' => $potential->with('user')->first()
+        ]);
     }
 }

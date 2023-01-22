@@ -44,14 +44,13 @@ Route::prefix('admin')->group(function () {
                 'destroy' => 'admin.mitra.destroy',
                 'edit' => 'admin.mitra.edit',
             ]);
-            Route::resource('/potential', \App\Http\Controllers\Admin\PotentialMitraController::class)->names([
-                'index' => 'admin.potential_mitra.index',
-                'show' => 'admin.potential_mitra.show',
-                'create' => 'admin.potential_mitra.create',
-                'store' => 'admin.potential_mitra.store',
-                'destroy' => 'admin.potential_mitra.destroy',
-                'edit' => 'admin.potential_mitra.edit',
-            ]);
+            Route::resource('/potential', \App\Http\Controllers\Admin\PotentialMitraController::class)
+                ->only(['index', 'show', 'store'])
+                ->names([
+                    'index' => 'admin.potential_mitra.index',
+                    'show' => 'admin.potential_mitra.show',
+                    'store' => 'admin.potential_mitra.store'
+                ]);
             Route::resource('/on_going', \App\Http\Controllers\Admin\OnGoingMitraController::class)->names([
                 'index' => 'admin.on_going_mitra.index',
                 'show' => 'admin.on_going_mitra.show',
