@@ -13,25 +13,35 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::view('/', 'public.index');
+Route::view('/about', 'public.about');
+Route::view('/blog', 'public.blog');
+Route::view('/mitra-form', 'public.mitra-form');
+Route::view('/mitra-login', 'public.mitra-login');
+Route::view('/mitra-prospek', 'public.mitra-prospek');
+Route::view('/mitra-register', 'public.mitra-register');
+Route::view('/blog-single', 'public.blog-single');
+Route::view('/tipe-larissa-aesthetic-center.blade', 'public.tipe-larissa-aesthetic-center.blade');
+Route::view('/tipe-salon', 'public.tipe-salon');
+Route::view('/tipe-store', 'public.tipe-store');
 
 Route::prefix('user')->group(function () {
     Route::view('/mitra', 'user.dashboard')->name('user.dashboard');
 });
 
-Route::prefix('mitra')->group(function(){
+Route::prefix('mitra')->group(function () {
     Route::resource('join', \App\Http\Controllers\JoinController::class)
         ->only(['index', 'show', 'store'])
         ->names([
             'index' => 'join.mitra.index',
             'store' => 'join.mitra.store'
-    ]);
+        ]);
     Route::resource('subscriber', \App\Http\Controllers\SubscriberController::class)
         ->only(['index', 'show', 'create'])
         ->names([
             'index' => 'subscriber.mitra.index',
             'show' => 'subscriber.mitra.show',
             'create' => 'subscriber.mitra.create'
-    ]);
+        ]);
 });
 
 Route::prefix('admin')->group(function () {

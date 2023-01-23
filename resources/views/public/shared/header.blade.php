@@ -6,15 +6,18 @@
                 <!-- Logo
                             ============================================= -->
                 <div id="logo">
-                    <a href="index.html" class="standard-logo"
-                       data-sticky-logo="images/larissa/larissa-logo-green-150.png"><img
-                            src="images/larissa/larissa-logo-green-150.png" alt="Canvas Logo"></a>
-                    <a href="index.html" class="retina-logo" data-sticky-logo="images/larissa/larissa-logo-green-300.png"><img
-                            src="images/larissa/larissa-logo-green-300.png" alt="Canvas Logo"></a>
+                    <a href="/" class="standard-logo"
+                        data-sticky-logo="{{asset('vendor/public/images/larissa/larissa-logo-green-150.png')}}"><img
+                            src="{{asset('vendor/public/images/larissa/larissa-logo-green-150.png')}}"
+                            alt="Canvas Logo"></a>
+                    <a href="/" class="retina-logo"
+                        data-sticky-logo="{{asset('vendor/public/images/larissa/larissa-logo-green-300.png')}}"><img
+                            src="{{asset('vendor/public/images/larissa/larissa-logo-green-300.png')}}"
+                            alt="Canvas Logo"></a>
                 </div><!-- #logo end -->
 
                 <div class="header-misc">
-                    <a class="top-phone" href="mitra-form.html"><i class="icon-line-users"></i> <span
+                    <a class="top-phone" href="/mitra-form"><i class="icon-line-users"></i> <span
                             class="d-none d-md-inline-block">Mitra</span></a>
                 </div>
 
@@ -35,13 +38,13 @@
                 <nav class="primary-menu">
 
                     <ul class="menu-container">
-                        <li class="menu-item current"><a class="menu-link" href="index.html">
+                        <li class="menu-item current"><a class="menu-link" href="/">
                                 <div>Home</div>
                             </a></li>
-                        <li class="menu-item"><a class="menu-link" href="about.html">
+                        <li class="menu-item"><a class="menu-link" href="/about">
                                 <div>About Us</div>
                             </a></li>
-                        <li class="menu-item"><a class="menu-link" href="blog.html">
+                        <li class="menu-item"><a class="menu-link" href="/blog">
                                 <div>Blog</div>
                             </a></li>
                     </ul>
