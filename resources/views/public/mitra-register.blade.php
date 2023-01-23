@@ -23,7 +23,7 @@
 								class="form-control">
 						</div>
 						<div class="col-6 form-group">
-							<label for="register-form-email">Alamat Email:</label>
+							<label for="register-form-email">Email:</label>
 							<input type="text" id="register-form-email" name="register-form-email" value=""
 								class="form-control">
 						</div>
