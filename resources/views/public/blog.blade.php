@@ -54,3 +54,4 @@
 		</div>
 	</div>
 </section><!-- #content end -->
+@endsection
