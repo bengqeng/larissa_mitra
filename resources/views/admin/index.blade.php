@@ -130,27 +130,29 @@
                                     </thead>
                                     <tbody>
                                         @forelse($mitrapendings as $mitra)
-                                            <tr class="odd">
-                                                <td class="sorting_1"> {{ $mitra->user->full_name }}</td>
-                                                <td>{{ $mitra->type }}</td>
-                                                <td class="text-center"><a class="text-success" href="{{ route('admin.potential_mitra.show', $mitra->id) }}"><i
-                                                            class="far fa-edit fa-xs"></i></a>
-                                                </td>
-                                            </tr>
+                                        <tr class="odd">
+                                            <td class="sorting_1"> {{ $mitra->user->full_name }}</td>
+                                            <td>{{ $mitra->type }}</td>
+                                            <td class="text-center"><a class="text-success"
+                                                    href="{{ route('admin.potential_mitra.show', $mitra->id) }}"><i
+                                                        class="far fa-edit fa-xs"></i></a>
+                                            </td>
+                                        </tr>
 
-                                            @if($loop->last)
-                                                <tr class="odd">
-                                                    <td class="sorting_1 text-center" colspan="3"><a href="{{ route('admin.potential_mitra.index') }}"><small>Tampilkan
-                                                                lebih
-                                                                banyak</small></a>
-                                                    </td>
-                                                </tr>
-                                            @endif
+                                        @if($loop->last)
+                                        <tr class="odd">
+                                            <td class="sorting_1 text-center" colspan="3"><a
+                                                    href="{{ route('admin.potential_mitra.index') }}"><small>Tampilkan
+                                                        lebih
+                                                        banyak</small></a>
+                                            </td>
+                                        </tr>
+                                        @endif
 
                                         @empty
-                                            <tr role="row">
-                                                <td colspan="3">No Data Found</td>
-                                            </tr>
+                                        <tr role="row">
+                                            <td colspan="3">No Data Found</td>
+                                        </tr>
                                         @endforelse
                                     </tbody>
                                 </table>
@@ -166,8 +168,6 @@
 <script>
     $(document).ready(function () {
         function number_format(number, decimals, dec_point, thousands_sep) {
-            // *     example: number_format(1234.56, 2, ',', ' ');
-            // *     return: '1 234,56'
             number = (number + '').replace(',', '').replace(' ', '');
             var n = !isFinite(+number) ? 0 : +number,
                 prec = !isFinite(+decimals) ? 0 : Math.abs(decimals),
@@ -178,7 +178,6 @@
                 var k = Math.pow(10, prec);
                 return '' + Math.round(n * k) / k;
                 };
-            // Fix for IE parseFloat(0.55).toFixed(0) = 0;
             s = (prec ? toFixedFix(n, prec) : '' + Math.round(n)).split('.');
             if (s[0].length > 3) {
                 s[0] = s[0].replace(/\B(?=(?:\d{3})+(?!\d))/g, sep);
@@ -190,7 +189,6 @@
             return s.join(dec);
             }
 
-            // Area Chart Example
             var ctx = document.getElementById("myAreaChart");
             var myLineChart = new Chart(ctx, {
             type: 'line',
@@ -209,7 +207,7 @@
                 pointHoverBorderColor: "rgba(78, 115, 223, 1)",
                 pointHitRadius: 10,
                 pointBorderWidth: 2,
-                data: [0, 12, 23, 18, 0, 35, 54, 23, 11, 9, 70, 53],
+                data: @json($chart),
                 }],
             },
             options: {

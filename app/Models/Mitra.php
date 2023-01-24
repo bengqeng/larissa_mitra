@@ -24,6 +24,11 @@ class Mitra extends Model
         $query->whereIn('status', array_diff($this::STATUSMITRA, ['rejected']));
     }
 
+    public function scopeFilter($query, $filter = [])
+    {
+        $query->whereIn('status', $filter);
+    }
+
     public function scopePendingMitra($query)
     {
         $query->where('status', 'pending');

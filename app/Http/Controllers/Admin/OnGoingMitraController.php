@@ -15,7 +15,9 @@ class OnGoingMitraController extends Controller
      */
     public function index()
     {
-        return view('admin.mitra.on_going.index');
+        return view('admin.mitra.on_going.index', [
+            'inProgress' => Mitra::with('user')->Filter(['in_progress'])->get()
+        ]);
     }
 
     /**
@@ -45,9 +47,12 @@ class OnGoingMitraController extends Controller
      * @param  \App\Models\Mitra  $mitra
      * @return \Illuminate\Http\Response
      */
-    public function show(Mitra $mitra)
+    public function show(Mitra $on_going)
     {
-        //
+        return view('admin.mitra.show', [
+            'mitra' => $on_going,
+            'user' => $on_going->user()->first()
+        ]);
     }
 
     /**

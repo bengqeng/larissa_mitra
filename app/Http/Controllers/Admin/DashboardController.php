@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Mitra;
 use App\Models\Subscriber;
+use Illuminate\Support\Carbon;
 
 class DashboardController extends Controller
 {
@@ -25,7 +26,28 @@ class DashboardController extends Controller
             'totalOnGoing' => $totalOnGoing,
             'totalPending' => $totalPending,
             'totalSubscriber' => Subscriber::all()->count(),
-            'mitrapendings' => $mitraPendings
+            'mitrapendings' => $mitraPendings,
+            'chart' => $this->getChart()
         ]);
+    }
+
+    private function getChart(){
+        $result = [0,0,0,0,0,0,0,0,0,0,0,0];
+        $now = Now();
+        $startOfYear = $now->copy()->startOfYear();
+        $endOfYear   = $now->copy()->endOfYear();
+        $mitra = Mitra::whereBetween('created_at', [$startOfYear, $endOfYear])
+                    ->Activemitra()
+                    ->orderBy('created_at')
+                    ->get()
+                    ->groupBy(function ($result){
+                        return Carbon::parse($result->created_at)->isoFormat('M');
+                    });
+
+        foreach ($mitra as $key => $data) {
+            $result[$key - 1] = $data->count();
+        }
+
+        return $result;
     }
 }

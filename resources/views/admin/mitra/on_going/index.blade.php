@@ -29,31 +29,27 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                @forelse ($inProgress as $item)
                                 <tr class="pendingRequest">
-                                    <td>1</td>
-                                    <td class="sorting_1">Airi Satou</td>
-                                    <td>Accountant</td>
-                                    <td>Tokyo</td>
+                                    <td> {{ $loop->iteration; }}</td>
+                                    <td class="sorting_1">{{ $item->user->full_name }}</td>
+                                    <td>{{ $item->mitra_name }}</td>
+                                    <td>{{ $item->location }}</td>
                                     <td class="text-center">
                                         <span data-toggle="modal" data-target="#detailRequestModal">
-                                            <button class="btn" data-toggle="tooltip" data-placement="top"
-                                                title="view detail request">
+                                            <a href="{{ route('admin.on_going_mitra.show', $item->id) }}" class="btn"
+                                                data-toggle="tooltip" data-placement="top" title="view detail request">
                                                 <i class="fas fa-eye text-primary"></i>
-                                            </button>
-                                        </span>
-                                        <span data-toggle="modal" data-target="#verificationModal">
-                                            <button class="btn" data-toggle="tooltip" data-placement="top"
-                                                title="approve request">
-                                                <i class="fas fa-check text-success"></i></button>
-                                        </span>
-                                        <span data-toggle="modal" data-target="#verificationModal">
-                                            <button class="btn" data-toggle="tooltip" data-toggle="tooltip"
-                                                data-placement="top" title="reject request">
-                                                <i class="fas fa-times text-danger"></i>
-                                            </button>
+                                            </a>
                                         </span>
                                     </td>
                                 </tr>
+                                @empty
+                                <tr>
+                                    <td colspan="5">No Data Found</td>
+                                </tr>
+                                @endforelse
+
                             </tbody>
                         </table>
                     </div>

@@ -29,7 +29,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                            @forelse ($mitras as $mitra)
+                                @forelse ($mitras as $mitra)
                                 <tr class="pendingRequest">
                                     <td>{{ $loop->iteration }}</td>
                                     <td>{{ $mitra->user->full_name }}</td>
@@ -37,27 +37,16 @@
                                     <td>{{ $mitra->location }}</td>
                                     <td class="text-center">
                                         <span data-toggle="modal" data-target="#detailRequestModal">
-                                            <button class="btn" data-toggle="tooltip" data-placement="top"
-                                                    title="view detail request">
-                                                <i class="fas fa-eye text-primary"></i>
-                                            </button>
-                                        </span>
-                                        <span data-toggle="modal" data-target="#verificationModal">
-                                            <button class="btn" data-toggle="tooltip" data-placement="top"
-                                                    title="approve request">
-                                                <i class="fas fa-check text-success"></i></button>
-                                        </span>
-                                        <span data-toggle="modal" data-target="#verificationModal">
-                                            <button class="btn" data-toggle="tooltip" data-toggle="tooltip"
-                                                    data-placement="top" title="reject request">
-                                                <i class="fas fa-times text-danger"></i>
-                                            </button>
+                                            <a class="btn" data-toggle="tooltip" data-placement="top"
+                                                title="view detail request"
+                                                href="{{ route('admin.potential_mitra.show', $mitra->id) }}"><i
+                                                    class="fas fa-eye text-primary"></i></a>
                                         </span>
                                     </td>
                                 </tr>
-                            @empty
+                                @empty
                                 <tr colspan="5">No Data Found</tr>
-                            @endforelse
+                                @endforelse
                             </tbody>
                         </table>
                     </div>

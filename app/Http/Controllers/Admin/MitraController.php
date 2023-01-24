@@ -15,7 +15,9 @@ class MitraController extends Controller
      */
     public function index()
     {
-        return view('admin.mitra.index');
+        return view('admin.mitra.index', [
+            'mitra' => Mitra::with('user')->NoPendingMitra()->get()
+        ]);
     }
 
     /**
