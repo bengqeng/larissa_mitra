@@ -17,9 +17,10 @@
                     <tr>
                         <td class="align-top">Nama Pemilik</td>
                         <td class="text-center align-top" width="20px">:</td>
-                        <td class="align-top font-weight-bold">{{ $user->full_name }} <small><a href="#"
-                                                                                       class="">Lihat
-                                    Profil</a></small></td>
+                        <td class="align-top font-weight-bold">
+                            {{ $user->full_name }}
+                            <small><a href="#" class="">Lihat Profil</a></small>
+                        </td>
                     </tr>
                     <tr>
                         <td class="align-top">Nama Gerai</td>
@@ -75,7 +76,7 @@
                                 @endif
                                  btn-circle mx-md-3">{{ $timeline->order }}</button>
                         @if($timeline->status == 'success')
-                            <small class="align-self-center"> {{ $timeline->updated_at }}</small>
+                            <small class="align-self-center"> {{ \Carbon\Carbon::parse($user->updated_at)->format('d M Y') }}</small>
                         @endif
                     </div>
                     <div class="col-md-9">
@@ -125,7 +126,7 @@
                                     </ul>
                                     <div class="tab-content border border-top-0 mb-2 p-3 rounded-bottom"
                                          id="myTabContent">
-                                        <div class="tab-pane fade" id="home-{{$timeline->order}}" role="tabpanel"
+                                        <div class="tab-pane fade {{ ($timeline->status == 'pending' || $timeline->status == null) ? 'active show' : '' }}" id="home-{{$timeline->order}}" role="tabpanel"
                                              aria-labelledby="home-tab-{{$timeline->order}}">
                                             <div class="form-group my-2">
                                                 <label for="pending-{{$timeline->order}}" class="sr-only">Catatan Pending</label>
@@ -134,7 +135,7 @@
                                                           rows="3" placeholder="Catatan Pending.">{{ $timeline->pending_message }}</textarea>
                                             </div>
                                         </div>
-                                        <div class="tab-pane fade active show" id="profile-{{$timeline->order}}" role="tabpanel"
+                                        <div class="tab-pane fade {{ $timeline->status == 'success' ? 'active show' : '' }}" id="profile-{{$timeline->order}}" role="tabpanel"
                                              aria-labelledby="profile-tab-{{$timeline->order}}">
                                             <div class="form-group my-2">
                                                 <label for="success-{{$timeline->order}}" class="sr-only">Catatan Accept</label>
