@@ -166,7 +166,7 @@
                     $.post( "{{ route('admin.potential_mitra.store', $mitra->id) }}", {"_token": "{{ csrf_token() }}", 'id': "{{ $mitra->id }}", 'status': data }, function( response ) {
                         if (response.result == 1){
                             if(response.status == 'true'){
-                                window.location.href = "{{ route('admin.on_going_mitra.index') }}";
+                                window.location.href = "{{ route('admin.on_going_mitra.show', $mitra->id) }}";
                             } else {
                                 window.location.href = "{{ route('admin.mitra.index') }}";
                             }
