@@ -76,9 +76,11 @@ class OnGoingMitraController extends Controller
      * @param  \App\Models\Mitra  $mitra
      * @return \Illuminate\Http\Response
      */
-    public function update(AdminUpdateMitraTimeline $request, Mitra $mitra, MitraTimeline $timeline)
+    public function update(AdminUpdateMitraTimeline $request, $mitra, $timeline)
     {
-        if ($timeline->update($request->validated())){
+        $mitraTimeline = MitraTimeline::where('mitra_id', $mitra)->where('step_id', $timeline);
+        abort_if($mitraTimeline->count() == 0, 404);
+        if ($mitraTimeline->update($request->validated())){
             flash()->success('Berhasil Update Data');
         } else {
             flash()->danger('Berhasil Update Data');
