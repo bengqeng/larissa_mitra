@@ -5,8 +5,7 @@ namespace App\Services;
 
 use App\Models\Mitra;
 use App\Models\MitraTimeline;
-use App\Models\User;
-use Illuminate\Support\Arr;
+use App\Traits\MitraTimelineTrait;
 
 class MitraTimelineService
 {
@@ -33,5 +32,19 @@ class MitraTimelineService
         }
 
         return $this->mitra->timeline()->createMany($attribute) ? true : false;
+    }
+
+    public function updateStatus($timeline, $attribute)
+    {
+        if (!(MitraTimelineTrait::validMitraTimeline((int)$timeline))) { return false; }
+
+        $mitraTimeline = MitraTimeline::where('step_id', $timeline)->where('mitra_id', $this->mitra->id)->first();
+        if ($mitraTimeline->count() == 0) { return false; }
+
+        if ($mitraTimeline->update($attribute)) {
+            return true;
+        }
+
+        return false;
     }
 }

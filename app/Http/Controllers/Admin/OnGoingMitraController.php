@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\AdminUpdateMitraTimeline;
 use App\Models\Mitra;
 use App\Models\MitraTimeline;
+use App\Services\MitraTimelineService;
 use Illuminate\Http\Request;
 
 class OnGoingMitraController extends Controller
@@ -78,12 +79,13 @@ class OnGoingMitraController extends Controller
      */
     public function update(AdminUpdateMitraTimeline $request, $mitra, $timeline)
     {
-        $mitraTimeline = MitraTimeline::where('mitra_id', $mitra)->where('step_id', $timeline);
-        abort_if($mitraTimeline->count() == 0, 404);
-        if ($mitraTimeline->update($request->validated())){
+        $mitra = Mitra::findorFail($mitra);
+        $result = new MitraTimelineService($mitra);
+
+        if ($result->updateStatus($timeline, $request->validated())){
             flash()->success('Berhasil Update Data');
         } else {
-            flash()->danger('Berhasil Update Data');
+            flash()->danger('Gagal Update Data');
         }
 
         return redirect()->back();

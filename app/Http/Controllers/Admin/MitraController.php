@@ -16,7 +16,7 @@ class MitraController extends Controller
     public function index()
     {
         return view('admin.mitra.index', [
-            'mitra' => Mitra::with('user')->NoPendingMitra()->get()
+            'mitras' => Mitra::with('user')->Filter(['in_progress', 'rejected', 'success'])->get()
         ]);
     }
 

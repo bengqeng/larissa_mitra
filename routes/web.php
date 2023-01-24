@@ -45,6 +45,7 @@ Route::prefix('mitra')->group(function () {
         ]);
 });
 
+Route::post('/newsletter', [\App\Http\Controllers\NewsLetterController::class, 'store'])->name('news_letter.store');
 Route::prefix('admin')->group(function () {
     Route::prefix('dashboard')->group(function () {
         Route::get('/', [\App\Http\Controllers\Admin\DashboardController::class, 'index'])->name('admin.dashboard');

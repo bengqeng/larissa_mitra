@@ -1,7 +1,6 @@
 <?php
 namespace App\Http\Traits;
 use App\Models\Mitra;
-use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
 
 trait MitraTrait {

@@ -35,20 +35,25 @@
                                 </tr>
                             </thead>
                             <tbody>
+                            @forelse($mitras as $mitra)
                                 <tr class="pendingRequest">
-                                    <td>1</td>
-                                    <td class="sorting_1">Airi Satou</td>
-                                    <td>Accountant</td>
-                                    <td>Tokyo</td>
-                                    <td>Proses Interview dengan tim manajemen</td>
+                                    <td>{{ $loop->iteration }}</td>
+                                    <td class="sorting_1">{{ $mitra->user->full_name }}</td>
+                                    <td>{{ $mitra->mitra_name }}</td>
+                                    <td>{{ $mitra->user->address }}</td>
+                                    <td>{{ $mitra->location }}</td>
                                     <td>
-                                        <span class="badge badge-success">Success</span>
-                                        <span class="badge badge-danger">Rejected</span>
-                                        <span class="badge badge-warning">On Progress</span>
+                                        @if($mitra->status == 'success')
+                                            <span class="badge badge-success">success</span>
+                                        @elseif($mitra->status == 'in_progress')
+                                            <span class="badge badge-warning">pending</span>
+                                        @else
+                                            <span class="badge badge-danger">rejected</span>
+                                        @endif
                                     </td>
                                     <td class="text-center">
                                         <a href="#" class="btn" data-toggle="modal" data-target="#detailRequestModal"
-                                            data-toggle2="tooltip" data-placement="left" title="view detail request"><i
+                                           data-toggle2="tooltip" data-placement="left" title="view detail request"><i
                                                 class="fas fa-eye text-primary"></i></a>
                                         <a href="#" class="btn" data-toggle="modal" data-target="#verificationModal"><i
                                                 class="fas fa-check text-success"></i></a>
@@ -57,6 +62,9 @@
 
                                     </td>
                                 </tr>
+                            @empty
+
+                            @endforelse
                             </tbody>
                         </table>
                     </div>
