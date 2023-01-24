@@ -63,7 +63,7 @@
     @if($mitra->status == 'in_progress')
         <div class="container-fluid">
             @forelse($timelines as $timeline)
-                <div class="row border-left-{{ $timeline->status == 'success' ? 'primary' : 'secondary' }}">
+                <div class="row border-left-{{ $timeline->status == 'success' ? 'primary' : ($timeline->status == 'pending' ? 'warning' : 'secondary') }}">
                     <div class="col-md-3 align-self-center mb-3">
                         <button class="btn
                                 @if($timeline->status == 'success')
@@ -113,19 +113,19 @@
                                 <div class="card-body">
                                     <ul class="nav nav-tabs" id="myTab" role="tablist">
                                         <li class="nav-item" role="presentation">
-                                            <button class="nav-link p-2" id="home-tab-{{$timeline->order}}" data-toggle="tab"
-                                                    data-target="#home" type="button" role="tab" aria-controls="home"
+                                            <button class="nav-link p-2 {{ ($timeline->status == 'pending' || $timeline->status == null ) ? 'active' : '' }}" id="home-tab-{{$timeline->order}}" data-toggle="tab"
+                                                    data-target="#home-{{$timeline->order}}" type="button" role="tab" aria-controls="home"
                                                     aria-selected="true">Pending</button>
                                         </li>
                                         <li class="nav-item" role="presentation">
-                                            <button class="nav-link p-2 active" id="profile-tab-{{$timeline->order}}" data-toggle="tab"
-                                                    data-target="#profile" type="button" role="tab"
+                                            <button class="nav-link p-2 {{ $timeline->status == 'success' ? 'active' : '' }}" id="profile-tab-{{$timeline->order}}" data-toggle="tab"
+                                                    data-target="#profile-{{$timeline->order}}" type="button" role="tab"
                                                     aria-controls="profile" aria-selected="false">Accept</button>
                                         </li>
                                     </ul>
                                     <div class="tab-content border border-top-0 mb-2 p-3 rounded-bottom"
                                          id="myTabContent">
-                                        <div class="tab-pane fade" id="home" role="tabpanel"
+                                        <div class="tab-pane fade" id="home-{{$timeline->order}}" role="tabpanel"
                                              aria-labelledby="home-tab-{{$timeline->order}}">
                                             <div class="form-group my-2">
                                                 <label for="pending-{{$timeline->order}}" class="sr-only">Catatan Pending</label>
@@ -134,7 +134,7 @@
                                                           rows="3" placeholder="Catatan Pending.">{{ $timeline->pending_message }}</textarea>
                                             </div>
                                         </div>
-                                        <div class="tab-pane fade active show" id="profile" role="tabpanel"
+                                        <div class="tab-pane fade active show" id="profile-{{$timeline->order}}" role="tabpanel"
                                              aria-labelledby="profile-tab-{{$timeline->order}}">
                                             <div class="form-group my-2">
                                                 <label for="success-{{$timeline->order}}" class="sr-only">Catatan Accept</label>
