@@ -62,20 +62,25 @@
 
     @if($mitra->status == 'in_progress')
         <div class="container-fluid">
-
             @forelse($timelines as $timeline)
-            <form action="">
                 <div class="row border-left-{{ $timeline->status == 'success' ? 'primary' : 'secondary' }}">
                     <div class="col-md-3 align-self-center mb-3">
-                        <button class="btn btn-success btn-circle mx-md-3">{{ $timeline->order }}</button>
+                        <button class="btn
+                                @if($timeline->status == 'success')
+                                    {{ 'btn-success' }}
+                                @elseif ($timeline->status == 'pending')
+                                    {{ 'btn-warning' }}
+                                @else
+                                    {{ 'btn-secondary' }}
+                                @endif
+                                 btn-circle mx-md-3">{{ $timeline->order }}</button>
                         @if($timeline->status == 'success')
                             <small class="align-self-center"> {{ $timeline->updated_at }}</small>
                         @endif
                     </div>
                     <div class="col-md-9">
-                        <div class="card shadow mb-4">
-                            <div
-                                class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                        <div class="card shadow mb-4" id="step">
+                            <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                                 <h6 class="m-0 font-weight-bold text-primary">{{ $timeline->stepName() }}</h6>
                                 <div class="dropdown no-arrow">
                                     @if($timeline->status == 'success')
@@ -92,7 +97,6 @@
                                     <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
                                          aria-labelledby="dropdownMenuLink" style="">
                                         <div class="dropdown-header">Set status:</div>
-                                        <input type="hidden" value="{{ $timeline->status }}" name="status">
                                         <button class="dropdown-item set-status" data-id="1">
                                             Pending
                                         </button>
@@ -102,46 +106,49 @@
                                     </div>
                                 </div>
                             </div>
-                            <!-- Card Body -->
-                            <div class="card-body">
-                                <ul class="nav nav-tabs" id="myTab" role="tablist">
-                                    <li class="nav-item" role="presentation">
-                                        <button class="nav-link p-2" id="home-tab" data-toggle="tab"
-                                                data-target="#home" type="button" role="tab" aria-controls="home"
-                                                aria-selected="true">Pending</button>
-                                    </li>
-                                    <li class="nav-item" role="presentation">
-                                        <button class="nav-link p-2 active" id="profile-tab" data-toggle="tab"
-                                                data-target="#profile" type="button" role="tab"
-                                                aria-controls="profile" aria-selected="false">Accept</button>
-                                    </li>
-                                </ul>
-                                <div class="tab-content border border-top-0 mb-2 p-3 rounded-bottom"
-                                     id="myTabContent">
-                                    <div class="tab-pane fade" id="home" role="tabpanel"
-                                         aria-labelledby="home-tab">
-                                        <div class="form-group my-2">
-                                            <label for="exampleFormControlTextarea1" class="sr-only">Catatan Pending</label>
-                                            <textarea class="form-control border-0"
-                                                      id="exampleFormControlTextarea1" name="pending_message"
-                                                      rows="3" placeholder="Catatan Pending."></textarea>
+                            <form action="{{ route('admin.mitra_timeline.update', ['mitra' => $mitra->id, 'timeline' => $timeline->step_id]) }}" method="POST">
+                                <input type="hidden" value="{{ $timeline->status }}" name="status">
+                                @method('PUT')
+                                @csrf
+                                <div class="card-body">
+                                    <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                        <li class="nav-item" role="presentation">
+                                            <button class="nav-link p-2" id="home-tab-{{$timeline->order}}" data-toggle="tab"
+                                                    data-target="#home" type="button" role="tab" aria-controls="home"
+                                                    aria-selected="true">Pending</button>
+                                        </li>
+                                        <li class="nav-item" role="presentation">
+                                            <button class="nav-link p-2 active" id="profile-tab-{{$timeline->order}}" data-toggle="tab"
+                                                    data-target="#profile" type="button" role="tab"
+                                                    aria-controls="profile" aria-selected="false">Accept</button>
+                                        </li>
+                                    </ul>
+                                    <div class="tab-content border border-top-0 mb-2 p-3 rounded-bottom"
+                                         id="myTabContent">
+                                        <div class="tab-pane fade" id="home" role="tabpanel"
+                                             aria-labelledby="home-tab-{{$timeline->order}}">
+                                            <div class="form-group my-2">
+                                                <label for="pending-{{$timeline->order}}" class="sr-only">Catatan Pending</label>
+                                                <textarea class="form-control border-0"
+                                                          id="pending-{{$timeline->order}}" name="pending_message"
+                                                          rows="3" placeholder="Catatan Pending.">{{ $timeline->pending_message }}</textarea>
+                                            </div>
+                                        </div>
+                                        <div class="tab-pane fade active show" id="profile" role="tabpanel"
+                                             aria-labelledby="profile-tab-{{$timeline->order}}">
+                                            <div class="form-group my-2">
+                                                <label for="success-{{$timeline->order}}" class="sr-only">Catatan Accept</label>
+                                                <textarea class="form-control border-0" name="success_message" id="success-{{$timeline->order}}"
+                                                          rows="3" placeholder="Catatan Success">{{ $timeline->success_message }}</textarea>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="tab-pane fade active show" id="profile" role="tabpanel"
-                                         aria-labelledby="profile-tab">
-                                        <div class="form-group my-2">
-                                            <label for="exampleFormControlTextarea1" class="sr-only">Catatan Accept</label>
-                                            <textarea class="form-control border-0" name="success_message" id="exampleFormControlTextarea1"
-                                                      rows="3" placeholder="Catatan Success"></textarea>
-                                        </div>
-                                    </div>
+                                    <button type="submit" class="btn btn-sm btn-outline-secondary float-right">Simpan</button>
                                 </div>
-                                <button type="submit" class="btn btn-sm btn-outline-secondary float-right">Simpan</button>
-                            </div>
+                            </form>
                         </div>
                     </div>
                 </div>
-            </form>
             @empty
                 No Data Found
             @endforelse
@@ -157,7 +164,6 @@
             }).then((result) => {
                 if (result.isConfirmed) {
                     $.post( "{{ route('admin.potential_mitra.store', $mitra->id) }}", {"_token": "{{ csrf_token() }}", 'id': "{{ $mitra->id }}", 'status': data }, function( response ) {
-                        console.log(response)
                         if (response.result == 1){
                             if(response.status == 'true'){
                                 window.location.href = "{{ route('admin.on_going_mitra.index') }}";
@@ -175,16 +181,16 @@
             var badge = $(this).parent().siblings(':first-child');
             var selectPending = $(this).siblings('[data-id=1]');
             var selectSuccess = $(this).siblings('[data-id=2]');
-            console.log(id);
+
             if (id == 1) {
-                $(this).parent().find('input').val('pending');
+                $(this).parents('div#step').find("input[type=hidden][name=status]").val('pending');
                 badge.html('pending');
                 badge.removeClass('badge-success');
                 badge.addClass('badge-warning');
                 selectSuccess.removeClass('disabled');
                 selectPending.addClass('disabled');
             } else {
-                $(this).parent().find('input').val('success');
+                $(this).parents('div#step').find("input[type=hidden][name=status]").val('success');
                 badge.html('success');
                 badge.removeClass('badge-warning');
                 badge.addClass('badge-success');

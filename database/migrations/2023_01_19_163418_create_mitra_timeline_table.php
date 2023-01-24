@@ -22,7 +22,7 @@ class CreateMitraTimelineTable extends Migration
 
             $table->text('pending_message')->nullable(true);
             $table->text('success_message')->nullable(true);
-            $table->enum('status', \App\Models\MitraTimeline::STATUSMITRATIMELINE)->nullable(false);
+            $table->enum('status', \App\Models\MitraTimeline::STATUSMITRATIMELINE)->nullable(true);
             $table->timestamps();
         });
     }

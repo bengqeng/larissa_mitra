@@ -73,7 +73,7 @@ Route::prefix('admin')->group(function () {
                 'edit' => 'admin.on_going_mitra.edit',
             ]);
 
-            Route::get('/{mitra}/timeline/{timeline}', []);
+            Route::put('/{mitra}/timeline/{timeline}', [\App\Http\Controllers\Admin\OnGoingMitraController::class, 'update'])->name('admin.mitra_timeline.update');
         });
         Route::resource('subscriber', \App\Http\Controllers\Admin\SubscriberController::class)->names([
             'index' => 'admin.subscriber.index',

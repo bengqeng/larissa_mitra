@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\AdminUpdateMitraTimeline;
 use App\Models\Mitra;
+use App\Models\MitraTimeline;
 use Illuminate\Http\Request;
 
 class OnGoingMitraController extends Controller
@@ -74,9 +76,15 @@ class OnGoingMitraController extends Controller
      * @param  \App\Models\Mitra  $mitra
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Mitra $mitra)
+    public function update(AdminUpdateMitraTimeline $request, Mitra $mitra, MitraTimeline $timeline)
     {
-        //
+        if ($timeline->update($request->validated())){
+            flash()->success('Berhasil Update Data');
+        } else {
+            flash()->danger('Berhasil Update Data');
+        }
+
+        return redirect()->back();
     }
 
     /**

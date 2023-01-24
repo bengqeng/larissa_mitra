@@ -27,7 +27,7 @@ class MitraTimelineService
             array_push($attribute, [
                 'step_id' => $order,
                 'mitra_id' => $this->mitra->id,
-                'status' => ($order == 1 ? 'success' : ''),
+                'status' => ($order == 1 ? 'success' : null),
                 'order' => $order
             ]);
         }
