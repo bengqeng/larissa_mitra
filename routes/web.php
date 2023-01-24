@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\UserController;
 use Illuminate\Support\Facades\Route;
 /*
 |--------------------------------------------------------------------------
@@ -88,5 +89,11 @@ Route::prefix('admin')->group(function () {
             'destroy' => 'admin.users.destroy',
             'edit' => 'admin.users.edit',
         ]);
+
+
+        // Route::get('users/show/{id}', [
+        //     'as' => 'admin.users.show',
+        //     'uses' => 'UserController@show'
+        // ]);
     });
 });

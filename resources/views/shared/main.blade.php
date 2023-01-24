@@ -10,12 +10,15 @@
     <meta name="author" content="">
 
     <title>Larissa Mitra - Dashboard</title>
-
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- Custom styles for this template-->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('vendor/datatables/dataTables.bootstrap4.css') }}" rel="stylesheet">
     <!-- Custom scripts for all pages-->
-    <script src="{{asset('js/app.js')}}"></script>
+    <script>
+        const base_path = '{{ url('/') }}\/';
+    </script>
+    <script src="{{mix('js/app.js')}}"></script>
 </head>
 
 <body id="page-top">

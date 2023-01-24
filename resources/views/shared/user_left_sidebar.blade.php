@@ -4,7 +4,7 @@
     <!-- Sidebar - Brand -->
     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="larissa_mitra_index.html">
         <div class="sidebar-brand-icon">
-            <img class="rounded" width="100" src="img/larissa-logo-white.png">
+            <img class="rounded" width="100" src="{{asset('vendor/public/images/larissa/larissa-l.png')}}">
             <img src="" alt="">
         </div>
         <sup>Mitra</sup>

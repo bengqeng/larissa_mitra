@@ -3,7 +3,7 @@
     <!-- Sidebar - Brand -->
     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ route('admin.dashboard') }}">
         <div class="sidebar-brand-icon">
-            <img class="rounded" width="20" src="img/larissa-l.png">
+            <img class="rounded" width="20" src="{{asset('vendor/public/images/larissa/larissa-l.png')}}">
         </div>
         <sup>Admin</sup>
     </a>
