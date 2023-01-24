@@ -31,176 +31,43 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                @forelse ($getUser as $user)
                                 <tr class="pendingRequest">
-                                    <td>1</td>
-                                    <td class="sorting_1">Airi Satou</td>
-                                    <td>Accountant</td>
-                                    <td>Tokyo</td>
-                                    <td>Proses Interview dengan tim manajemen
+                                    <td>{{ $loop->iteration }}</td>
+                                    <td>{{ $user->full_name }}</td>
+                                    <td>{{ $user->email }}</td>
+                                    <td>{{ $user->phone_number }}</td>
+                                    <td nowrap>
+                                        @isset($user->email_verified_at)
+                                        <span class="badge badge-success">Verified</span> <small>{{
+                                            $user->email_verified_at->format('j F Y') }}</small>
+                                        @endisset
+
+                                        @empty($user->email_verified_at)
+                                        <span class="badge badge-warning">Pending</span>
+                                        @endempty
                                     </td>
                                     <td class="text-center">
-                                        <a href="#" class="btn" data-toggle="modal" data-target="#detailRequestModal"
-                                            data-toggle2="tooltip" data-placement="left" title="view detail request"><i
-                                                class="fas fa-eye text-primary"></i></a>
-                                        <a href="#" class="btn" data-toggle="modal" data-target="#verificationModal"><i
-                                                class="fas fa-check text-success"></i></a>
-                                        <a href="#" class="btn" data-toggle="modal" data-target="#verificationModal"><i
-                                                class="fas fa-times text-danger"></i></a>
-
+                                        <div class="btn-group" role="group" aria-label="Basic example">
+                                            <span data-toggle="modal" data-target="#showUserModal"
+                                                data-user-id="{{$user->id}}">
+                                                <button class="btn" data-toggle="tooltip" data-placement="top"
+                                                    title="Lihat Detail User">
+                                                    <i class="fas fa-eye text-primary"></i>
+                                                </button>
+                                            </span>
+                                            <span data-toggle="modal" data-user-name="{{$user->full_name}}"
+                                                data-user-id="{{$user->id}}" data-target="#changePasswordModal">
+                                                <button class="btn" data-toggle="tooltip" data-placement="top"
+                                                    title="Ganti Password User">
+                                                    <i class="fas fa-cog text-secondary"></i></button>
+                                            </span>
+                                        </div>
                                     </td>
-                                <tr class="pendingRequest">
-                                    <td>2</td>
-                                    <td class="sorting_1">Angelica Ramos</td>
-                                    <td>Chief Executive Officer (CEO)</td>
-                                    <td>London</td>
-                                    <td>Proses Interview dengan tim manajemen
-                                    </td>
-                                    <td class="text-center">
-                                        <a href="#" class="btn" data-toggle="modal" data-target="#detailRequestModal"
-                                            data-toggle2="tooltip" data-placement="left" title="view detail request"><i
-                                                class="fas fa-eye text-primary"></i></a>
-                                        <a href="#" class="btn" data-toggle="modal" data-target="#verificationModal"><i
-                                                class="fas fa-check text-success"></i></a>
-                                        <a href="#" class="btn" data-toggle="modal" data-target="#verificationModal"><i
-                                                class="fas fa-times text-danger"></i></a>
-
-                                    </td>
-                                <tr class="pendingRequest">
-                                    <td>3</td>
-                                    <td class="sorting_1">Ashton Cox</td>
-                                    <td>Junior Technical Author</td>
-                                    <td>San Francisco</td>
-                                    <td>Proses Interview dengan tim manajemen
-                                    </td>
-                                    <td class="text-center">
-                                        <a href="#" class="btn" data-toggle="modal" data-target="#detailRequestModal"
-                                            data-toggle2="tooltip" data-placement="left" title="view detail request"><i
-                                                class="fas fa-eye text-primary"></i></a>
-                                        <a href="#" class="btn" data-toggle="modal" data-target="#verificationModal"><i
-                                                class="fas fa-check text-success"></i></a>
-                                        <a href="#" class="btn" data-toggle="modal" data-target="#verificationModal"><i
-                                                class="fas fa-times text-danger"></i></a>
-
-                                    </td>
-                                <tr class="pendingRequest">
-                                    <td>4</td>
-                                    <td class="sorting_1">Bradley Greer</td>
-                                    <td>Software Engineer</td>
-                                    <td>London</td>
-                                    <td>Proses Interview dengan tim manajemen
-                                    </td>
-                                    <td class="text-center">
-                                        <a href="#" class="btn" data-toggle="modal" data-target="#detailRequestModal"
-                                            data-toggle2="tooltip" data-placement="left" title="view detail request"><i
-                                                class="fas fa-eye text-primary"></i></a>
-                                        <a href="#" class="btn" data-toggle="modal" data-target="#verificationModal"><i
-                                                class="fas fa-check text-success"></i></a>
-                                        <a href="#" class="btn" data-toggle="modal" data-target="#verificationModal"><i
-                                                class="fas fa-times text-danger"></i></a>
-
-                                    </td>
-                                <tr class="pendingRequest">
-                                    <td>5</td>
-                                    <td class="sorting_1">Brenden Wagner</td>
-                                    <td>Software Engineer</td>
-                                    <td>San Francisco</td>
-                                    <td>Proses Interview dengan tim manajemen
-                                    </td>
-                                    <td class="text-center">
-                                        <a href="#" class="btn" data-toggle="modal" data-target="#detailRequestModal"
-                                            data-toggle2="tooltip" data-placement="left" title="view detail request"><i
-                                                class="fas fa-eye text-primary"></i></a>
-                                        <a href="#" class="btn" data-toggle="modal" data-target="#verificationModal"><i
-                                                class="fas fa-check text-success"></i></a>
-                                        <a href="#" class="btn" data-toggle="modal" data-target="#verificationModal"><i
-                                                class="fas fa-times text-danger"></i></a>
-
-                                    </td>
-                                <tr class="pendingRequest">
-                                    <td>6</td>
-                                    <td class="sorting_1">Brielle Williamson</td>
-                                    <td>Integration Specialist</td>
-                                    <td>New York</td>
-                                    <td>Proses Interview dengan tim manajemen
-                                    </td>
-                                    <td class="text-center">
-                                        <a href="#" class="btn" data-toggle="modal" data-target="#detailRequestModal"
-                                            data-toggle2="tooltip" data-placement="left" title="view detail request"><i
-                                                class="fas fa-eye text-primary"></i></a>
-                                        <a href="#" class="btn" data-toggle="modal" data-target="#verificationModal"><i
-                                                class="fas fa-check text-success"></i></a>
-                                        <a href="#" class="btn" data-toggle="modal" data-target="#verificationModal"><i
-                                                class="fas fa-times text-danger"></i></a>
-
-                                    </td>
-                                <tr class="pendingRequest">
-                                    <td>7</td>
-                                    <td class="sorting_1">Bruno Nash</td>
-                                    <td>Software Engineer</td>
-                                    <td>London</td>
-                                    <td>Proses Interview dengan tim manajemen
-                                    </td>
-                                    <td class="text-center">
-                                        <a href="#" class="btn" data-toggle="modal" data-target="#detailRequestModal"
-                                            data-toggle2="tooltip" data-placement="left" title="view detail request"><i
-                                                class="fas fa-eye text-primary"></i></a>
-                                        <a href="#" class="btn" data-toggle="modal" data-target="#verificationModal"><i
-                                                class="fas fa-check text-success"></i></a>
-                                        <a href="#" class="btn" data-toggle="modal" data-target="#verificationModal"><i
-                                                class="fas fa-times text-danger"></i></a>
-
-                                    </td>
-                                <tr class="pendingRequest">
-                                    <td>8</td>
-                                    <td class="sorting_1">Caesar Vance</td>
-                                    <td>Pre-Sales Support</td>
-                                    <td>New York</td>
-                                    <td>Proses Interview dengan tim manajemen
-                                    </td>
-                                    <td class="text-center">
-                                        <a href="#" class="btn" data-toggle="modal" data-target="#detailRequestModal"
-                                            data-toggle2="tooltip" data-placement="left" title="view detail request"><i
-                                                class="fas fa-eye text-primary"></i></a>
-                                        <a href="#" class="btn" data-toggle="modal" data-target="#verificationModal"><i
-                                                class="fas fa-check text-success"></i></a>
-                                        <a href="#" class="btn" data-toggle="modal" data-target="#verificationModal"><i
-                                                class="fas fa-times text-danger"></i></a>
-
-                                    </td>
-                                <tr class="pendingRequest">
-                                    <td>9</td>
-                                    <td class="sorting_1">Cara Stevens</td>
-                                    <td>Sales Assistant</td>
-                                    <td>New York</td>
-                                    <td>Proses Interview dengan tim manajemen
-                                    </td>
-                                    <td class="text-center">
-                                        <a href="#" class="btn" data-toggle="modal" data-target="#detailRequestModal"
-                                            data-toggle2="tooltip" data-placement="left" title="view detail request"><i
-                                                class="fas fa-eye text-primary"></i></a>
-                                        <a href="#" class="btn" data-toggle="modal" data-target="#verificationModal"><i
-                                                class="fas fa-check text-success"></i></a>
-                                        <a href="#" class="btn" data-toggle="modal" data-target="#verificationModal"><i
-                                                class="fas fa-times text-danger"></i></a>
-
-                                    </td>
-                                <tr class="pendingRequest">
-                                    <td>10</td>
-                                    <td class="sorting_1">Cedric Kelly</td>
-                                    <td>Senior Javascript Developer</td>
-                                    <td>Edinburgh</td>
-                                    <td>Proses Interview dengan tim manajemen
-                                    </td>
-                                    <td class="text-center">
-                                        <a href="#" class="btn" data-toggle="modal" data-target="#detailRequestModal"
-                                            data-toggle2="tooltip" data-placement="left" title="view detail request"><i
-                                                class="fas fa-eye text-primary"></i></a>
-                                        <a href="#" class="btn" data-toggle="modal" data-target="#verificationModal"><i
-                                                class="fas fa-check text-success"></i></a>
-                                        <a href="#" class="btn" data-toggle="modal" data-target="#verificationModal"><i
-                                                class="fas fa-times text-danger"></i></a>
-
-                                    </td>
+                                </tr>
+                                @empty
+                                <tr colspan="5">No Data Found</tr>
+                                @endforelse
                             </tbody>
                         </table>
                     </div>
