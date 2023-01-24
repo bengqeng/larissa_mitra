@@ -73,9 +73,7 @@ Route::prefix('admin')->group(function () {
                 'edit' => 'admin.on_going_mitra.edit',
             ]);
 
-            Route::get('/{mitra}/timeline/{timeline}', function (User $user, Post $post) {
-                return $post;
-            });
+            Route::get('/{mitra}/timeline/{timeline}', []);
         });
         Route::resource('subscriber', \App\Http\Controllers\Admin\SubscriberController::class)->names([
             'index' => 'admin.subscriber.index',

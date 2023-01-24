@@ -267,6 +267,7 @@
             }).then((result) => {
                 if (result.isConfirmed) {
                     $.post( "{{ route('admin.potential_mitra.store', $mitra->id) }}", {"_token": "{{ csrf_token() }}", 'id': "{{ $mitra->id }}", 'status': data }, function( response ) {
+                        console.log(response)
                         if (response.result == 1){
                             if(response.status == 'true'){
                                 window.location.href = "{{ route('admin.on_going_mitra.index') }}";

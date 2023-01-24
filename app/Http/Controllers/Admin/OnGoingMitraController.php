@@ -49,8 +49,11 @@ class OnGoingMitraController extends Controller
      */
     public function show(Mitra $on_going)
     {
+        $a = $on_going->timeline()->get();
+        dd($a->step_name());
         return view('admin.mitra.show', [
             'mitra' => $on_going,
+            'timeline' => $on_going->timeline()->get(),
             'user' => $on_going->user()->first()
         ]);
     }

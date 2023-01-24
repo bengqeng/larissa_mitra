@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Mitra;
+use App\Services\MitraTimelineService;
 use Illuminate\Http\Request;
 
 class PotentialMitraController extends Controller
@@ -28,10 +29,19 @@ class PotentialMitraController extends Controller
      */
     public function store(Request $request)
     {
+        $status = false;
         if($request->ajax()){
-            $mitra = Mitra::where('id', $request->id)->update(['status' => ($request->status == 'true' ? 'in_progress' : 'rejected')]);
-            flash()->success('Berhasil update request');
-            return json_encode(['result' => $mitra, 'status' => $request->status]);
+            $mitra = Mitra::find($request->id);
+            $mitra->status = $request->status == 'true' ? 'in_progress' : 'rejected';
+            if ($mitra->save()) {
+                $timeLine = new MitraTimelineService($mitra);
+                ($timeLine->createTimeLine()) ? flash()->success('Berhasil update request') : flash()->success('Gagal update request');
+                $status = true;
+            } else {
+                flash()->danger('Gagal update request');
+            }
+
+            return json_encode(['result' => $status, 'status' => $request->status]);
         }
     }
 

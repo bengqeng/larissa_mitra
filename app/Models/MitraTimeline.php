@@ -20,10 +20,17 @@ class MitraTimeline extends Model
         7 => 'Pengurusan Perijinan Operasional Outlet',
         8 => 'Pembukaan Outlet'
     ];
+    protected $table = 'mitra_timeline';
+    protected $fillable = [ 'mitra_id', 'step_id', 'pending_message', 'success_message', 'status', 'order' ];
     public const STATUSMITRATIMELINE = [ 'pending', 'success'];
 
     public function mitra()
     {
         return $this->belongsTo(Mitra::class);
+    }
+
+    public function getStepNameAttribute()
+    {
+        dd($this);
     }
 }
