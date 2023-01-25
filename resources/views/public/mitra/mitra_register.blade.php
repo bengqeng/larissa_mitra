@@ -26,11 +26,10 @@
 			</div>
 			@endif
 			@if(count($errors) > 0)
-			{{$errors}}
 			<div class="style-msg errormsg">
 				<div class="sb-msg"><i class="icon-remove"></i><strong>Ups Gagal!</strong> Lengkapi hal di bawah ini dan
 					coba
-					registrasi lagi.<br><small>Jika masih kesulitan untuk mengisi formulir, sliakan hubungi call center
+					registrasi lagi.<br><small>Jika masih gagal dalam mengisi formulir, silakan hubungi call center
 						kami.</small></div>
 			</div>
 			@endif

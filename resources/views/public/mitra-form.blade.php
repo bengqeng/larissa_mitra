@@ -13,94 +13,32 @@
 <section id="content">
 	<div class="content-wrap">
 		<div class="container clearfix">
-			<div class="row">
-				<div class="col-md-4">
+			<div class="row mb-5">
+				<div class="col-md-6 mb-5">
 					<h3>Daftar Prospek</h3>
-					<form id="prospek-form" name="prospek-form" class="row bg-light rounded" action="#" method="post">
-						<div class="col-12 form-group">
-							<label for="prospek-form-name">Nama:</label>
-							<input type="text" id="prospek-form-name" name="prospek-form-name" value=""
-								class="form-control">
-						</div>
-						<div class="col-12 form-group">
-							<label for="prospek-form-phone">Nomor Telpon:</label>
-							<input type="text" id="prospek-form-phone" name="prospek-form-phone" value=""
-								class="form-control phone-number">
-						</div>
-						<div class="col-12 form-group">
-							<label for="prospek-form-alamat">Alamat:</label>
-							<textarea id="prospek-form-alamat" name="prospek-form-alamat" value=""
-								class="form-control"></textarea>
-						</div>
-						<div class="w-100"></div>
-						<div class="col-12 form-group">
-							<button class="button button-rounded m-0 float-start" id="prospek-form-submit"
-								name="prospek-form-submit" value="prospek">Daftar</button>
-						</div>
-					</form>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde, vel odio non dicta
+						provident sint
+						ex autem mollitia dolorem illum repellat ipsum aliquid illo similique sapiente fugiat
+						minus
+						ratione.</p>
+					<div class="d-sm-none d-md-block">
+						<a href="{{url('/mitra/subscriber')}}" class="button button-desc text-center">
+							<div>Daftar Prospek</div>
+						</a>
+					</div>
 				</div>
-				<div class="col-md-8">
+				<div class="col-md-6 mb-3 text-sm-center">
 					<h3>Daftar Sebagai Mitra</h3>
 					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde, vel odio non dicta
 						provident sint
 						ex autem mollitia dolorem illum repellat ipsum aliquid illo similique sapiente fugiat
 						minus
 						ratione.</p>
-					<form id="register-form" name="register-form" class="row" action="#" method="post">
-						<div class="col-6 form-group">
-							<label for="register-form-name">Nama:</label>
-							<input type="text" id="register-form-name" name="register-form-name" value=""
-								class="form-control">
-						</div>
-						<div class="col-6 form-group">
-							<label for="register-form-email">Alamat Email:</label>
-							<input type="text" id="register-form-email" name="register-form-email" value=""
-								class="form-control">
-						</div>
-						<div class="w-100"></div>
-						<div class="col-6 form-group">
-							<label for="register-form-phone">Nomor Telpon:</label>
-							<input type="text" id="register-form-phone" name="register-form-phone" value=""
-								class="form-control phone-number">
-						</div>
-						<div class="col-6 form-group">
-							<label for="register-form-address">Alamat:</label>
-							<textarea id="register-form-address" name="register-form-address" value=""
-								class="form-control"></textarea>
-						</div>
-						<div class="w-100"></div>
-						<div class="col-6 form-group">
-							<label for="register-form-password">Password:</label>
-							<input type="password" id="register-form-password" name="register-form-password" value=""
-								class="form-control">
-						</div>
-						<div class="col-6 form-group">
-							<label for="register-form-repassword">Re-enter Password:</label>
-							<input type="password" id="register-form-repassword" name="register-form-repassword"
-								value="" class="form-control">
-						</div>
-						<div class="line my-3"></div>
-						<div class="w-100"></div>
-						<div class="col-6 form-group">
-							<label for="register-form-tipe">Tipe Kemitraan:</label>
-							<select id="register-form-tipe" name="register-form-tipe" class="form-control">
-								<option selected disabled>Pilih</option>
-								<option value="1">Larissa Aesthetic Center</option>
-								<option value="2">Salon Premium Larissa</option>
-								<option value="3">Store (Organic Story)</option>
-							</select>
-						</div>
-						<div class="col-6 form-group">
-							<label for="register-form-location">Lokasi:</label>
-							<textarea id="register-form-location" name="register-form-location" value=""
-								class="form-control"></textarea>
-						</div>
-						<div class="w-100"></div>
-						<div class="col-12 form-group">
-							<button class="button button-rounded m-0 float-end" id="register-form-submit"
-								name="register-form-submit" value="register">Registrasi</button>
-						</div>
-					</form>
+					<div class="d-sm-none d-md-block">
+						<a href="{{url('/mitra/join')}}" class="button button-desc text-center">
+							<div>Daftar Mitra</div>
+						</a>
+					</div>
 				</div>
 			</div>
 			<div class="promo promo-dark bg-color promo-full p-4 p-md-5 mb-5">
