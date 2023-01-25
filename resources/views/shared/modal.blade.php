@@ -124,12 +124,13 @@
                     <input type="hidden" name="userId" id="userId" value="">
                     <div class="mb-3">
                         <label for="firstPassword" class="form-label">New Password</label>
-                        <input type="password" name="password" placeholder="**********" class="form-control" id="firstPassword">
+                        <input type="password" name="password" placeholder="**********" class="form-control"
+                            id="firstPassword">
                     </div>
                     <div class="mb-3">
                         <label for="secondPassword" class="form-label">Re-Enter Password</label>
-                        <input type="password" name="password_confirmation" placeholder="**********" class="form-control"
-                            id="secondPassword">
+                        <input type="password" name="password_confirmation" placeholder="**********"
+                            class="form-control" id="secondPassword">
                     </div>
                 </form>
             </div>

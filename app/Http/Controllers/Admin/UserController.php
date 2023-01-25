@@ -54,7 +54,7 @@ class UserController extends Controller
     {
         $user = User::find($request->id);
 
-        return $user->toJson();
+        return $user;
     }
 
     /**
@@ -63,9 +63,34 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Request $request, $id)
     {
-        //
+        # Validation
+        $validator = Validator::make($request->all(), [
+            'password' => ['required', 'string', 'min:8'],
+            'password_confirmation' => ['required', 'same:password'],
+        ]);
+
+        if ($validator->fails()) {
+            return back()
+                ->withErrors($validator)
+                ->withInput();
+        }
+        $user = User::findorFail($request->userId);
+        $user->update([
+            'password' => Hash::make($request->password)
+        ]);
+        if ($user->save()) {
+            return back()->with("success", 'Berhasil update password user ' . $user->full_name);
+        } else {
+            return back()->with("error", 'Gagal mengubah password, mohon cek kembali<br><small>Pastikan koneksi internet Anda stabil</small>');
+        }
+
+        return back()->with("status", "Password changed successfully!");
+        // return json_encode([
+        // 'success' => true,
+        // 'data' => ['message' => 'Password updated successfully']
+        // ], 200);
     }
 
     /**
@@ -77,33 +102,7 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        # Validation
-        $validator = Validator::make($request->all(), [
-            'password' => ['required', 'string', 'min:8'],
-            'password_confirmation' => ['required', 'same:password'],
-        ]);
-
-        if ($validator->fails()) {
-            return back()
-            ->withErrors($validator)
-            ->withInput();
-        }
-        $user = User::find($request->id);
-        dd($user);
-        $user->update([
-            'password' => Hash::make($request->password)
-        ]);
-        if ($user->save()) {
-            flash()->success('Berhasil update password user ' . $user->full_name);
-        } else {
-            flash()->danger('Gagal update password user');
-        }
-
-        return back()->with("status", "Password changed successfully!");
-// return json_encode([
-// 'success' => true,
-// 'data' => ['message' => 'Password updated successfully']
-// ], 200);
+        // 
     }
 
     /**
