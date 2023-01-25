@@ -13,6 +13,27 @@
 <section id="content">
 	<div class="content-wrap">
 		<div class="container clearfix">
+			@if (flash()->message)
+			<div class="alert {{ flash()->class }} alert-dismissible fade show" role="alert">
+				<strong>
+					@if (flash()->class == 'alert-success')
+					Sukses!
+					@else
+					Gagal!
+					@endif
+				</strong><br>
+				{!! flash()->message !!}
+			</div>
+			@endif
+			@if(count($errors) > 0)
+			{{$errors}}
+			<div class="style-msg errormsg">
+				<div class="sb-msg"><i class="icon-remove"></i><strong>Ups Gagal!</strong> Lengkapi hal di bawah ini dan
+					coba
+					registrasi lagi.<br><small>Jika masih kesulitan untuk mengisi formulir, sliakan hubungi call center
+						kami.</small></div>
+			</div>
+			@endif
 			<div class="row">
 				<div class="col-md-8">
 					<h3>Daftar Sebagai Mitra</h3>
@@ -21,39 +42,84 @@
 						@csrf
 						<div class="col-6 form-group">
 							<label for="register-form-name">Nama:</label>
-							<input type="text" id="register-form-name" name="full_name" value="" class="form-control">
+							<input type="text" id="register-form-name" name="full_name" value="{{ old('full_name') }}"
+								class="form-control @error('full_name') is-invalid @enderror">
+							@error('full_name')
+							<div class="invalid-feedback">
+								{{$message}}
+							</div>
+							@enderror
 						</div>
 						<div class="col-6 form-group">
 							<label for="register-form-email">Email:</label>
-							<input type="text" id="register-form-email" name="email" value="" class="form-control">
+							<input type="text" id="register-form-email" name="email" value="{{ old('email') }}"
+								class="form-control @error('email') is-invalid @enderror">
+							@error('email')
+							<div class="invalid-feedback">
+								{{$message}}
+							</div>
+							@enderror
 						</div>
 						<div class="w-100"></div>
 						<div class="col-6 form-group">
 							<label for="register-form-phone">Nomor Telpon:</label>
-							<input type="text" id="register-form-phone" name="phone_number" value=""
-								class="form-control phone-number">
+							<input type="text" id="register-form-phone" name="phone_number"
+								value="{{ old('phone_number') }}"
+								class="form-control phone-number @error('phone_number') is-invalid @enderror">
+							@error('phone_number')
+							<div class="invalid-feedback">
+								{{$message}}
+							</div>
+							@enderror
 						</div>
 						<div class="col-6 form-group">
 							<label for="register-form-address">Alamat:</label>
 							<textarea id="register-form-address" name="address" value=""
-								class="form-control"></textarea>
+								class="form-control @error('address') is-invalid @enderror">{{ old('address') }}</textarea>
+							@error('address')
+							<div class="invalid-feedback">
+								{{$message}}
+							</div>
+							@enderror
 						</div>
 						<div class="w-100"></div>
 						<div class="col-6 form-group">
 							<label for="register-form-password">Password:</label>
 							<input type="password" id="register-form-password" name="password" value=""
-								class="form-control">
+								class="form-control @error('password') is-invalid @enderror">
+							@error('password')
+							<div class="invalid-feedback">
+								{{$message}}
+							</div>
+							@enderror
 						</div>
 						<div class="col-6 form-group">
 							<label for="register-form-repassword">Re-enter Password:</label>
 							<input type="password" id="register-form-repassword" name="password_confirmation" value=""
-								class="form-control">
+								class="form-control @error('password_confirmation') is-invalid @enderror">
+							@error('password_confirmation')
+							<div class="invalid-feedback">
+								{{$message}}
+							</div>
+							@enderror
 						</div>
 						<div class="line my-3"></div>
 						<div class="w-100"></div>
 						<div class="col-6 form-group">
+							<label for="register-form-gerai">Nama Gerai:</label>
+							<input type="text" id="register-form-gerai" name="mitra_name"
+								value="{{ old('mitra_name') }}"
+								class="form-control @error('mitra_name') is-invalid @enderror">
+							@error('mitra_name')
+							<div class="invalid-feedback">
+								{{$message}}
+							</div>
+							@enderror
+						</div>
+						<div class="col-6 form-group">
 							<label for="register-form-tipe">Tipe Kemitraan:</label>
-							<select id="register-form-tipe" name="register-form-tipe" class="form-control">
+							<select id="register-form-tipe" name="type"
+								class="form-control @error('type') is-invalid @enderror">
 								<option selected disabled>Pilih</option>
 								@forelse ($typeMitra as $item)
 								<option value="{{ $item }}">{{ Str::upper($item) }}</option>
@@ -61,11 +127,21 @@
 								<option value="">Tipe Mitra Tidak Ditemukan</option>
 								@endforelse
 							</select>
+							@error('type')
+							<div class="invalid-feedback">
+								{{$message}}
+							</div>
+							@enderror
 						</div>
-						<div class="col-6 form-group">
+						<div class="col-12 form-group">
 							<label for="register-form-location">Lokasi:</label>
 							<textarea id="register-form-location" name="location" value=""
-								class="form-control"></textarea>
+								class="form-control @error('location') is-invalid @enderror">{{ old('location') }}</textarea>
+							@error('location')
+							<div class="invalid-feedback">
+								{{$message}}
+							</div>
+							@enderror
 						</div>
 						<div class="w-100"></div>
 						<div class="col-12 form-group">

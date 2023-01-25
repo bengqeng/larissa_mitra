@@ -53,6 +53,39 @@
   <!-- Go To Top
   ============================================= -->
   <div id="gotoTop" class="icon-angle-up"></div>
+  <div class="floating-contact-wrap">
+    <div class="floating-contact-btn shadow">
+      <i class="floating-contact-icon btn-unactive icon-whatsapp"></i>
+      <i class="floating-contact-icon btn-active icon-line-plus"></i>
+    </div>
+    <div class="floating-contact-box">
+      <div id="q-contact" class="widget quick-contact-widget clearfix">
+        <div class="floating-contact-heading bg-color dark p-4 rounded">
+          <h3 class="mb-0 text-white">WhatsApp 👋</h3>
+          <p class="mb-0">Hubungi kami!</p>
+        </div>
+        <div class="form-widget" data-alert-type="false">
+          <form class="p-4 mb-0" id="floating-contact" novalidate="novalidate">
+            <div class="input-group mb-3">
+              <span class="input-group-text bg-transparent"><i class="icon-user-alt"></i></span>
+              <input type="text" name="floating-contact-name" id="floating-contact-name"
+                class="form-control required valid" value="" placeholder="Nama">
+            </div>
+            <div class="input-group mb-3">
+              <span class="input-group-text bg-transparent"><i class="icon-comment21"></i></span>
+              <textarea name="floating-contact-message" id="floating-contact-message"
+                class="form-control required valid" cols="30" rows="4"></textarea>
+            </div>
+            <input type="hidden" id="floating-contact-botcheck" name="floating-contact-botcheck" value="">
+            <button type="submit" id="floating-contact-submit" class="btn btn-dark w-100 btn-lg">Kirim Pesan</button>
+            <input type="hidden" name="prefix" value="floating-contact-">
+            <input type="hidden" name="subject" value="Messgae From Floating Contact">
+            <input type="hidden" name="html_title" value="Floating Contact Message">
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- JavaScripts
   ============================================= -->

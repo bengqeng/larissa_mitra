@@ -6,6 +6,7 @@ use App\Http\Requests\PublicJoinMitraRequest;
 use App\Models\Mitra;
 use App\Services\PublicJoinMitraService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class JoinController extends Controller
 {
@@ -16,7 +17,7 @@ class JoinController extends Controller
      */
     public function index()
     {
-        return view('public.mitra.join_index',[
+        return view('public.mitra.mitra_register', [
             'typeMitra' => $this->listMitra()
         ]);
     }
@@ -35,16 +36,36 @@ class JoinController extends Controller
      */
     public function store(PublicJoinMitraRequest $request)
     {
-        $initJoin = new PublicJoinMitraService($request->validated());
+        $validator = Validator::make($request->all(), [
+            'full_name'             => ['required'],
+            'mitra_name'            => ['required'],
+            'email'                 => ['required', 'email'],
+            'password'              => ['required', 'string', 'min:8'],
+            'password_confirmation' => ['required', 'same:password'],
+            'phone_number'          => ['required'],
+            'address'               => ['required'],
+            'type'                  => ['required'],
+            'location'              => ['required'],
+        ]);
+
+        if ($validator->fails()) {
+            return back()
+                ->withErrors($validator)
+                ->withInput();
+        }
+
+        // Retrieve the validated input...
+        $validated = $validator->validated();
+
+        $initJoin = new PublicJoinMitraService($validated);
         $result = $initJoin->call();
 
-        if($result['success']){
-            flash()->success('Anda berhasil memasukkan data join mitra dan silahkan cek email anda untuk aktivasi akun');
+        if ($result['success']) {
+            flash()->success('Anda berhasil registrasi mitra, mohon cek email Anda untuk aktivasi akun');
         } else {
             flash()->danger($result['message']);
         }
 
-        return redirect()->back();
+        return redirect()->back()->withInput();
     }
-
 }

@@ -37,7 +37,8 @@
             <div class="bg-white py-2 collapse-inner rounded">
                 <a class="collapse-item {{ (request()->is('admin/dashboard/mitra/potential*')) ? 'active' : '' }}"
                     href="{{ route('admin.potential_mitra.index') }}">Pending Request <small
-                        class="badge badge-warning">18</small></a>
+                        class="badge badge-warning">{{ App\Models\Mitra::with('user')->PendingMitra()->count()
+                        }}</small></a>
                 <a class="collapse-item {{ (request()->is('admin/dashboard/mitra/on_going')) ? 'active' : '' }}"
                     href="{{ route('admin.on_going_mitra.index') }}">On Going</a>
                 <a class="collapse-item {{ (request()->is('admin/dashboard/mitra')) ? 'active' : '' }}"

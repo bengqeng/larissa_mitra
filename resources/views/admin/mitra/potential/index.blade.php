@@ -30,22 +30,22 @@
                             </thead>
                             <tbody>
                                 @forelse ($mitras as $mitra)
-                                <tr class="pendingRequest">
+                                <tr class="">
                                     <td>{{ $loop->iteration }}</td>
                                     <td>{{ $mitra->user->full_name }}</td>
                                     <td>{{ $mitra->type }}</td>
                                     <td>{{ $mitra->location }}</td>
                                     <td class="text-center">
-                                        <span data-toggle="modal" data-target="#detailRequestModal">
-                                            <a class="btn" data-toggle="tooltip" data-placement="top"
-                                                title="view detail request"
-                                                href="{{ route('admin.potential_mitra.show', $mitra->id) }}"><i
-                                                    class="fas fa-eye text-primary"></i></a>
-                                        </span>
+                                        <a class="btn" data-toggle="tooltip" data-placement="top"
+                                            title="view detail request"
+                                            href="{{ route('admin.potential_mitra.show', $mitra->id) }}"><i
+                                                class="fas fa-eye text-primary"></i></a>
                                     </td>
                                 </tr>
                                 @empty
-                                 <tr><td colspan="5">No Data Found</td></tr>
+                                <tr>
+                                    <td colspan="5">No Data Found</td>
+                                </tr>
                                 @endforelse
                             </tbody>
                         </table>

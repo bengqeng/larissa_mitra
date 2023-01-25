@@ -21,11 +21,11 @@ class PublicJoinMitraService
         $init = $this->userCanJoinMitra();
         $result = null;
 
-        if($init['status']){
+        if ($init['status']) {
             $this->result = $init['user']->mitras()->create($this->mitraAttribute($this->data));
         }
 
-        return [ 'success' => $init['status'], 'message' => $init['message'], 'data' => $this->result];
+        return ['success' => $init['status'], 'message' => $init['message'], 'data' => $this->result];
     }
 
     private function userCanJoinMitra()
@@ -36,9 +36,9 @@ class PublicJoinMitraService
         if ($user === null) {
             $user = $this->createUser(Arr::only($this->data, ['full_name', 'email', 'password', 'phone_number', 'address']));
         } else {
-            if($user->mitras()->Activemitra()->count() > 0){
+            if ($user->mitras()->Activemitra()->count() > 0) {
                 $can = false;
-                $message = 'sudah ada mitra yang tersambung dengan email anda';
+                $message = 'Email yang Anda masukkan telah terdaftar';
             }
         }
 
