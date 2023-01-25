@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\Admin\UserController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\WelcomeMail;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,6 +14,10 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/email', function () {
+    Mail::to('adrian.rahmandanu2@gmail.com')->send(new WelcomeMail());
+    return new WelcomeMail();
+});
 
 Route::view('/', 'public.index');
 Route::view('/about', 'public.about');
