@@ -1,3 +1,6 @@
+@extends('shared.public_main')
+
+@section('content')
 <div class="row ">
     <div class="col-12 justify-content-center p-5">
         <div class="card mb-3 rounded-0" style="max-width: 1080px;">
@@ -11,20 +14,21 @@
                         <div class="image-header mb-4">
                             <img src="https://via.placeholder.com/200x50" class="mx-auto d-block" alt="...">
                         </div>
-                        <form action="">
+                        <form action="{{ route('subscriber.mitra.store') }}" method="post">
+                            @csrf
                             <div class="form-group">
                                 <label class="sr-only" for="namaLengkapForm">Nama Lengkap</label>
-                                <input type="text" name="namaLengkapForm" class="form-control rounded-0"
+                                <input type="text" name="prospek_name" class="form-control rounded-0"
                                     id="namaLengkapForm" aria-describedby="nameHelp" placeholder="Nama Lengkap">
                             </div>
                             <div class="form-group">
                                 <label class="sr-only" for="nomorTelponForm">Nomor Telpon</label>
-                                <input type="text" name="nomorTelponForm" class="form-control rounded-0"
+                                <input type="text" name="prospek_phone_number" class="form-control rounded-0"
                                     id="nomorTelponForm" placeholder="Nomor Ponsel">
                             </div>
                             <div class="form-group">
                                 <label class="sr-only" for="alamatAndaForm">Alamat</label>
-                                <textarea type="text" name="alamatAndaForm" class="form-control rounded-0"
+                                <textarea type="text" name="prospek_address" class="form-control rounded-0"
                                     id="alamaAndaForm" aria-describedby="alamatAndaForm"
                                     placeholder="Alamat"></textarea>
                             </div>
@@ -37,3 +41,4 @@
         </div>
     </div>
 </div>
+@endsection
