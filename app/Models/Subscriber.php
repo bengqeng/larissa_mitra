@@ -9,4 +9,6 @@ class Subscriber extends Model
 {
     protected $table = 'subscriber';
     use HasFactory;
+
+    protected $fillable = [ 'full_name', 'phone_number', 'is_active', 'address' ];
 }

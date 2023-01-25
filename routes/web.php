@@ -31,17 +31,16 @@ Route::prefix('user')->group(function () {
 
 Route::prefix('mitra')->group(function () {
     Route::resource('join', \App\Http\Controllers\JoinController::class)
-        ->only(['index', 'show', 'store'])
+        ->only(['index', 'store'])
         ->names([
             'index' => 'join.mitra.index',
             'store' => 'join.mitra.store'
         ]);
     Route::resource('subscriber', \App\Http\Controllers\SubscriberController::class)
-        ->only(['index', 'show', 'create'])
+        ->only(['index', 'store'])
         ->names([
             'index' => 'subscriber.mitra.index',
-            'show' => 'subscriber.mitra.show',
-            'create' => 'subscriber.mitra.create'
+            'store' => 'subscriber.mitra.store'
         ]);
 });
 
