@@ -145,5 +145,15 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+        'full_name'             => 'Nama Lengkap',
+        'mintra_name'           => 'Nama Gerai',
+        'email'                 => 'Email',
+        'password'              => 'Password',
+        'password_confirmation' => 'Password Konfirmasi',
+        'phone_number'          => 'Nomor Telpon',
+        'address'               => 'Alamat',
+        'type'                  => 'Tipe Kemitraan',
+        'location'              => 'Lokasi'
+    ],
 ];

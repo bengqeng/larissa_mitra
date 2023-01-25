@@ -36,12 +36,10 @@
                                     <td>{{ $item->mitra_name }}</td>
                                     <td>{{ $item->location }}</td>
                                     <td class="text-center">
-                                        <span data-toggle="modal" data-target="#detailRequestModal">
-                                            <a href="{{ route('admin.on_going_mitra.show', $item->id) }}" class="btn"
-                                                data-toggle="tooltip" data-placement="top" title="view detail request">
-                                                <i class="fas fa-eye text-primary"></i>
-                                            </a>
-                                        </span>
+                                        <a href="{{ route('admin.on_going_mitra.show', $item->id) }}" class="btn"
+                                            data-toggle="tooltip" data-placement="top" title="view detail request">
+                                            <i class="fas fa-eye text-primary"></i>
+                                        </a>
                                     </td>
                                 </tr>
                                 @empty

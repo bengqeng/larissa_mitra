@@ -6,12 +6,122 @@
 -----------------------------------------------------------------*/
 
 
-.hero-features{
-	transform: translateY(-50%) !important;
+.hero-features {
+    transform: translateY(-50%) !important;
 }
 
 @media (max-width: 576px) {
-	.hero-features{
-		transform: translateY(-20%) !important;
-	}
+    .hero-features {
+        transform: translateY(-20%) !important;
+    }
+}
+
+.floating-contact-wrap {
+    position: fixed;
+    left: 50px;
+    bottom: 60px;
+    z-index: 299;
+    -webkit-transition: left .2s ease;
+    -o-transition: left .2s ease;
+    transition: left .2s ease;
+}
+
+.stretched .floating-contact-wrap+#gotoTop {
+    bottom: 100px;
+}
+
+.floating-contact-wrap .floating-contact-btn {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 60px;
+    height: 60px;
+    border-radius: 60px;
+    background-color: #1ABC9C;
+    color: #FFF;
+    cursor: pointer;
+    z-index: 3;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    transition: transform .3s ease;
+}
+
+.floating-contact-wrap .floating-contact-btn:hover,
+.floating-contact-wrap.active .floating-contact-btn {
+    -webkit-transform: translate(-50%, -50%) scale(1.1);
+    transform: translate(-50%, -50%) scale(1.1);
+    background-color: #222;
+}
+
+.floating-contact-wrap .floating-contact-btn .floating-contact-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    font-size: 22px;
+    -webkit-transition: .3s cubic-bezier(0.645, 0.045, 0.355, 1.000);
+    transition: .3s cubic-bezier(0.645, 0.045, 0.355, 1.000);
+    -webkit-transition-property: opacity, -webkit-transform;
+    transition-property: opacity, transform;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    -webkit-backface-visibility: hidden;
+}
+
+.floating-contact-wrap .floating-contact-btn .floating-contact-icon.btn-active,
+.floating-contact-wrap.active .floating-contact-btn .floating-contact-icon {
+    opacity: 0;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.floating-contact-wrap.active .floating-contact-btn .floating-contact-icon.btn-active {
+    opacity: 1;
+    -webkit-transform: translate(-50%, -50%) rotate(-45deg);
+    transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.floating-contact-wrap .floating-contact-box {
+    opacity: 0;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 380px;
+    background-color: #fff;
+    border-radius: 6px;
+    z-index: 1;
+    -webkit-transform-origin: left bottom;
+    transform-origin: left bottom;
+    box-shadow: 0px 0px 13px 3px rgba(0, 0, 0, 0.07);
+    -webkit-transform: scale(.01);
+    transform: scale(.01);
+    -webkit-transition: all .3s cubic-bezier(0.645, 0.045, 0.355, 1.000);
+    transition: all .3s cubic-bezier(0.645, 0.045, 0.355, 1.000);
+    -webkit-backface-visibility: hidden;
+}
+
+.floating-contact-wrap.active .floating-contact-box {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+}
+
+@media (max-width: 767.98px) {
+    .floating-contact-wrap .floating-contact-box {
+        width: 340px;
+    }
+}
+
+.css3-spinner {
+    background-color: rgba(255, 255, 255, 0.8)
+}
+
+#floating-contact-submitted,
+.floating-contact-success #floating-contact,
+.floating-contact-success .floating-contact-heading,
+body:not(.floating-contact-processing) .floating-contact-loader {
+    display: none;
+}
+
+.floating-contact-success #floating-contact-submitted {
+    display: block;
 }

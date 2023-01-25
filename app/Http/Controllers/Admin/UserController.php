@@ -80,7 +80,8 @@ class UserController extends Controller
             'password' => Hash::make($request->password)
         ]);
         if ($user->save()) {
-            flash()->success('Password pengguna ' . $user->full_name . ' berhasil diperbarui');
+            flash()->success('Password pengguna <a href="#" data-toggle="modal" data-target="#showUserModal"
+                                                data-user-id="' . $user->id . '">' . $user->full_name . '</a> berhasil diperbarui');
         } else {
             flash()->danger('Gagal mengubah password, mohon cek kembali dan pastikan koneksi internet Anda stabil');
         }
