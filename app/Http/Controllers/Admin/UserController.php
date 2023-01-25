@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
 
 class UserController extends Controller
 {
@@ -75,7 +77,33 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        # Validation
+        $validator = Validator::make($request->all(), [
+            'password' => ['required', 'string', 'min:8'],
+            'password_confirmation' => ['required', 'same:password'],
+        ]);
+
+        if ($validator->fails()) {
+            return back()
+            ->withErrors($validator)
+            ->withInput();
+        }
+        $user = User::find($request->id);
+        dd($user);
+        $user->update([
+            'password' => Hash::make($request->password)
+        ]);
+        if ($user->save()) {
+            flash()->success('Berhasil update password user ' . $user->full_name);
+        } else {
+            flash()->danger('Gagal update password user');
+        }
+
+        return back()->with("status", "Password changed successfully!");
+// return json_encode([
+// 'success' => true,
+// 'data' => ['message' => 'Password updated successfully']
+// ], 200);
     }
 
     /**

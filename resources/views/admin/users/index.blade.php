@@ -1,6 +1,20 @@
 @extends('shared.main')
 
 @section('content')
+@if(count($errors) > 0)
+<div class="row">
+    <div class="col-md-12">
+        <div class="alert alert-danger alert-dismissible fade show">
+            @foreach ($errors->all() as $error)
+            <div>{{ $error }}</div>
+            @endforeach
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    </div>
+</div>
+@endif
 <div class="card shadow mb-4">
     <div class="card-header py-3">
         <h6 class="m-0 font-weight-bold text-primary">Larissa Users</h6>
