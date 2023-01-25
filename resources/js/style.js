@@ -22,6 +22,24 @@ $(function () {
             modal = $(this),
             id = button.data("user-id"),
             name = button.data("user-name");
+        $('#showUserModal .alert').remove();
+        // Select the first child tr of the parent table then Select the last child td of the selected tr
+        var fullName = modal.find('.modal table').find('tr:nth-child(1)').find('td:last-child');
+        var email = modal.find('.modal table').find('tr:nth-child(2)').find('td:last-child');
+        var phoneNumber = modal.find('.modal table').find('tr:nth-child(3)').find('td:last-child');
+        var address = modal.find('.modal table').find('tr:nth-child(4)').find('td:last-child');
+        var registered = modal.find('.modal table').find('tr:nth-child(5)').find('td:last-child');
+        var status = modal.find('.modal table').find('tr:nth-child(6)').find('td:last-child');
+        var buttonChangePassword = modal.find('.modal .modal-footer').find('button:first-child');
+
+        fullName.empty();
+        email.empty();
+        phoneNumber.empty();
+        address.empty();
+        registered.empty();
+        status.empty();
+        buttonChangePassword.data("user-id", '');
+        buttonChangePassword.data("user-name", '');
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -40,14 +58,6 @@ $(function () {
                 } else {
                     var badge = '<span class="badge badge-success">Verified</span>';
                 }
-                // Select the first child tr of the parent table then Select the last child td of the selected tr
-                var fullName = modal.find('.modal table').find('tr:nth-child(1)').find('td:last-child');
-                var email = modal.find('.modal table').find('tr:nth-child(2)').find('td:last-child');
-                var phoneNumber = modal.find('.modal table').find('tr:nth-child(3)').find('td:last-child');
-                var address = modal.find('.modal table').find('tr:nth-child(4)').find('td:last-child');
-                var registered = modal.find('.modal table').find('tr:nth-child(5)').find('td:last-child');
-                var status = modal.find('.modal table').find('tr:nth-child(6)').find('td:last-child');
-                var buttonChangePassword = modal.find('.modal .modal-footer').find('button:first-child');
 
                 modal.find(".modal-title").html(res.full_name);
                 fullName.html(res.full_name);
@@ -58,6 +68,10 @@ $(function () {
                 status.html(badge);
                 buttonChangePassword.data("user-id", res.id);
                 buttonChangePassword.data("user-name", res.full_name);
+            },
+            error: function (res) {
+                modal.find('.modal .modal-body').append('<div class="alert alert-danger alert-dismissible fade show">Data tidak ditemukan<br><small>Terjadi kesalahan pada server, silakan memuat kembali halaman</small></div>');
+                return false;
             }
         });
     })

@@ -1,12 +1,12 @@
 @if (flash()->message)
 <div class="alert {{ flash()->class }} alert-dismissible fade show" role="alert">
     <strong>
-        @if (flash()->class == 'success')
+        @if (flash()->class == 'alert-success')
         Sukses!
         @else
         Gagal!
         @endif
-    </strong>
+    </strong><br>
     {{ flash()->message }}
     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
         <span aria-hidden="true">&times;</span>

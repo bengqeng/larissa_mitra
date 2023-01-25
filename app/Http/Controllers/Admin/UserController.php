@@ -73,20 +73,19 @@ class UserController extends Controller
 
         if ($validator->fails()) {
             return back()
-                ->withErrors($validator)
-                ->withInput();
+                ->withErrors($validator);
         }
         $user = User::findorFail($request->userId);
         $user->update([
             'password' => Hash::make($request->password)
         ]);
         if ($user->save()) {
-            return back()->with("success", 'Berhasil update password user ' . $user->full_name);
+            flash()->success('Password pengguna ' . $user->full_name . ' berhasil diperbarui');
         } else {
-            return back()->with("error", 'Gagal mengubah password, mohon cek kembali<br><small>Pastikan koneksi internet Anda stabil</small>');
+            flash()->danger('Gagal mengubah password, mohon cek kembali dan pastikan koneksi internet Anda stabil');
         }
 
-        return back()->with("status", "Password changed successfully!");
+        return back();
         // return json_encode([
         // 'success' => true,
         // 'data' => ['message' => 'Password updated successfully']
