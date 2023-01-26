@@ -29,7 +29,7 @@ class PublicJoinMitraRequest extends FormRequest
         return [
             'full_name' => ['required'],
             'email' => ['required', 'email:rfc,dns'],
-            'password' => ['required', 'confirmed', Password::min(6)],
+            'password' => ['required', 'confirmed', Password::min(8)],
             'phone_number' => ['required'],
             'address' => ['required'],
             'type' => ['required', new typeMitraIsValid()],
