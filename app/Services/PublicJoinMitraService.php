@@ -3,8 +3,11 @@
 namespace App\Services;
 
 
+use App\Mail\VerifyMail;
 use App\Models\User;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\Mail;
+use PHPMailer\PHPMailer\Exception;
 
 class PublicJoinMitraService
 {
@@ -42,6 +45,14 @@ class PublicJoinMitraService
             }
         }
 
+        if($can){
+            try {
+                Mail::to($user->email)->send(new VerifyMail($user));
+            }
+            catch (Exception $e){
+
+            }
+        }
         return ['status' => $can, 'message' => $message, 'user' => $user];
     }
 
