@@ -259,7 +259,7 @@
                                         Unlimited Superfast
                                         Wi-Fi</li>
                                     <li class="list-group-item ps-0 text-black-50">
-                                        <a class="float-end" href="tipe-larissa-aesthetic-center.html">Lebih
+                                        <a class="float-end" href="{{url('/tipe-larissa')}}">Lebih
                                             Lengkap...</a>
                                     </li>
                                 </ul>
@@ -287,7 +287,7 @@
                                         hours of
                                         Superfast Wi-Fi</li>
                                     <li class="list-group-item ps-0 text-black-50">
-                                        <a class="float-end" href="tipe-salon.html">Lebih Lengkap...</a>
+                                        <a class="float-end" href="{{url('/tipe-salon')}}">Lebih Lengkap...</a>
                                     </li>
                                 </ul>
 
@@ -315,7 +315,7 @@
                                     <li class="list-group-item ps-0"><i class="icon-line-check pe-3 color"></i> Lockers
                                         Access</li>
                                     <li class="list-group-item ps-0 text-black-50">
-                                        <a class="float-end" href="tipe-store.html">Lebih Lengkap...</a>
+                                        <a class="float-end" href="{{url('/tipe-store')}}">Lebih Lengkap...</a>
                                     </li>
                                 </ul>
 
@@ -510,9 +510,9 @@
                                     </a>
                                 </div>
 
-                                <a href="/mitra-prospek"
+                                <a href="/mitra/subscriber"
                                     class="button button-rounded m-0 nott fw-semibold ls0">Prospek</a>
-                                <a href="/mitra-register"
+                                <a href="/mitra/join"
                                     class="button text-bg-primary button-rounded m-0 nott fw-semibold ls0">Mitra</a>
                             </div>
                         </div>
@@ -625,9 +625,9 @@
                     <h4 class="fw-light mb-4">Hubungi kami <a href="tel:+(61)8-234-532-45">
                             <li class="icon-whatsapp"></li> +62 81-2311-2131
                         </a></h4>
-                    <a href="/mitra-prospek"
+                    <a href="/mitra/subscriber"
                         class="button button-rounded button-xlarge m-0 nott fw-semibold ls0 px-5">Prospek</a>
-                    <a href="/mitra-register"
+                    <a href="/mitra/join"
                         class="button text-bg-primary button-rounded button-xlarge m-0 nott fw-semibold ls0 px-5">Mitra</a>
                 </div>
             </div>

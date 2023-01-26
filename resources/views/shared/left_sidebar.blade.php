@@ -30,15 +30,22 @@
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true"
             aria-controls="collapseTwo">
             <i class="far fa-file-alt"></i>
-            <span>Mitra</span>
+            <span>Mitra </span>
+            @if (App\Models\Mitra::with('user')->PendingMitra()->count() > 0)
+            <sup class="badge text-bg-light">{{ App\Models\Mitra::with('user')->PendingMitra()->count()
+                }}</sup>
+            @endif
         </a>
         <div id="collapseTwo" class="collapse {{ (request()->is('admin/dashboard/mitra*')) ? 'show' : '' }}"
             aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <a class="collapse-item {{ (request()->is('admin/dashboard/mitra/potential*')) ? 'active' : '' }}"
-                    href="{{ route('admin.potential_mitra.index') }}">Pending Request <small
-                        class="badge badge-warning">{{ App\Models\Mitra::with('user')->PendingMitra()->count()
-                        }}</small></a>
+                    href="{{ route('admin.potential_mitra.index') }}">Pending Request
+                    @if (App\Models\Mitra::with('user')->PendingMitra()->count() > 0)
+                    <small class="badge badge-warning">{{ App\Models\Mitra::with('user')->PendingMitra()->count()
+                        }}</small>
+                    @endif
+                </a>
                 <a class="collapse-item {{ (request()->is('admin/dashboard/mitra/on_going')) ? 'active' : '' }}"
                     href="{{ route('admin.on_going_mitra.index') }}">On Going</a>
                 <a class="collapse-item {{ (request()->is('admin/dashboard/mitra')) ? 'active' : '' }}"

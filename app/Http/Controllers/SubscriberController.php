@@ -15,7 +15,7 @@ class SubscriberController extends Controller
      */
     public function index()
     {
-        return view('public.mitra.subscriber_index');
+        return view('public.mitra.mitra_subscriber');
     }
 
     /**
@@ -32,9 +32,9 @@ class SubscriberController extends Controller
         $attribute['is_active'] = true;
         $attribute['address'] = $request->validated()['prospek_address'];
 
-        if(Subscriber::create($attribute)){
-          flash()->success('Terima kasih sudah subscribe, kami akan memberikan info kepada anda');
-        }  else {
+        if (Subscriber::create($attribute)) {
+            flash()->success('Terima kasih sudah subscribe, kami akan memberikan info kepada anda');
+        } else {
             flash()->danger('Gagal melakukan subscribe');
         }
 

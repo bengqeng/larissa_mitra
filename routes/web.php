@@ -14,6 +14,7 @@ use App\Mail\WelcomeMail;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
 Route::get('/email', function () {
     Mail::to('adrian.rahmandanu2@gmail.com')->send(new WelcomeMail());
     return new WelcomeMail();
@@ -27,7 +28,7 @@ Route::view('/mitra-login', 'public.mitra-login');
 Route::view('/mitra-prospek', 'public.mitra-prospek');
 Route::view('/mitra-register', 'public.mitra-register');
 Route::view('/blog-single', 'public.blog-single');
-Route::view('/tipe-larissa-aesthetic-center.blade', 'public.tipe-larissa-aesthetic-center.blade');
+Route::view('/tipe-larissa', 'public.tipe-larissa-aesthetic-center');
 Route::view('/tipe-salon', 'public.tipe-salon');
 Route::view('/tipe-store', 'public.tipe-store');
 

@@ -27,7 +27,7 @@
 						</a>
 					</div>
 				</div>
-				<div class="col-md-6 mb-3 text-sm-center">
+				<div class="col-md-6 mb-3">
 					<h3>Daftar Sebagai Mitra</h3>
 					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde, vel odio non dicta
 						provident sint

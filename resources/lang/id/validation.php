@@ -154,6 +154,9 @@ return [
         'phone_number'          => 'Nomor Telpon',
         'address'               => 'Alamat',
         'type'                  => 'Tipe Kemitraan',
-        'location'              => 'Lokasi'
+        'location'              => 'Lokasi',
+        'prospek_name'          => 'Nama',
+        'prospek_phone_number'  => 'Nomor Telpon',
+        'prospek_address'       => 'Alamat',
     ],
 ];
