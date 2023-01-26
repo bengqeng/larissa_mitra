@@ -36,28 +36,7 @@ class JoinController extends Controller
      */
     public function store(PublicJoinMitraRequest $request)
     {
-        $validator = Validator::make($request->all(), [
-            'full_name'             => ['required'],
-            'mitra_name'            => ['required'],
-            'email'                 => ['required', 'email'],
-            'password'              => ['required', 'string', 'min:8'],
-            'password_confirmation' => ['required', 'same:password'],
-            'phone_number'          => ['required'],
-            'address'               => ['required'],
-            'type'                  => ['required'],
-            'location'              => ['required'],
-        ]);
-
-        if ($validator->fails()) {
-            return back()
-                ->withErrors($validator)
-                ->withInput();
-        }
-
-        // Retrieve the validated input...
-        $validated = $validator->validated();
-
-        $initJoin = new PublicJoinMitraService($validated);
+        $initJoin = new PublicJoinMitraService($request->validated());
         $result = $initJoin->call();
 
         if ($result['success']) {
