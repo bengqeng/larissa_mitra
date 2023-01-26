@@ -13,7 +13,7 @@ class AuthController extends Controller
         if (isset($token)){
             $verify = new VerifyUserService($token);
             abort_if(!$verify->call(), 404);
-            flash()->success('Akun anda berhasil di verifikasi, silahkan lakukan login');
+            flash()->success('Akun anda berhasil terverifikasi, silahkan lakukan login');
         }
 
         return view('public.mitra-login');

@@ -14,13 +14,13 @@ class VerifyUserService
 
     public function call()
     {
-        $user = UserVerify::where('token', $this->token)->where('confirmed', true)->where('confirmed_at', '')->orWhereNull('confirmed_at');
-        if ($user->count() == 0) { return false; }
+        $userVerify = UserVerify::with('user')->where('token', $this->token)->where('confirmed', true)->where('confirmed_at', '')->orWhereNull('confirmed_at');
+        if ($userVerify->count() == 0) { return false; }
 
-        if($user->first()->update([ 'confirmed_at' => now(), 'confirmed' => true ])){
-            return true;
-        }
+        if(!$userVerify->first()->user->markEmailAsVerified()) { return false; }
 
-        return false;
+        if(!$userVerify->first()->update([ 'confirmed_at' => now(), 'confirmed' => true ])) { return false; }
+
+        return true;
     }
 }

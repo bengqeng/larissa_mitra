@@ -14,6 +14,26 @@
 <section id="content">
 	<div class="content-wrap">
 		<div class="container clearfix">
+            @if (flash()->message)
+                <div class="alert {{ flash()->class }} alert-dismissible fade show" role="alert">
+                    <strong>
+                        @if (flash()->class == 'alert-success')
+                            Sukses!
+                        @else
+                            Gagal!
+                        @endif
+                    </strong><br>
+                    {!! flash()->message !!}
+                </div>
+            @endif
+            @if(count($errors) > 0)
+                <div class="style-msg errormsg">
+                    <div class="sb-msg"><i class="icon-remove"></i><strong>Ups Gagal!</strong> Lengkapi hal di bawah ini dan
+                        coba
+                        registrasi lagi.<br><small>Jika masih gagal dalam mengisi formulir, silakan hubungi call center
+                            kami.</small></div>
+                </div>
+            @endif
 			<div class="row">
 				<div class="col-md-4">
 					<h3>Login Di Sini</h3>
