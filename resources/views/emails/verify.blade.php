@@ -1,12 +1,11 @@
-@component('mail::message')
-# Selamat Datang {{  $user->full_name }}
+<h3>Halo, {{ $user->full_name }}.</h3>
 
-Silahkan lakukan verifikasi akun anda dengan cara klik tombol di bawah
+<p>Selamat datang di <a href="{{route('public.index')}}">{{ config('app.name') }}</a></p>
+<p>Silahkan klik tombol di bawah ini untuk melanjutkan pembuatan akun anda</p>
 
-@component('mail::button', ['url' => 'https://localhost:8000'])
-Verify
-@endcomponent
-
-Terima kasih,<br>
+<a href="{{ route('public.login', ['token' => $token ]) }}" class="btn btn-success"> Verify </a>
+<br>
+<br>
+Terima kasih,
+<br>
 {{ config('app.name') }}
-@endcomponent

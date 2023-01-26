@@ -10,6 +10,7 @@ use Illuminate\Queue\SerializesModels;
 class VerifyMail extends Mailable
 {
     public $user;
+    public $token;
     use Queueable, SerializesModels;
 
     /**
@@ -17,9 +18,10 @@ class VerifyMail extends Mailable
      *
      * @return void
      */
-    public function __construct($user)
+    public function __construct($user, $token)
     {
         $this->user = $user;
+        $this->token = $token;
     }
 
     /**
@@ -33,7 +35,8 @@ class VerifyMail extends Mailable
             ->markdown('emails.verify')
             ->with(
                 [
-                    'user' => $this->user
+                    'user' => $this->user,
+                    'token' => $this->token
                 ]);
     }
 }

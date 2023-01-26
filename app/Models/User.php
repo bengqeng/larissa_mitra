@@ -43,4 +43,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Mitra::class);
     }
+
+    public function verify()
+    {
+        return $this->hasOne(UserVerify::class);
+    }
 }

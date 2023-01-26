@@ -5,8 +5,10 @@ namespace App\Services;
 
 use App\Mail\VerifyMail;
 use App\Models\User;
+use App\Models\UserVerify;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Str;
 use PHPMailer\PHPMailer\Exception;
 
 class PublicJoinMitraService
@@ -47,11 +49,9 @@ class PublicJoinMitraService
 
         if($can){
             try {
-                Mail::to($user->email)->send(new VerifyMail($user));
+                Mail::to($user->email)->send(new VerifyMail($user, $this->verifyToken($user)));
             }
-            catch (Exception $e){
-
-            }
+            catch (Exception $e){}
         }
         return ['status' => $can, 'message' => $message, 'user' => $user];
     }
@@ -65,5 +65,15 @@ class PublicJoinMitraService
     {
         $attr = Arr::only($attr, ['type', 'location', 'mitra_name']);
         return Arr::add($attr, 'status', true);
+    }
+
+    private function verifyToken($user){
+        $userVerify = UserVerify::create([
+            'token' => Str::uuid(),
+            'user_id' => $user->id,
+            'confirmed' => false
+        ]);
+
+        return $userVerify->token;
     }
 }

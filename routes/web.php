@@ -15,16 +15,17 @@ use App\Mail\WelcomeMail;
 |
 */
 
-Route::get('/email', function () {
-    Mail::to('adrian.rahmandanu2@gmail.com')->send(new WelcomeMail());
-    return new WelcomeMail();
-});
-
-Route::view('/', 'public.index');
+Route::view('/', 'public.index')->name('public.index');
 Route::view('/about', 'public.about');
 Route::view('/blog', 'public.blog');
 Route::view('/mitra-form', 'public.mitra-form');
-Route::view('/mitra-login', 'public.mitra-login');
+
+Route::resource('/mitra-login/{token?}', \App\Http\Controllers\AuthController::class)
+->only(['index'])
+->names([
+    'index' => 'public.login'
+]);
+
 Route::view('/mitra-prospek', 'public.mitra-prospek');
 Route::view('/mitra-register', 'public.mitra-register');
 Route::view('/blog-single', 'public.blog-single');
