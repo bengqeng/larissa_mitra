@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\User\DashboardController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\WelcomeMail;
@@ -21,10 +22,10 @@ Route::view('/blog', 'public.blog');
 Route::view('/mitra-form', 'public.mitra-form');
 
 Route::resource('/mitra-login/{token?}', \App\Http\Controllers\AuthController::class)
-->only(['index'])
-->names([
-    'index' => 'public.login'
-]);
+    ->only(['index'])
+    ->names([
+        'index' => 'public.login'
+    ]);
 
 Route::view('/mitra-prospek', 'public.mitra-prospek');
 Route::view('/mitra-register', 'public.mitra-register');
@@ -35,6 +36,9 @@ Route::view('/tipe-store', 'public.tipe-store');
 
 Route::prefix('user')->group(function () {
     Route::view('/mitra', 'user.dashboard')->name('user.dashboard');
+    Route::get('/gerai', [DashboardController::class, 'index']);
+    // Route::controller(DashboardController::class)->group
+    // Route::view('/gerai', 'user.dashboard')->name('user.dashboard');
 });
 
 Route::prefix('mitra')->group(function () {
