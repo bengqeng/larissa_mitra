@@ -24,6 +24,13 @@
         } else {
         $status = 'danger';
         }
+
+        $timelineStatus = [];
+        foreach ($item->timeline as $timeline) {
+        $timelineStatus[] = $timeline->status;
+        }
+        $success_count = count(array_keys($timelineStatus, 'success'));
+        $percentage = $success_count / 8 * 100;
         @endphp
         <div class="col-12 mb-4">
             <div class="card border-left-{{$status}} shadow h-100">
@@ -37,12 +44,17 @@
                             </div>
                             <p class="mb-0">{{$item->location}}</p>
                             <!-- <p><small>Status: Proses <i class="fa fa-info-circle text-{{$status}}"></i></small></p> -->
-                            <div class="mb-1 small">Status: Proses 75%</div>
+                            @if ($percentage != 100)
+                            <div class="mb-1 small">Status: Proses {{$percentage}}%</div>
                             <div class="progress progress-sm mb-2">
-                                <div class="progress-bar bg-gradient-{{$status}}" role="progressbar" style="width: 75%"
-                                    aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                                <div class="progress-bar bg-gradient-{{$status}}" role="progressbar"
+                                    style="width: {{$percentage}}%" aria-valuenow="{{$percentage}}" aria-valuemin="0"
+                                    aria-valuemax="100"></div>
                             </div>
-                            <a href="larissa_mitra_status_pengajuan.html"
+                            @else
+                            <p><small>Status: Aktif <i class="fa fa-check-circle text-primary"></i></small></p>
+                            @endif
+                            <a href="{{route('user.gerai.show', ['show' => $item->id])}}"
                                 class="btn btn-sm btn-secondary stretched-link">Detail</a>
                         </div>
                         <div class="col-auto position-static">

@@ -35,10 +35,9 @@ Route::view('/tipe-salon', 'public.tipe-salon');
 Route::view('/tipe-store', 'public.tipe-store');
 
 Route::prefix('user')->group(function () {
-    Route::view('/mitra', 'user.dashboard')->name('user.dashboard');
-    Route::get('/gerai', [DashboardController::class, 'index']);
-    // Route::controller(DashboardController::class)->group
-    // Route::view('/gerai', 'user.dashboard')->name('user.dashboard');
+    Route::view('/dashboard', 'user.dashboard')->name('user.dashboard');
+    Route::get('/gerai', [DashboardController::class, 'index'])->name('user.gerai');
+    Route::get('/gerai/show/{show}', [DashboardController::class, 'gerai_show'])->name('user.gerai.show');
 });
 
 Route::prefix('mitra')->group(function () {

@@ -13,16 +13,32 @@ class DashboardController extends Controller
     {
         $id = 1; // will use auth()->id
         $gerai = User::with('mitras.timeline')->find($id); // get gerai
-        // dd(count($gerai->mitras[0]->timeline));
-        // dd(User::find(1)->with('mitras.timeline'));
-        // $timeline = $gerai->mitras[0]->timeline;
-        // for ($i = 0; $i < count($timeline); $i++) {
-        //     if ($timeline->status == 'success') {
-        //         $success = 1
-        //     }
+        $timeline = $gerai->mitras[0]->timeline;
+        // dd($gerai->mitras[0]->timeline);
+        // dd($gerai->mitras[0]->timeline[0]->status);
+        // $status = [];
+        // foreach ($timeline as $item) {
+        //     $status[] = $item->status;
         // }
+        // // print_r($status);
+        // $success_count = count(array_keys($status, 'success'));
+        // $percentage = $success_count / 8 * 100;
+        // die();
         return view('user.gerai', [
             'gerai' => $gerai->mitras,
+        ]);
+    }
+
+    public function gerai_show($idMitra)
+    {
+        $idUser = 1; // will use auth()->id
+        $gerai = User::with(['mitras' => function ($query) use ($idMitra) {
+            $query->where('id', $idMitra)->with('timeline');
+        }])->find($idUser);
+
+        // dd($gerai->mitras[0]->mitra_name);
+        return view('user.gerai_show', [
+            'gerai' => $gerai,
         ]);
     }
 }
