@@ -67,7 +67,20 @@
             </div>
         </div>
     </li>
-
+    <li class="nav-item {{ (request()->is('admin/dashboard/news_letter*')) ? 'active' : '' }}">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsefive" aria-expanded="true"
+           aria-controls="collapsefive">
+            <i class="far fa-file-alt"></i>
+            <span>News Letter</span>
+        </a>
+        <div id="collapsefive" class="collapse {{ (request()->is('admin/dashboard/news_letter*')) ? 'show' : '' }}"
+             aria-labelledby="headingfive" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <a class="collapse-item {{ (request()->is('admin/dashboard/news_letter')) ? 'active' : '' }}"
+                   href="{{ route('admin.news_letter.index') }}">List</a>
+            </div>
+        </div>
+    </li>
     <li class="nav-item {{ (request()->is('admin/dashboard/users*')) ? 'active' : '' }}">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsefour" aria-expanded="true"
             aria-controls="collapsefour">

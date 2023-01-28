@@ -35,7 +35,7 @@
                         <p>Dapatakan penawaran penting langsung ke kotak masuk email Anda. <em>Kita tidak pernah
                                 mengirimkan
                                 spam!</em></p>
-                        <form id="widget-subscribe-form" action="{{ route('news_letter.store') }}" method="post" class="mb-0"
+                        <form id="widget-subscribe-form" action="{{ route('public.news_letter.store') }}" method="post" class="mb-0"
                             novalidate="novalidate">
                             @csrf
                             <div class="row">

@@ -21,6 +21,9 @@ Route::view('/about', 'public.about');
 Route::view('/blog', 'public.blog');
 Route::view('/mitra-form', 'public.mitra-form');
 
+#Jangan di ubah susunannya
+Route::post('/mitra-login/login', [\App\Http\Controllers\AuthController::class, 'login'])->name('user.login');
+Route::get('/mitra-login/logout', [\App\Http\Controllers\AuthController::class, 'logout'])->name('user.logout');
 Route::resource('/mitra-login/{token?}', \App\Http\Controllers\AuthController::class)
     ->only(['index'])
     ->names([
@@ -34,7 +37,7 @@ Route::view('/tipe-larissa', 'public.tipe-larissa-aesthetic-center');
 Route::view('/tipe-salon', 'public.tipe-salon');
 Route::view('/tipe-store', 'public.tipe-store');
 
-Route::prefix('user')->group(function () {
+Route::group(['prefix' => 'user',  'middleware' => ['auth', 'registereduser']], function () {
     Route::view('/dashboard', 'user.dashboard')->name('user.dashboard');
     Route::get('/gerai', [DashboardController::class, 'index'])->name('user.gerai');
     Route::get('/gerai/show/{show}', [DashboardController::class, 'gerai_show'])->name('user.gerai.show');
@@ -55,10 +58,13 @@ Route::prefix('mitra')->group(function () {
         ]);
 });
 
-Route::post('/newsletter', [\App\Http\Controllers\NewsLetterController::class, 'store'])->name('news_letter.store');
-Route::prefix('admin')->group(function () {
+Route::post('/news_letter', [\App\Http\Controllers\NewsLetterController::class, 'store'])->name('public.news_letter.store');
+Route::group(['prefix' => 'admin',  'middleware' => ['auth', 'isadmin']], function () {
     Route::prefix('dashboard')->group(function () {
         Route::get('/', [\App\Http\Controllers\Admin\DashboardController::class, 'index'])->name('admin.dashboard');
+        Route::resource('/news_letter', \App\Http\Controllers\Admin\NewsLetterController::class)->names([
+            'index' => 'admin.news_letter.index'
+        ]);
         Route::prefix('mitra')->group(function () {
             Route::resource('/', \App\Http\Controllers\Admin\MitraController::class)->names([
                 'index' => 'admin.mitra.index',

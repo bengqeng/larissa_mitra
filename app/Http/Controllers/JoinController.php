@@ -45,6 +45,6 @@ class JoinController extends Controller
             flash()->danger($result['message']);
         }
 
-        return redirect()->back()->withInput();
+        return redirect()->back();
     }
 }

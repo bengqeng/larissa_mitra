@@ -643,7 +643,7 @@
                 <span>Login di sini dan cek timeline kemitraan Anda</span>
             </div>
             <div class="col-12 col-lg-auto mt-4 mt-lg-0">
-                <a href="mitra-login.html" class="button button-border button-light button-rounded m-0">Login</a>
+                <a href="{{ route('public.login') }}" class="button button-border button-light button-rounded m-0">Login</a>
             </div>
         </div>
     </div>

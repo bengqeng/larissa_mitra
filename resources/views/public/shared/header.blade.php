@@ -38,13 +38,13 @@
                 <nav class="primary-menu">
 
                     <ul class="menu-container">
-                        <li class="menu-item current"><a class="menu-link" href="/">
+                        <li class="menu-item {{ (request()->is('/')) ? 'current' : '' }}"><a class="menu-link" href="/">
                                 <div>Home</div>
                             </a></li>
-                        <li class="menu-item"><a class="menu-link" href="/about">
+                        <li class="menu-item {{ (request()->is('about')) ? 'current' : '' }}"><a class="menu-link" href="/about">
                                 <div>About Us</div>
                             </a></li>
-                        <li class="menu-item"><a class="menu-link" href="/blog">
+                        <li class="menu-item {{ (request()->is('blog')) ? 'current' : '' }}"><a class="menu-link" href="/blog">
                                 <div>Blog</div>
                             </a></li>
                     </ul>

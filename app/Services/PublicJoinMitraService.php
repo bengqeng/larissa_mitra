@@ -58,6 +58,8 @@ class PublicJoinMitraService
 
     private function createUser($attribute)
     {
+        $hashedPassword = bcrypt($attribute['password']);
+        $attribute['password'] = $hashedPassword;
         return User::create($attribute);
     }
 
