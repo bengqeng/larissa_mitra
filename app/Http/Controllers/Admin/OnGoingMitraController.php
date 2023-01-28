@@ -82,7 +82,7 @@ class OnGoingMitraController extends Controller
         $mitra = Mitra::findorFail($mitra);
         $result = new MitraTimelineService($mitra);
 
-        if ($result->updateStatus($timeline, $request->validated())){
+        if ($result->updateStatusTimeline($timeline, $request->validated())){
             flash()->success('Berhasil Update Data');
         } else {
             flash()->danger('Gagal Update Data');

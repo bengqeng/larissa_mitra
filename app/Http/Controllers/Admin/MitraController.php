@@ -47,9 +47,13 @@ class MitraController extends Controller
      * @param  \App\Models\Mitra  $mitra
      * @return \Illuminate\Http\Response
      */
-    public function show(Mitra $mitra)
+    public function show(Mitra $list)
     {
-        //
+        return view('admin.mitra.show', [
+            'mitra' => $list,
+            'timelines' => $list->timeline()->orderBy('order')->get(),
+            'user' => $list->user()->first()
+        ]);
     }
 
     /**

@@ -64,7 +64,7 @@ Route::group(['prefix' => 'admin',  'middleware' => ['auth', 'isadmin']], functi
             'index' => 'admin.news_letter.index'
         ]);
         Route::prefix('mitra')->group(function () {
-            Route::resource('/', \App\Http\Controllers\Admin\MitraController::class)->names([
+            Route::resource('/list', \App\Http\Controllers\Admin\MitraController::class)->names([
                 'index' => 'admin.mitra.index',
                 'show' => 'admin.mitra.show',
                 'create' => 'admin.mitra.create',

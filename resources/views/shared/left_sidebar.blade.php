@@ -26,7 +26,7 @@
         Layanan
     </div>
     <!-- Nav Item - Pages Collapse Menu -->
-    <li class="nav-item {{ (request()->is('admin/dashboard/mitra/*')) ? 'active' : '' }}">
+    <li class="nav-item {{ (request()->is('admin/dashboard/mitra/list/*')) ? 'active' : '' }}">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true"
             aria-controls="collapseTwo">
             <i class="far fa-file-alt"></i>
@@ -48,7 +48,7 @@
                 </a>
                 <a class="collapse-item {{ (request()->is('admin/dashboard/mitra/on_going')) ? 'active' : '' }}"
                     href="{{ route('admin.on_going_mitra.index') }}">On Going</a>
-                <a class="collapse-item {{ (request()->is('admin/dashboard/mitra')) ? 'active' : '' }}"
+                <a class="collapse-item {{ (request()->is('admin/dashboard/mitra/list')) ? 'active' : '' }}"
                     href="{{ route('admin.mitra.index') }}">List</a>
             </div>
         </div>

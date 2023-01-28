@@ -52,16 +52,7 @@
                                         @endif
                                     </td>
                                     <td class="text-center">
-                                        @if ($mitra->status == 'pending')
-                                        <a href="#" class="btn" data-toggle="modal" data-target="#verificationModal"><i
-                                                class="fas fa-check text-success"></i></a>
-                                        <a href="#" class="btn" data-toggle="modal" data-target="#verificationModal"><i
-                                                class="fas fa-times text-danger"></i></a>
-                                        @else
-                                        <a href="#" class="btn" data-toggle="modal" data-target="#detailRequestModal"
-                                            data-toggle2="tooltip" data-placement="left" title="view detail request"><i
-                                                class="fas fa-eye text-primary"></i></a>
-                                        @endif
+                                        <a href="{{ route('admin.mitra.show', $mitra->id) }}" class="btn"><i class="fas fa-eye text-primary"></i></a>
                                     </td>
                                 </tr>
                                 @empty

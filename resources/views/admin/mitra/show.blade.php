@@ -3,7 +3,7 @@
 @section('content')
 <!-- Page Heading -->
 <div class="container-fluid">
-    <h1 class="h3 mb-2 text-gray-800">Pending Gerai Show </h1>
+    <h1 class="h3 mb-2 text-gray-800">Pending Gerai Show <small class="badge badge-{{ $mitra->status == 'success' ? 'success' : ($mitra->status == 'in_progress' ? 'primary' : ($mitra->status == 'rejected' ? 'danger' : 'warning')) }}">{{ $mitra->status }}</small></h1>
     <div class="card shadow mb-4">
         <!-- Card Header - Accordion -->
         <a href="#collapseCardExample" class="d-block card-header py-3" data-toggle="collapse" role="button"
@@ -64,7 +64,7 @@
         @endif
     </div>
 
-    @if($mitra->status == 'in_progress')
+    @if(in_array($mitra->status, ['in_progress', 'success']))
     <div class="container-fluid">
         @forelse($timelines as $timeline)
         <div

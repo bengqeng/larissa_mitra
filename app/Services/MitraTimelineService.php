@@ -34,7 +34,7 @@ class MitraTimelineService
         return $this->mitra->timeline()->createMany($attribute) ? true : false;
     }
 
-    public function updateStatus($timeline, $attribute)
+    public function updateStatusTimeline($timeline, $attribute)
     {
         if (!(MitraTimelineTrait::validMitraTimeline((int)$timeline))) { return false; }
 
@@ -42,9 +42,16 @@ class MitraTimelineService
         if ($mitraTimeline->count() == 0) { return false; }
 
         if ($mitraTimeline->update($attribute)) {
+            $this->updateMitraStatus();
             return true;
         }
 
         return false;
+    }
+
+    private function updateMitraStatus(){
+        $timeLineStatus = array_unique($this->mitra->timeline()->get()->pluck('status')->toArray());
+        $status = (count(array_diff($timeLineStatus, ['success'])) > 0 ) ? 'in_progress' : 'success';
+        $this->mitra->update(['status' => $status]);
     }
 }
