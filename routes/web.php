@@ -106,6 +106,6 @@ Route::group(['prefix' => 'admin',  'middleware' => ['auth', 'isadmin']], functi
             'destroy' => 'admin.users.destroy',
             'edit' => 'admin.users.edit',
         ]);
-        
+
     });
 });

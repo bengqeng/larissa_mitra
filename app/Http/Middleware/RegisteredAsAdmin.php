@@ -16,9 +16,11 @@ class RegisteredAsAdmin
      */
     public function handle(Request $request, Closure $next)
     {
-        if(auth()->user()->is_admin == false){
+        if(!auth()->check()){
             return redirect()->route('user.login');
         }
+
+        abort_if(auth()->user()->is_admin == false, 404);
 
         return $next($request);
     }

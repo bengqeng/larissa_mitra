@@ -15,7 +15,9 @@ class SubscriberController extends Controller
      */
     public function index()
     {
-        return view('admin.subscriber.index');
+        return view('admin.subscriber.index', [
+            'prospeks' => Subscriber::all()
+        ]);
     }
 
     /**
