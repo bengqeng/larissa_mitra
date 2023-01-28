@@ -42,6 +42,6 @@ class AuthController extends Controller
         $request->session()->regenerateToken();
 
         flash()->success('Anda berhasil log out');
-        return redirect()->route('public.login');
+        return redirect()->route('public.login_form');
     }
 }

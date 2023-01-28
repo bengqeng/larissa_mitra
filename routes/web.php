@@ -3,8 +3,6 @@
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\User\DashboardController;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\Mail;
-use App\Mail\WelcomeMail;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,8 +16,8 @@ use App\Mail\WelcomeMail;
 
 Route::view('/', 'public.index')->name('public.index');
 Route::view('/about', 'public.about');
-Route::view('/blog', 'public.blog');
-Route::view('/mitra-form', 'public.mitra-form');
+Route::view('/blog', 'public.blog')->name('public.blog');
+Route::view('/mitra-form', 'public.mitra-form')->name('public.mitra_form');
 
 #Jangan di ubah susunannya
 Route::post('/mitra-login/login', [\App\Http\Controllers\AuthController::class, 'login'])->name('user.login');
@@ -27,7 +25,7 @@ Route::get('/mitra-login/logout', [\App\Http\Controllers\AuthController::class, 
 Route::resource('/mitra-login/{token?}', \App\Http\Controllers\AuthController::class)
     ->only(['index'])
     ->names([
-        'index' => 'public.login'
+        'index' => 'public.login_form'
     ]);
 
 Route::view('/mitra-prospek', 'public.mitra-prospek');
@@ -108,11 +106,6 @@ Route::group(['prefix' => 'admin',  'middleware' => ['auth', 'isadmin']], functi
             'destroy' => 'admin.users.destroy',
             'edit' => 'admin.users.edit',
         ]);
-
-
-        // Route::get('users/show/{id}', [
-        //     'as' => 'admin.users.show',
-        //     'uses' => 'UserController@show'
-        // ]);
+        
     });
 });

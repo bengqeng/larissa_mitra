@@ -5,8 +5,8 @@
 	<div class="container clearfix">
 		<h1>Halaman Kemitraan</h1>
 		<ol class="breadcrumb">
-			<li class="breadcrumb-item"><a href="index.html">Home</a></li>
-			<li class="breadcrumb-item active"><a href="mitra.html">Mitra</a></li>
+			<li class="breadcrumb-item"><a href="{{ route('public.index') }}">Home</a></li>
+			<li class="breadcrumb-item active"><a href="#">Mitra</a></li>
 		</ol>
 	</div>
 </section>
@@ -49,7 +49,7 @@
 							<span>Login di sini dan cek timeline kemitraan Anda</span>
 						</div>
 						<div class="col-12 col-lg-auto mt-4 mt-lg-0">
-							<a href="{{ route('public.login') }}"
+							<a href="{{ route('public.login_form') }}"
 								class="button button-border button-light button-rounded m-0">Login</a>
 						</div>
 					</div>

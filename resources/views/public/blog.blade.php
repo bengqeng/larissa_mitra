@@ -5,8 +5,8 @@
 	<div class="container clearfix">
 		<h1>Berita &amp; Events</h1>
 		<ol class="breadcrumb">
-			<li class="breadcrumb-item"><a href="index.html">Home</a></li>
-			<li class="breadcrumb-item active"><a href="blog.html">Blog</a></li>
+			<li class="breadcrumb-item"><a href="{{ route('public.index') }}">Home</a></li>
+			<li class="breadcrumb-item active"><a href="{{ route('public.blog') }}">Blog</a></li>
 		</ol>
 	</div>
 </section>

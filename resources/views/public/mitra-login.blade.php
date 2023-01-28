@@ -5,8 +5,8 @@
     <div class="container clearfix">
         <h1>Halaman Login Mitra</h1>
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-            <li class="breadcrumb-item active"><a href="mitra-form.html">Mitra</a></li>
+            <li class="breadcrumb-item"><a href="{{ route('public.index') }}">Home</a></li>
+            <li class="breadcrumb-item active"><a href="{{ route('join.mitra.index') }}">Mitra</a></li>
             <li class="breadcrumb-item active" aria-current="page">Mitra Login</li>
         </ol>
     </div>
