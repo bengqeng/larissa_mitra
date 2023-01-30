@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\User\DashboardController;
+use App\Http\Controllers\Admin\BlogController;
 use Illuminate\Support\Facades\Route;
 /*
 |--------------------------------------------------------------------------
@@ -106,6 +107,13 @@ Route::group(['prefix' => 'admin',  'middleware' => ['auth', 'isadmin']], functi
             'destroy' => 'admin.users.destroy',
             'edit' => 'admin.users.edit',
         ]);
-
+        Route::resource('blogs', BlogController::class)->names([
+            'index' => 'admin.blogs.index',
+            'show' => 'admin.blogs.show',
+            'create' => 'admin.blogs.create',
+            'store' => 'admin.blogs.store',
+            'destroy' => 'admin.blogs.destroy',
+            'edit' => 'admin.blogs.edit',
+        ]);
     });
 });

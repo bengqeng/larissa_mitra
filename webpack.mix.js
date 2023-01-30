@@ -13,5 +13,6 @@ const mix = require('laravel-mix');
 
 mix.js('resources/js/app.js', 'public/js')
     .sass('resources/sass/app.scss', 'public/css')
-        .sass('resources/sass/public.scss', 'public/vendor')
-    .sourceMaps();
+    .sass('resources/sass/public.scss', 'public/vendor')
+    .sourceMaps()
+    .copyDirectory('vendor/tinymce/tinymce', 'public/vendor/tinymce');
