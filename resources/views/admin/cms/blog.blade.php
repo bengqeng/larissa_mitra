@@ -25,13 +25,13 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @forelse($articles as $items)
+                            @forelse($articles as $item)
                             <tr class="pendingRequest">
                                 <td>{{ $loop->iteration }}</td>
-                                <td>{{ $items->title }}</td>
-                                <td>{{ $items->published_date }}</td>
+                                <td>{{ $item->title }}</td>
+                                <td>{{ $item->published_date }}</td>
                                 <td class="text-center">
-                                    <a href="{{ route('admin.mitra.show', $items->id) }}" class="btn"><i
+                                    <a href="{{ route('admin.blogs.show', $item->id) }}" class="btn"><i
                                             class="fas fa-eye text-primary"></i></a>
                                 </td>
                             </tr>

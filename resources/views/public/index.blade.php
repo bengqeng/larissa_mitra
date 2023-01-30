@@ -532,84 +532,33 @@
             <div class="clear"></div>
 
             <div class="row col-mb-30 posts-md">
+                @forelse ($articles as $item)
                 <div class="col-md-4">
                     <article class="entry">
                         <div class="entry-title title-xs nott">
-                            <h3><a href="#">A Meetup for People Currently Running an e-Commerce Business</a></h3>
+                            <h3><a href="#">{{$item->title}}</a></h3>
                         </div>
                         <div class="entry-content">
-                            <p>Synergistically expedite focused experiences through orthogonal "outside the box"
-                                thinking.
-                                Collaboratively reconceptualize e-commerce via effective applications. Enthusiastically
-                                conceptualize go forward functionalities vis-a-vis sticky partnerships. Distinctively
-                                underwhelm
-                                premier scenarios without synergistic best practices. Globally target cross-platform.
-                            </p>
+                            {!! mb_substr($item->body, 0, 100) !!}...
                         </div>
                         <div class="author-meta d-flex align-items-center">
-                            <div class="author-image">
-                                <img src="{{asset('vendor/public/demos/articles/images/authors/1.jpg')}}"
+                            {{-- <div class="author-image">
+                                <img src="https://ui-avatars.com/api/?name=Admin+Larissa&background=1cc98a&color=fff"
                                     alt="Author Image" class="rounded-circle">
-                            </div>
+                            </div> --}}
                             <div class="entry-meta no-separator">
                                 <ul class="flex-column mb-0">
-                                    <li class="mb-1"><span>By</span> <a href="#">Hanson Deck</a></li>
-                                    <li><a href="#">Mar 11, 2021</a></li>
+                                    <li class="mb-1"><span>By</span> <a href="#">{{$item->author->full_name}}</a></li>
+                                    <li><a href="#">{{Carbon\Carbon::parse($item->published_date)->format('d
+                                            M Y')}}</a></li>
                                 </ul>
                             </div>
                         </div>
                     </article>
                 </div>
-
-                <div class="col-md-4">
-                    <article class="entry">
-                        <div class="entry-title title-xs nott">
-                            <h3><a href="#">Creating Your Own Demand as a Digital Nomad</a></h3>
-                        </div>
-                        <div class="entry-content">
-                            <p>Pellentesque hic illo beatae rhoncus sint, quis, fugiat imperdiet unde architecto magna
-                                dui
-                                hymenaeos autem lorem eligendi.</p>
-                        </div>
-                        <div class="author-meta d-flex align-items-center">
-                            <div class="author-image">
-                                <img src="{{asset('vendor/public/demos/articles/images/authors/2.jpg')}}"
-                                    alt="Author Image" class="rounded-circle">
-                            </div>
-                            <div class="entry-meta no-separator mb-0">
-                                <ul class="flex-column mb-0">
-                                    <li class="mb-1"><span>By</span> <a href="#">Hanson Deck</a></li>
-                                    <li><a href="#">Mar 11, 2021</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </article>
-                </div>
-
-                <div class="col-md-4">
-                    <article class="entry">
-                        <div class="entry-title title-xs nott">
-                            <h3><a href="#">Succeeding Remotely Within A Stateside Team</a></h3>
-                        </div>
-                        <div class="entry-content">
-                            <p>Pellentesque hic illo beatae rhoncus sint, quis, fugiat imperdiet unde architecto magna
-                                dui
-                                hymenaeos autem lorem eligendi.</p>
-                        </div>
-                        <div class="author-meta d-flex align-items-center">
-                            <div class="author-image">
-                                <img src="{{asset('vendor/public/demos/articles/images/authors/3.jpg')}}"
-                                    alt="Author Image" class="rounded-circle">
-                            </div>
-                            <div class="entry-meta no-separator mb-0">
-                                <ul class="flex-column mb-0">
-                                    <li class="mb-1"><span>By</span> <a href="#">Hanson Deck</a></li>
-                                    <li><a href="#">Mar 11, 2021</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </article>
-                </div>
+                @empty
+                <p>Artikel tidak ditemukan</p>
+                @endforelse
 
             </div>
         </div>
@@ -643,7 +592,8 @@
                 <span>Login di sini dan cek timeline kemitraan Anda</span>
             </div>
             <div class="col-12 col-lg-auto mt-4 mt-lg-0">
-                <a href="{{ route('public.login_form') }}" class="button button-border button-light button-rounded m-0">Login</a>
+                <a href="{{ route('public.login_form') }}"
+                    class="button button-border button-light button-rounded m-0">Login</a>
             </div>
         </div>
     </div>

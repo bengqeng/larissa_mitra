@@ -32,17 +32,17 @@
                 <div class="col-sm-4">
                     <div class="mt-5">
                         <h4>Subscribe ke Berita Terbaru Kami</h4>
-                        <p>Dapatakan penawaran penting langsung ke kotak masuk email Anda. <em>Kita tidak pernah
+                        <p>Dapatkan penawaran penting langsung ke kotak masuk email Anda. <em>Kita tidak pernah
                                 mengirimkan
                                 spam!</em></p>
-                        <form id="widget-subscribe-form" action="{{ route('public.news_letter.store') }}" method="post" class="mb-0"
-                            novalidate="novalidate">
+                        <form id="widget-subscribe-form" action="{{ route('public.news_letter.store') }}" method="post"
+                            class="mb-0" novalidate="novalidate">
                             @csrf
                             <div class="row">
                                 <div class="col-md-9">
-                                    <input type="email" id="widget-subscribe-form-email"
-                                        name="email" class="form-control not-dark required email"
-                                        placeholder="Enter your Email" required>
+                                    <input type="email" id="widget-subscribe-form-email" name="email"
+                                        class="form-control not-dark required email" placeholder="Enter your Email"
+                                        required>
                                 </div>
                                 <div class="col-md-3">
                                     <button class="btn w-100 btn-light" type="submit">

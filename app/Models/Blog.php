@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Blog extends Model
 {
+    // public $primaryKey = 'slug';
     protected $fillable = [
         'title', 'body', 'published_date', 'author_id', 'slug', 'image'
     ];

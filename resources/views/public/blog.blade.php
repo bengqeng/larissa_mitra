@@ -16,41 +16,52 @@
 
 			<div id="posts" class="post-grid row grid-container gutter-30 has-init-isotope" data-layout="fitRows"
 				style="position: relative; height: 2474.56px;">
+				@forelse ($articles as $item)
 				<div class="entry col-lg-3 col-md-4 col-sm-6 col-12" style="position: absolute; left: 0%; top: 0px;">
 					<div class="grid-inner">
 						<div class="entry-image">
-							<a href="{{asset('vendor/public/images/larissa/gedung/serpong_depan.jpg')}}"
+							<a href="{{	(!empty($item->image) && file_exists(public_path('storage/'.$item->image))) ? asset('storage/'.$item->image) : asset('vendor/public/images/larissa/larissa-logo-green-300.png')}}"
 								data-lightbox="image"><img
-									src="{{asset('vendor/public/images/larissa/gedung/serpong_depan.jpg')}}"
-									alt="Standard Post with Image"></a>
+									src="{{	(!empty($item->image) && file_exists(public_path('storage/'.$item->image))) ? asset('storage/'.$item->image) : asset('vendor/public/images/larissa/larissa-logo-green-300.png')}}"
+									alt="{{ $item->title }}"></a>
 						</div>
 						<div class="entry-title">
-							<h2><a href="blog-single.html">This is a Standard post with a Preview Image</a></h2>
+							<h2><a href="{{route('public.blog.show', ['show' => $item->slug])}}">{{$item->title}}</a>
+							</h2>
 						</div>
 						<div class="entry-meta">
 							<ul>
-								<li><i class="icon-calendar3"></i> 10th Feb 2021</li>
-								<li><a href="blog-single.html#comments"></li>
+								<li><i class="icon-calendar3"></i>
+									{{Carbon\Carbon::parse($item->published_date)->format('d
+									M Y')}}</li>
 							</ul>
 						</div>
 						<div class="entry-content">
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione, voluptatem, dolorem
-								animi nisi autem blanditiis enim culpa reiciendis et explicabo tenetur!</p>
-							<a href="blog-single.html" class="more-link">Read More</a>
+							<p>{!! mb_substr($item->body, 0, 100) !!}...</p>
+							<a href="{{route('public.blog.show', ['show' => $item->slug])}}" class="more-link">Read
+								More</a>
 						</div>
 					</div>
 				</div>
+				@empty
+				<p>Artikel tidak ditemukan</p>
+				@endforelse
 			</div>
 
 			<ul class="pagination mt-5 pagination-circle justify-content-center">
-				<li class="page-item disabled"><a class="page-link" href="#"><i class="icon-angle-left"></i></a></li>
-				<li class="page-item active"><a class="page-link" href="#">1</a></li>
-				<li class="page-item"><a class="page-link" href="#">2</a></li>
-				<li class="page-item"><a class="page-link" href="#">3</a></li>
-				<li class="page-item"><a class="page-link" href="#">4</a></li>
-				<li class="page-item"><a class="page-link" href="#">5</a></li>
-				<li class="page-item"><a class="page-link" href="#"><i class="icon-angle-right"></i></a></li>
+				<li class="page-item {{ ($pagination['current_page'] == 1) ? 'disabled' : '' }}">
+					<a class="page-link" href="{{ $articles->previousPageUrl() }}"><i class="icon-angle-left"></i></a>
+				</li>
+				@for ($i = 1; $i <= $pagination['last_page']; $i++) <li
+					class="page-item {{ ($pagination['current_page'] == $i) ? 'active' : '' }}"><a class="page-link"
+						href="{{ $articles->url($i) }}">{{ $i }}</a></li>
+					@endfor
+					<li
+						class="page-item {{ ($pagination['current_page'] == $pagination['last_page']) ? 'disabled' : '' }}">
+						<a class="page-link" href="{{ $articles->nextPageUrl() }}"><i class="icon-angle-right"></i></a>
+					</li>
 			</ul>
+
 		</div>
 	</div>
 </section><!-- #content end -->

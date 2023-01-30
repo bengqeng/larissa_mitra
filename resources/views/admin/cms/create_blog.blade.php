@@ -25,9 +25,9 @@
                         </div>
                         <div class="form-group">
                             <label for="content">Content</label>
-                            <textarea name="content" id="content"
-                                class="form-control article-editor @error('content') is-invalid @enderror">{{ old('content') }}</textarea>
-                            @error('content')
+                            <textarea name="body" id="content"
+                                class="form-control article-editor @error('body') is-invalid @enderror">{{ old('body') }}</textarea>
+                            @error('body')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
@@ -63,7 +63,3 @@
    });
 </script>
 @endsection
-
-@push('scripts')
-
-@endpush

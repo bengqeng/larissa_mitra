@@ -3,6 +3,8 @@
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\User\DashboardController;
 use App\Http\Controllers\Admin\BlogController;
+use App\Http\Controllers\BlogController as PublicBlogController;
+use App\Http\Controllers\LandingController;
 use Illuminate\Support\Facades\Route;
 /*
 |--------------------------------------------------------------------------
@@ -15,9 +17,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::view('/', 'public.index')->name('public.index');
+Route::get('/', [LandingController::class, 'index'])->name('public.index');
 Route::view('/about', 'public.about');
-Route::view('/blog', 'public.blog')->name('public.blog');
+Route::get('/blog', [PublicBlogController::class, 'index'])->name('public.blog');
+Route::get('/blog/show/{show}', [PublicBlogController::class, 'show'])->name('public.blog.show');
 Route::view('/mitra-form', 'public.mitra-form')->name('public.mitra_form');
 
 #Jangan di ubah susunannya

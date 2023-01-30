@@ -4,9 +4,12 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Blog;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Str;
 
 class BlogController extends Controller
 {
@@ -45,12 +48,9 @@ class BlogController extends Controller
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'title'          => 'required|string|max:255',
-            'body'           => 'required|string',
-            'published_date' => 'required|date',
-            'author_id'      => 'required|integer',
-            'slug'           => 'required|string|max:255|unique:articles',
-            'image'          => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
+            'title'          => 'required|string|unique:blogs|max:255',
+            'body'           => 'required',
+            'image'          => 'image|mimes:jpeg,png,jpg,gif,svg|max:1080'
         ]);
 
         if ($validator->fails()) {
@@ -62,9 +62,9 @@ class BlogController extends Controller
         $article = new Blog();
         $article->title = $request->title;
         $article->body = $request->body;
-        $article->published_date = $request->published_date;
-        $article->author_id = $request->author_id;
-        $article->slug = $request->slug;
+        $article->published_date = Carbon::now();
+        $article->author_id = Auth::id();
+        $article->slug = Str::slug($article->title);
 
         if ($request->hasFile('image')) {
             $path = $request->file('image')->store('public/images');
@@ -73,7 +73,7 @@ class BlogController extends Controller
 
         $article->save();
 
-        return redirect()->route('articles.show', $article->id)
+        return redirect()->route('admin.blogs.show', $article->slug)
             ->with('success', 'Article created successfully');
     }
 
@@ -86,8 +86,7 @@ class BlogController extends Controller
     public function show($id)
     {
         $article = Blog::findOrFail($id);
-
-        return view('articles.show', compact('article'));
+        return view('admin.cms.show_blog', compact('article'));
     }
 
     /**
@@ -98,7 +97,7 @@ class BlogController extends Controller
      */
     public function edit(Blog $article)
     {
-        return view('articles.edit', compact('article'));
+        return view('admin.cms.edit', compact('article'));
     }
 
     /**
@@ -120,7 +119,7 @@ class BlogController extends Controller
 
         $article->update($validated);
 
-        return redirect()->route('articles.show', $article->id)
+        return redirect()->route('admin.blogs.show', $article->id)
             ->with('success', 'Article updated successfully');
     }
 }

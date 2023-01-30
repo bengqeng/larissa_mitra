@@ -69,15 +69,15 @@
     </li>
     <li class="nav-item {{ (request()->is('admin/dashboard/news_letter*')) ? 'active' : '' }}">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsefive" aria-expanded="true"
-           aria-controls="collapsefive">
+            aria-controls="collapsefive">
             <i class="far fa-file-alt"></i>
             <span>News Letter</span>
         </a>
         <div id="collapsefive" class="collapse {{ (request()->is('admin/dashboard/news_letter*')) ? 'show' : '' }}"
-             aria-labelledby="headingfive" data-parent="#accordionSidebar">
+            aria-labelledby="headingfive" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <a class="collapse-item {{ (request()->is('admin/dashboard/news_letter')) ? 'active' : '' }}"
-                   href="{{ route('admin.news_letter.index') }}">List</a>
+                    href="{{ route('admin.news_letter.index') }}">List</a>
             </div>
         </div>
     </li>
@@ -114,10 +114,8 @@
         <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <!-- <h6 class="collapse-header">Custom Components:</h6> -->
-                <a class="collapse-item" href="#">Home</a>
-                <a class="collapse-item" href="#">Blog</a>
-                <a class="collapse-item" href="#">Mitra</a>
-                <a class="collapse-item" href="#">About Us</a>
+                <a class="collapse-item" href="#">Profile Web</a>
+                <a class="collapse-item" href="{{route('admin.blogs.index')}}">Blog</a>
             </div>
         </div>
     </li>

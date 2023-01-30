@@ -29,7 +29,7 @@
 						</div>
 						<div class="w-100"></div>
 						<div class="col-6 form-group">
-							<label for="register-form-phone">Nomor Telpon:</label>
+							<label for="register-form-phone">Nomor Telepon:</label>
 							<input type="text" id="register-form-phone" name="phone_number" value=""
 								class="form-control phone-number">
 						</div>
