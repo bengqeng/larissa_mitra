@@ -47,11 +47,12 @@ class PublicJoinMitraService
             }
         }
 
-        if($can){
+        if ($can) {
             try {
-                Mail::to($user->email)->send(new VerifyMail($user,$token));
+                Mail::to($user->email)->send(new VerifyMail($user, $token = null));
+                // Mail::to($user->email)->send(new VerifyMail($user,$token));
+            } catch (Exception $e) {
             }
-            catch (Exception $e){}
         }
         return ['status' => $can, 'message' => $message, 'user' => $user];
     }
@@ -69,7 +70,8 @@ class PublicJoinMitraService
         return Arr::add($attr, 'status', true);
     }
 
-    private function verifyToken($user){
+    private function verifyToken($user)
+    {
         $userVerify = UserVerify::create([
             'token' => Str::uuid(),
             'user_id' => $user->id,

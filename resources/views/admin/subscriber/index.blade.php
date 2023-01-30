@@ -29,16 +29,16 @@
                             </thead>
                             <tbody>
                                 @forelse($prospeks as $prospek)
-                                    <tr class="pendingRequest">
-                                        <td>{{ $loop->iteration }}</td>
-                                        <td class="sorting_1">{{ $prospek->full_name }}</td>
-                                        <td>{{ $prospek->phone_number }}</td>
-                                        <td>{{ $prospek->is_active == true ? 'true' : 'false' }}</td>
-                                    </tr>
+                                <tr class="pendingRequest">
+                                    <td>{{ $loop->iteration }}</td>
+                                    <td class="sorting_1">{{ $prospek->full_name }}</td>
+                                    <td>{{ $prospek->phone_number }}</td>
+                                    <td>{{ $prospek->is_active == true ? 'true' : 'false' }}</td>
+                                </tr>
                                 @empty
-                                    <tr>
-                                        <td colspan="3">No Data Found</td>
-                                    </tr>
+                                <tr>
+                                    <td colspan="4">No Data Found</td>
+                                </tr>
                                 @endforelse
                             </tbody>
                         </table>
@@ -52,7 +52,15 @@
 
 <script>
     $(document).ready(function () {
-        $('#dataTable').DataTable();
+        $('#dataTable').DataTable({
+            dom: 'Bfrtip',
+            buttons: [
+            'copyHtml5',
+            'excelHtml5',
+            'csvHtml5',
+            'pdfHtml5'
+            ]
+        });
     });
 </script>
 @endsection

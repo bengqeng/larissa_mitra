@@ -52,7 +52,8 @@
                                         @endif
                                     </td>
                                     <td class="text-center">
-                                        <a href="{{ route('admin.mitra.show', $mitra->id) }}" class="btn"><i class="fas fa-eye text-primary"></i></a>
+                                        <a href="{{ route('admin.mitra.show', $mitra->id) }}" class="btn"><i
+                                                class="fas fa-eye text-primary"></i></a>
                                     </td>
                                 </tr>
                                 @empty
@@ -70,7 +71,15 @@
 
 <script>
     $(document).ready(function () {
-   $('#dataTable').DataTable();
+   $('#dataTable').DataTable({
+    dom: 'Bfrtip',
+    buttons: [
+    'copyHtml5',
+    'excelHtml5',
+    'csvHtml5',
+    'pdfHtml5'
+    ]
+   });
  });
 </script>
 @endsection
