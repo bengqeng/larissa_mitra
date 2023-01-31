@@ -25,7 +25,7 @@
 
     <div class="overflow-hidden parallax d-flex align-items-center" data-bottom-top="background-position:0px 200px;"
         data-top-bottom="background-position:0px -400px;"
-        style="background-image: url('{{asset('vendor/public/images/larissa/gedung/tegalismail1.jpg')}}');box-shadow: inset 0 0 0 2000px rgba(0, 0, 0, 0.5); background-size: cover; height: 600px; width: 100%;">
+        style="background-image: url('{{asset('vendor/public/images/larissa/gedung_/tegalismail1.webp')}}');box-shadow: inset 0 0 0 2000px rgba(0, 0, 0, 0.5); background-size: cover; height: 600px; width: 100%;">
         <div class="container">
             <div class="row">
                 <div class="col-lg-6">
@@ -120,7 +120,7 @@
                 </div>
                 <div class="col-md-3 col-sm-6">
                     <div class="card shadow-sm border-light">
-                        <img src="{{asset('vendor/public/images/larissa/gedung/klaten1.jpg')}}" alt="Featured image 1"
+                        <img src="{{asset('vendor/public/images/larissa/gedung_/klaten1.webp')}}" alt="Featured image 1"
                             class="card-img-top">
                         <div class="card-body">
                             <h5 class="card-title fw-semibold color">Larrissa Aesthetic Center</h5>
@@ -128,7 +128,7 @@
                         </div>
                     </div>
                     <div class="card shadow-sm border-light mt-4">
-                        <img src="{{asset('vendor/public/images/larissa/gedung/tegalismail3.jpg')}}"
+                        <img src="{{asset('vendor/public/images/larissa/gedung_/tegalismail3.webp')}}"
                             alt="Featured image 2" class="card-img-top">
                         <div class="card-body">
                             <h5 class="card-title fw-semibold color">Salon Premium Larissa</h5>
@@ -139,8 +139,8 @@
                 </div>
                 <div class="col-md-3 col-sm-6 ps-sm-3 mt-3 mt-sm-0">
                     <div class="card shadow-sm border-light">
-                        <img src="{{asset('vendor/public/images/larissa/gedung/galeria1.jpg')}}" alt="Featured image 3"
-                            class="card-img-top">
+                        <img src="{{asset('vendor/public/images/larissa/gedung_/galeria1.webp')}}"
+                            alt="Featured image 3" class="card-img-top">
                         <div class="card-body">
                             <h5 class="card-title fw-semibold color">Store (Organic Story)</h5>
                             <p class="card-text">Some quick example text to build on the card title and make up the bulk
@@ -243,7 +243,7 @@
 
                         <div class="price-list shadow-sm card border-0 rounded">
                             <div class="position-relative">
-                                <img src="{{asset('vendor/public/images/larissa/gedung/galeria1.jpg')}}"
+                                <img src="{{asset('vendor/public/images/larissa/gedung_/galeria1.webp')}}"
                                     alt="Featured image 1" class="card-img-top rounded-top">
                                 <div class="card-img-overlay dark d-flex justify-content-center flex-column p-0 center">
                                     <h3 class="card-title mb-0 text-white">Larrissa Aesthetic Center</h3>
@@ -270,7 +270,7 @@
 
                         <div class="price-list shadow-sm card border-0 rounded">
                             <div class="position-relative">
-                                <img src="{{asset('vendor/public/images/larissa/gedung/galeria1.jpg')}}"
+                                <img src="{{asset('vendor/public/images/larissa/gedung_/galeria1.webp')}}"
                                     alt="Featured image 1" class="card-img-top rounded-top">
                                 <div class="card-img-overlay dark d-flex justify-content-center flex-column p-0 center">
                                     <h3 class="card-title mb-0 text-white">Salon Premium Larissa</h3>
@@ -299,7 +299,7 @@
 
                         <div class="price-list shadow-sm card border-0 rounded">
                             <div class="position-relative">
-                                <img src="{{asset('vendor/public/images/larissa/gedung/galeria1.jpg')}}"
+                                <img src="{{asset('vendor/public/images/larissa/gedung_/galeria1.webp')}}"
                                     alt="Featured image 1" class="card-img-top rounded-top">
                                 <div class="card-img-overlay dark d-flex justify-content-center flex-column p-0 center">
                                     <h3 class="card-title mb-0 text-white">Store (Organic Story)</h3>
@@ -442,51 +442,53 @@
             data-pagi="true" data-items="1">
             <div>
                 <div class="masonry-thumbs grid-container grid-5" data-big="2" data-lightbox="gallery">
-                    <a class="grid-item" href="{{asset('vendor/public/images/larissa/gedung/denpasar1.jpg')}}"
+                    <a class="grid-item" href="{{asset('vendor/public/images/larissa/gedung_/denpasar1.webp')}}"
                         data-lightbox="gallery-item"><img class="op-ts h-op-09"
-                            src="{{asset('vendor/public/images/larissa/gedung/denpasar1.jpg')}}"
+                            src="{{asset('vendor/public/images/larissa/gedung_/denpasar1.webp')}}"
                             alt="Gallery Thumb 1"></a>
                     <div class="grid-item"><iframe
                             src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15813.731579136589!2d110.3846008!3d-7.7438227!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x803d94a95edc0c70!2sHead%20Office%20Larissa%20Aesthetic%20Center!5e0!3m2!1sen!2sid!4v1674367045762!5m2!1sen!2sid"
                             width="500" height="334" allowfullscreen style="border:0;"></iframe></div>
-                    <a class="grid-item" href="{{asset('vendor/public/images/larissa/gedung/gajahmada1.jpg')}}"
+                    <a class="grid-item" href="{{asset('vendor/public/images/larissa/gedung_/gajahmada1.webp')}}"
                         data-lightbox="gallery-item"><img class="op-ts h-op-09"
-                            src="{{asset('vendor/public/images/larissa/gedung/gajahmada1.jpg')}}"
+                            src="{{asset('vendor/public/images/larissa/gedung_/gajahmada1.webp')}}"
                             alt="Gallery Thumb 12"></a>
-                    <a class="grid-item" href="{{asset('vendor/public/images/larissa/gedung/galeria1.jpg')}}"
+                    <a class="grid-item" href="{{asset('vendor/public/images/larissa/gedung_/galeria1.webp')}}"
                         data-lightbox="gallery-item"><img class="op-ts h-op-09"
-                            src="{{asset('vendor/public/images/larissa/gedung/galeria1.jpg')}}"
+                            src="{{asset('vendor/public/images/larissa/gedung_/galeria1.webp')}}"
                             alt="Gallery Thumb 3"></a>
-                    <a class="grid-item" href="{{asset('vendor/public/images/larissa/gedung/GeraiDarmo01.jpeg')}}"
+                    <a class="grid-item" href="{{asset('vendor/public/images/larissa/gedung_/GeraiDarmo01.webp')}}"
                         data-lightbox="gallery-item"><img class="op-ts h-op-09"
-                            src="{{asset('vendor/public/images/larissa/gedung/GeraiDarmo01.jpeg')}}"
+                            src="{{asset('vendor/public/images/larissa/gedung_/GeraiDarmo01.webp')}}"
                             alt="Gallery Thumb 4"></a>
-                    <a class="grid-item" href="{{asset('vendor/public/images/larissa/gedung/godean.jpg')}}"
+                    <a class="grid-item" href="{{asset('vendor/public/images/larissa/gedung_/godean.webp')}}"
                         data-lightbox="gallery-item"><img class="op-ts h-op-09"
-                            src="{{asset('vendor/public/images/larissa/gedung/godean.jpg')}}" alt="Gallery Thumb 5"></a>
-                    <a class="grid-item" href="{{asset('vendor/public/images/larissa/gedung/pacific1_lite.jpg')}}"
+                            src="{{asset('vendor/public/images/larissa/gedung_/godean.webp')}}"
+                            alt="Gallery Thumb 5"></a>
+                    <a class="grid-item" href="{{asset('vendor/public/images/larissa/gedung_/pacific1_lite.webp')}}"
                         data-lightbox="gallery-item"><img class="op-ts h-op-09"
-                            src="{{asset('vendor/public/images/larissa/gedung/pacific1_lite.jpg')}}"
+                            src="{{asset('vendor/public/images/larissa/gedung_/pacific1_lite.webp')}}"
                             alt="Gallery Thumb 6"></a>
-                    <a class="grid-item" href="{{asset('vendor/public/images/larissa/gedung/serpong_depan.jpg')}}"
+                    <a class="grid-item" href="{{asset('vendor/public/images/larissa/gedung_/serpong_depan.webp')}}"
                         data-lightbox="gallery-item"><img class="op-ts h-op-09"
-                            src="{{asset('vendor/public/images/larissa/gedung/serpong_depan.jpg')}}"
+                            src="{{asset('vendor/public/images/larissa/gedung_/serpong_depan.webp')}}"
                             alt="Gallery Thumb 7"></a>
-                    <a class="grid-item" href="{{asset('vendor/public/images/larissa/gedung/purwokerto1.jpg')}}"
+                    <a class="grid-item" href="{{asset('vendor/public/images/larissa/gedung_/purwokerto1.webp')}}"
                         data-lightbox="gallery-item"><img class="op-ts h-op-09"
-                            src="{{asset('vendor/public/images/larissa/gedung/purwokerto1.jpg')}}"
+                            src="{{asset('vendor/public/images/larissa/gedung_/purwokerto1.webp')}}"
                             alt="Gallery Thumb 13"></a>
-                    <a class="grid-item" href="{{asset('vendor/public/images/larissa/gedung/surabayaresiden1.jpg')}}"
+                    <a class="grid-item" href="{{asset('vendor/public/images/larissa/gedung_/surabayaresiden1.webp')}}"
                         data-lightbox="gallery-item"><img class="op-ts h-op-09"
-                            src="{{asset('vendor/public/images/larissa/gedung/surabayaresiden1.jpg')}}"
+                            src="{{asset('vendor/public/images/larissa/gedung_/surabayaresiden1.webp')}}"
                             alt="Gallery Thumb 6"></a>
-                    <a class="grid-item" href="{{asset('vendor/public/images/larissa/gedung/semarangpanjaitan1.jpg')}}"
+                    <a class="grid-item"
+                        href="{{asset('vendor/public/images/larissa/gedung_/semarangpanjaitan1.webp')}}"
                         data-lightbox="gallery-item"><img class="op-ts h-op-09"
-                            src="{{asset('vendor/public/images/larissa/gedung/semarangpanjaitan1.jpg')}}"
+                            src="{{asset('vendor/public/images/larissa/gedung_/semarangpanjaitan1.webp')}}"
                             alt="Gallery Thumb 7"></a>
-                    <a class="grid-item" href="{{asset('vendor/public/images/larissa/gedung/tembalang.jpg')}}"
+                    <a class="grid-item" href="{{asset('vendor/public/images/larissa/gedung_/tembalang.webp')}}"
                         data-lightbox="gallery-item"><img class="op-ts h-op-09"
-                            src="{{asset('vendor/public/images/larissa/gedung/tembalang.jpg')}}"
+                            src="{{asset('vendor/public/images/larissa/gedung_/tembalang.webp')}}"
                             alt="Gallery Thumb 12"></a>
                 </div>
                 <div class="container">
@@ -580,7 +582,7 @@
                 </div>
             </div>
         </div>
-        <img src="{{asset('vendor/public/images/larissa/gedung/contact.png')}}" alt="Footer Image" class="footer-img">
+        <img src="{{asset('vendor/public/images/larissa/gedung_/contact.png')}}" alt="Footer Image" class="footer-img">
     </div>
 </div>
 <div class="promo promo-dark bg-color promo-full p-4 p-md-5 mb-5">
