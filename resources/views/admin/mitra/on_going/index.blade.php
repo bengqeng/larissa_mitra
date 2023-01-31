@@ -57,7 +57,11 @@
 
 <script>
     $(document).ready(function () {
-       $('#dataTable').DataTable();
+       $('#dataTable').DataTable({
+           language: {
+               infoEmpty: "No Data Found",
+           }
+       });
     });
 </script>
 @endsection

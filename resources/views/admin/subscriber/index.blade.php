@@ -36,9 +36,6 @@
                                     <td>{{ $prospek->is_active == true ? 'true' : 'false' }}</td>
                                 </tr>
                                 @empty
-                                <tr>
-                                    <td colspan="4">No Data Found</td>
-                                </tr>
                                 @endforelse
                             </tbody>
                         </table>
@@ -59,7 +56,10 @@
             'excelHtml5',
             'csvHtml5',
             'pdfHtml5'
-            ]
+            ],
+            language: {
+                infoEmpty: "No Data Found",
+            }
         });
     });
 </script>

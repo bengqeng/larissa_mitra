@@ -67,7 +67,7 @@
                                     </td>
                                 </tr>
                                 @empty
-                                <tr colspan="5">No Data Found</tr>
+
                                 @endforelse
                             </tbody>
                         </table>
@@ -81,7 +81,11 @@
 
 <script>
     $(document).ready(function () {
-   $('#dataTable').DataTable();
- });
+       $('#dataTable').DataTable({
+           language: {
+               infoEmpty: "No Data Found",
+           }
+       });
+     });
 </script>
 @endsection

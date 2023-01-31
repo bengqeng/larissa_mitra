@@ -28,9 +28,6 @@
                                     <td class="sorting_1">{{ $newsletter->email }}</td>
                                 </tr>
                                 @empty
-                                <tr class="pendingRequest">
-                                    <td colspan="2">No Data Found</td>
-                                </tr>
                                 @endforelse
 
                             </tbody>
@@ -52,7 +49,10 @@
                 'excelHtml5',
                 'csvHtml5',
                 'pdfHtml5'
-                ]
+                ],
+                language: {
+                    infoEmpty: "No Data Found",
+                }
             });
         });
 </script>
