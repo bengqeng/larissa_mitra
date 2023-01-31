@@ -95,8 +95,6 @@
                         </td>
                     </tr>
                 </table>
-                <hr>
-                <h5>Riwayat</h5>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-success">Approve <i class="fas fa-check"></i></button>
@@ -145,7 +143,7 @@
 <!-- Show User modal -->
 <div class="modal fade" id="showUserModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
     aria-hidden="true">
-    <div class="modal-dialog modal-dialog-scrollable modal-lg">
+    <div class="modal-dialog  modal-lg">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title"></h5>
@@ -186,8 +184,6 @@
                         <td class="align-top font-weight-bold"></td>
                     </tr>
                 </table>
-                <hr>
-                <h5>Riwayat</h5>
             </div>
             <div class="modal-footer">
                 <button type="button" data-toggle="modal" data-target="#changePasswordModal" class="btn btn-secondary"

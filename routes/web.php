@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\User\DashboardController;
 use App\Http\Controllers\Admin\BlogController;
+use App\Http\Controllers\Admin\MitraController;
 use App\Http\Controllers\BlogController as PublicBlogController;
 use App\Http\Controllers\LandingController;
 use Illuminate\Support\Facades\Route;
@@ -40,8 +41,8 @@ Route::view('/tipe-salon', 'public.tipe-salon');
 Route::view('/tipe-store', 'public.tipe-store');
 
 Route::group(['prefix' => 'user',  'middleware' => ['auth', 'registereduser']], function () {
-    Route::view('/dashboard', 'user.dashboard')->name('user.dashboard');
-    Route::get('/gerai', [DashboardController::class, 'index'])->name('user.gerai');
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('user.dashboard');
+    Route::get('/gerai', [DashboardController::class, 'gerai'])->name('user.gerai');
     Route::get('/gerai/show/{show}', [DashboardController::class, 'gerai_show'])->name('user.gerai.show');
 });
 
@@ -91,8 +92,8 @@ Route::group(['prefix' => 'admin',  'middleware' => ['auth', 'isadmin']], functi
                 'destroy' => 'admin.on_going_mitra.destroy',
                 'edit' => 'admin.on_going_mitra.edit',
             ]);
-
             Route::put('/{mitra}/timeline/{timeline}', [\App\Http\Controllers\Admin\OnGoingMitraController::class, 'update'])->name('admin.mitra_timeline.update');
+            Route::get('mitra_export', [MitraController::class, 'export'])->name('admin.mitra.export');
         });
         Route::resource('subscriber', \App\Http\Controllers\Admin\SubscriberController::class)->names([
             'index' => 'admin.subscriber.index',
@@ -117,6 +118,7 @@ Route::group(['prefix' => 'admin',  'middleware' => ['auth', 'isadmin']], functi
             'store' => 'admin.blogs.store',
             'destroy' => 'admin.blogs.destroy',
             'edit' => 'admin.blogs.edit',
+            'update' => 'admin.blogs.update',
         ]);
     });
 });

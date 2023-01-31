@@ -13,7 +13,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- Custom styles for this template-->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link href="{{ asset('vendor/datatables/dataTables.bootstrap4.css') }}" rel="stylesheet">
+    <link href="{{ asset('vendor/datatables/datatables.css') }}" rel="stylesheet">
     <!-- Custom scripts for all pages-->
     <script>
         const base_path = '{{ url('/') }}\/';
@@ -69,8 +69,7 @@
 
     @include('shared.modal')
 
-    <script src="{{asset('vendor/datatables/jquery.dataTables.min.js')}}"></script>
-    <script src="{{asset('vendor/datatables/dataTables.bootstrap4.min.js')}}"></script>
+    <script src="{{asset('vendor/datatables/datatables.min.js')}}"></script>
 </body>
 
 </html>

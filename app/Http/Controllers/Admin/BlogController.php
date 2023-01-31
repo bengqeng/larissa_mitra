@@ -10,6 +10,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\ExportForm;
 
 class BlogController extends Controller
 {
@@ -20,7 +22,7 @@ class BlogController extends Controller
      */
     public function index()
     {
-        $articles = Blog::paginate(10);
+        $articles = Blog::get();
 
         return view('admin.cms.blog', compact('articles'));
 
@@ -67,14 +69,17 @@ class BlogController extends Controller
         $article->slug = Str::slug($article->title);
 
         if ($request->hasFile('image')) {
-            $path = $request->file('image')->store('public/images');
+            $path = $request->file('image')->store('public/images/blogs');
             $article->image = $path;
         }
 
-        $article->save();
-
-        return redirect()->route('admin.blogs.show', $article->slug)
-            ->with('success', 'Article created successfully');
+        if ($article->save()) {
+            flash()->success('Artikel <a href="' . route('admin.blogs.show', $article->id) . '" >' . $article->title . '</a> berhasil ditambahkan');
+        } else {
+            flash()->danger('Gagal menambahkan artikel, mohon cek kembali dan pastikan koneksi internet Anda stabil');
+        }
+        return redirect()->route('admin.blogs.show', $article->id)
+            ->with('success', 'Artikel berhasil disimpan');
     }
 
     /**
@@ -95,9 +100,10 @@ class BlogController extends Controller
      * @param  \App\Article  $article
      * @return \Illuminate\Http\Response
      */
-    public function edit(Blog $article)
+    public function edit($id)
     {
-        return view('admin.cms.edit', compact('article'));
+        $article = Blog::findOrFail($id);
+        return view('admin.cms.edit_blog', compact('article'));
     }
 
     /**
@@ -107,19 +113,51 @@ class BlogController extends Controller
      * @param  \App\Article  $article
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Blog $article)
+    public function update(Request $request, $id)
     {
-        $validated = $request->validated();
+        $article = Blog::findOrFail($id);
 
-        if ($request->hasFile('image')) {
-            Storage::delete($article->image);
-            $path = $request->file('image')->store('public/images');
-            $validated['image'] = $path;
+        $validator = Validator::make($request->all(), [
+            'title' => 'required|string|max:255',
+            'body' => 'required',
+            'image' => 'sometimes|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput();
         }
 
-        $article->update($validated);
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $filename = time() . '.' . $image->getClientOriginalExtension();
+            $destinationPath = public_path('images/blogs');
+            $image->move($destinationPath, $filename);
+            $article->image = $filename;
+        }
 
-        return redirect()->route('admin.blogs.show', $article->id)
-            ->with('success', 'Article updated successfully');
+        $article->title = $request->input('title');
+        $article->body = $request->input('body');
+        $article->save();
+
+        if ($article->save()) {
+            flash()->success('Artikel <a href="' . route('admin.blogs.show', $article->id) . '" >' . $article->title . '</a> berhasil diubah');
+        } else {
+            flash()->danger('Gagal mengubah artikel, mohon cek kembali dan pastikan koneksi internet Anda stabil');
+        }
+        return redirect()->route('admin.blogs.index', $article->id);
+    }
+
+    public function destroy($id)
+    {
+        $article = Blog::findOrFail($id);
+        $image = $article->image;
+        $article->delete();
+
+        // Delete the image from storage
+        if (!empty($image)) {
+            Storage::delete('public/images/blogs/' . $image);
+        }
+        flash()->success('Artikel berhasil dihapus');
+        return redirect()->route('admin.blogs.index');
     }
 }

@@ -8,8 +8,7 @@
                 <div class="col-md-7">
                     <h2 class="display-4 fw-semibold ls--2">Pilihan mitra kerja sama <span class="text-rotater"
                             data-separator="|" data-rotate="fadeIn" data-speed="2000">
-                            <span class="t-rotate">Larrissa Aesthetic Center|Salon Premium Larissa|Store (Organic
-                                Story)</span>
+                            <span class="t-rotate">Larissa Center|Salon|Store</span>
                         </span> untuk Anda.</h2>
                 </div>
                 <div class="col-md-5">

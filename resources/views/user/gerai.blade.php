@@ -13,7 +13,7 @@
     <!-- Content Row -->
     <div class="row">
         <!-- Earnings (Monthly) Card Example -->
-        @forelse ($gerai as $item)
+        @forelse ($gerai->mitras as $item)
         @php
         if($item->status == 'pending'){
         $status = 'secondary';
@@ -44,18 +44,23 @@
                             </div>
                             <p class="mb-0">{{$item->location}}</p>
                             <!-- <p><small>Status: Proses <i class="fa fa-info-circle text-{{$status}}"></i></small></p> -->
-                            @if ($percentage != 100)
+                            @if ($item->status == 'in_progress')
                             <div class="mb-1 small">Status: Proses {{$percentage}}%</div>
                             <div class="progress progress-sm mb-2">
                                 <div class="progress-bar bg-gradient-{{$status}}" role="progressbar"
                                     style="width: {{$percentage}}%" aria-valuenow="{{$percentage}}" aria-valuemin="0"
                                     aria-valuemax="100"></div>
                             </div>
-                            @else
-                            <p><small>Status: Aktif <i class="fa fa-check-circle text-primary"></i></small></p>
-                            @endif
                             <a href="{{route('user.gerai.show', ['show' => $item->id])}}"
                                 class="btn btn-sm btn-secondary stretched-link">Detail</a>
+                            @elseif ($item->status == 'success')
+                            <p><small>Status: Telah Berjalan <i class="fa fa-check-circle text-primary"></i></small></p>
+                            <a href="{{route('user.gerai.show', ['show' => $item->id])}}"
+                                class="btn btn-sm btn-secondary stretched-link">Detail</a>
+                            @else
+                            <p><small>Status: {{$item->status}} <i class="fa fa-time-circle text-danger"></i></small>
+                            </p>
+                            @endif
                         </div>
                         <div class="col-auto position-static">
                             <i class="fa fa-th-large fa-2x text-gray-300"></i>

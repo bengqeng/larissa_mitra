@@ -3,12 +3,18 @@
 @section('content')
 <section id="page-title">
 	<div class="container clearfix">
-		<h1>{{$article->title}}</h1>
-		<ol class="breadcrumb">
-			<li class="breadcrumb-item"><a href="{{route('public.index')}}">Home</a></li>
-			<li class="breadcrumb-item"><a href="{{route('public.blog')}}">Blog</a></li>
-			<li class="breadcrumb-item active" aria-current="page">Blog Single</li>
-		</ol>
+		<div class="row">
+			<div class="col">
+				<h1>{{$article->title}}</h1>
+			</div>
+			<div class="col">
+				<ol class="breadcrumb">
+					<li class="breadcrumb-item"><a href="{{route('public.index')}}">Home</a></li>
+					<li class="breadcrumb-item"><a href="{{route('public.blog')}}">Blog</a></li>
+					<li class="breadcrumb-item active" aria-current="page">Blog Single</li>
+				</ol>
+			</div>
+		</div>
 	</div>
 </section>
 <section id="content">
@@ -38,7 +44,7 @@
 					</div>
 
 					<div class="entry-content mt-0">
-						{{$article->body}}
+						{!!$article->body!!}
 						<div class="clear"></div>
 
 						<div class="si-share border-0 d-flex justify-content-between align-items-center">

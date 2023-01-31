@@ -43,9 +43,6 @@
                                     </td>
                                 </tr>
                                 @empty
-                                <tr>
-                                    <td colspan="5">No Data Found</td>
-                                </tr>
                                 @endforelse
 
                             </tbody>
@@ -60,7 +57,7 @@
 
 <script>
     $(document).ready(function () {
-   $('#dataTable').DataTable();
- });
+       $('#dataTable').DataTable();
+    });
 </script>
 @endsection

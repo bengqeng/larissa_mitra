@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Exports\ExportForm;
 use App\Http\Controllers\Controller;
 use App\Models\Mitra;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 
 class MitraController extends Controller
 {
@@ -88,5 +91,12 @@ class MitraController extends Controller
     public function destroy(Mitra $mitra)
     {
         //
+    }
+
+    // Export
+    public function export()
+    {
+        $date = Carbon::now();
+        return Excel::download(new ExportForm(), 'larissa_mitra_' . $date . '.xlsx');
     }
 }

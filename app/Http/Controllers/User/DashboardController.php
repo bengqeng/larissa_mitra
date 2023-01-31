@@ -13,9 +13,21 @@ class DashboardController extends Controller
     public function index()
     {
         $gerai = User::with('mitras.timeline')->find(Auth::id());
-        $timeline = $gerai->mitras[0]->timeline;
+        return view('user.dashboard', [
+            'gerai' => $gerai->mitras->first()
+        ]);
+    }
+
+    public function gerai()
+    {
+        $gerai = User::with('mitras.timeline')->find(Auth::id());
+        // if ($gerai->mitras->first()->status == 'pending') {
+        //     $data = [];
+        // } else {
+        //     $data = $gerai->mitras;
+        // }
         return view('user.gerai', [
-            'gerai' => $gerai->mitras,
+            'gerai' => $gerai,
         ]);
     }
 

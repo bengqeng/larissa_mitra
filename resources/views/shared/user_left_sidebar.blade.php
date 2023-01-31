@@ -50,7 +50,7 @@
     <hr class="sidebar-divider">
 
     <!-- Heading -->
-    <div class="sidebar-heading">
+    {{-- <div class="sidebar-heading">
         Other
     </div>
 
@@ -67,7 +67,7 @@
                 <a class="collapse-item" href="#">Tambah Other</a>
             </div>
         </div>
-    </li>
+    </li> --}}
 
     <!-- Divider -->
     <hr class="sidebar-divider">

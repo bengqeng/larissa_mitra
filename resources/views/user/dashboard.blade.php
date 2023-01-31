@@ -20,23 +20,29 @@
                     </div>
                 </div>
                 <div class="row">
+                    {{-- {{dd($gerai)}} --}}
+                    @if ($gerai->status == 'in_progress')
                     <div class="col-12 mb-4">
-                        <div class="card bg-warning text-white shadow">
+                        <div class="card bg-success text-white shadow">
+                            <div class="card-body">
+                                Pengajuan Anda berhasil!
+                                <div class="text-white small">Silahkan lihat status pengajuan gerai pada link
+                                    berikut <a class="text-white"
+                                        href="{{route('user.gerai.show', ['show' => $gerai->id])}}">Status Pengajuan</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    @elseif ($gerai->status == 'pending')
+                    <div class="col-12 mb-4">
+                        <div class="card bg-secondary text-white shadow">
                             <div class="card-body">
                                 Pengajuan Anda telah kami terima dan sedang kami proses, mohon menunggu :)
                                 <div class="text-white small">Pastikan email dan nomor telepon Anda aktif</div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-12 mb-4">
-                        <div class="card bg-success text-white shadow">
-                            <div class="card-body">
-                                Pengajuan Anda berhasil!
-                                <div class="text-white small">Silahkan lihat status pengajuan gerai pada link
-                                    berikut <a href="">Status Pengajuan</a></div>
-                            </div>
-                        </div>
-                    </div>
+                    @endif
                 </div>
             </div>
         </div>

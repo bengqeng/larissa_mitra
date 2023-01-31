@@ -59,8 +59,20 @@
                                 @endif
                             </div>
                             <div class="tracking-content">{{ $item->stepName() }}
-                                <span>Catatan: Mohon cek kembali alamat... <a href="#">lebih
-                                        lengkap</a></span>
+                                @if(!empty($item->pending_message) || !empty($item->success_message))
+                                <span>Catatan: <a data-toggle="collapse" href="#collapse-{{$item->id}}" role="button"
+                                        aria-expanded="false" aria-controls="collapse-{{$item->id}}">Lihat
+                                    </a></span>
+                                <div class="collapse" id="collapse-{{$item->id}}">
+                                    <div class="card card-body">
+                                        @if ($item->status == 'pending')
+                                        {{$item->pending_message}}
+                                        @else
+                                        {{$item->success_message}}
+                                        @endif
+                                    </div>
+                                </div>
+                                @endif
                             </div>
                         </div>
                         @empty
