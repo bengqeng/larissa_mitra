@@ -27,14 +27,14 @@ class PublicJoinMitraRequest extends FormRequest
     public function rules()
     {
         return [
-            'full_name' => ['required'],
+            'full_name' => ['required', 'min:3', 'max:50'],
             'email' => ['required', 'email:rfc,dns'],
             'password' => ['required', 'confirmed', Password::min(8)],
-            'phone_number' => ['required'],
-            'address' => ['required'],
+            'phone_number' => ['required', 'min:9', 'max:20'],
+            'address' => ['required', 'min:10', 'max:255'],
             'type' => ['required', new typeMitraIsValid()],
-            'location' => ['required'],
-            'mitra_name' => ['required']
+            'location' => ['required', 'min:10', 'max:255'],
+            'mitra_name' => ['required', 'min:3', 'max:50']
         ];
     }
 }

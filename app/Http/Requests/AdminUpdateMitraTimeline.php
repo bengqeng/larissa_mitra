@@ -26,10 +26,10 @@ class AdminUpdateMitraTimeline extends FormRequest
     {
         $rule = [
             'status' => [],
-            'pending_message' => [],
-            'success_message' => []
+            'pending_message' => ['max:255'],
+            'success_message' => ['max:255']
         ];
-        if(isset($this->status)){
+        if (isset($this->status)) {
             $rule['status'] = [new MitraTimelineStatus()];
         }
         return $rule;

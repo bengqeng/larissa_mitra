@@ -24,9 +24,9 @@ class PublicAddSubscriber extends FormRequest
     public function rules()
     {
         return [
-            'prospek_name' => ['required'],
-            'prospek_phone_number' => ['required'],
-            'prospek_address' => ['required']
+            'prospek_name' => ['required', 'min:5', 'max:50'],
+            'prospek_phone_number' => ['required', 'min:9', 'max:20'],
+            'prospek_address' => ['required', 'min:10', 'max:255']
         ];
     }
 }

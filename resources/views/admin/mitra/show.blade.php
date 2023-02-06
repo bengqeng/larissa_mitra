@@ -3,7 +3,9 @@
 @section('content')
 <!-- Page Heading -->
 <div class="container-fluid">
-    <h1 class="h3 mb-2 text-gray-800">Pending Gerai Show <small class="badge badge-{{ $mitra->status == 'success' ? 'success' : ($mitra->status == 'in_progress' ? 'primary' : ($mitra->status == 'rejected' ? 'danger' : 'warning')) }}">{{ $mitra->status }}</small></h1>
+    <h1 class="h3 mb-2 text-gray-800">Pending Gerai Show <small
+            class="badge badge-{{ $mitra->status == 'success' ? 'success' : ($mitra->status == 'in_progress' ? 'primary' : ($mitra->status == 'rejected' ? 'danger' : 'warning')) }}">{{
+            $mitra->status }}</small></h1>
     <div class="card shadow mb-4">
         <!-- Card Header - Accordion -->
         <a href="#collapseCardExample" class="d-block card-header py-3" data-toggle="collapse" role="button"
@@ -141,8 +143,8 @@
                                     <div class="form-group my-2">
                                         <label for="pending-{{$timeline->order}}" class="sr-only">Catatan
                                             Pending</label>
-                                        <textarea class="form-control border-0" id="pending-{{$timeline->order}}"
-                                            name="pending_message" rows="3"
+                                        <textarea class="form-control border-0 content"
+                                            id="pending-{{$timeline->order}}" name="pending_message" rows="3"
                                             placeholder="Catatan Pending.">{{ $timeline->pending_message }}</textarea>
                                     </div>
                                 </div>
@@ -151,7 +153,7 @@
                                     aria-labelledby="profile-tab-{{$timeline->order}}">
                                     <div class="form-group my-2">
                                         <label for="success-{{$timeline->order}}" class="sr-only">Catatan Accept</label>
-                                        <textarea class="form-control border-0" name="success_message"
+                                        <textarea class="form-control border-0 content" name="success_message"
                                             id="success-{{$timeline->order}}" rows="3"
                                             placeholder="Catatan Success">{{ $timeline->success_message }}</textarea>
                                     </div>
@@ -213,5 +215,13 @@
                 selectPending.removeClass('disabled');
             }
         })
+    </script>
+    <script src="{{ asset('vendor/tinymce/tinymce.min.js') }}" referrerpolicy="origin"></script>
+    <script>
+        tinymce.init({
+         selector: 'textarea.content', // Replace this CSS selector to match the placeholder element for TinyMCE
+         plugins: 'link anchor',
+         toolbar: "code insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image",
+       });
     </script>
     @endsection

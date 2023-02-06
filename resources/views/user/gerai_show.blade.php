@@ -53,8 +53,8 @@
                             </div>
                             <div class="tracking-date">
                                 @if ($item->status == 'success')
-                                <small><span
-                                        class="font-italic">Diperbarui</span>{{Carbon\Carbon::parse($item->created_at)->format('d
+                                <small><span class="font-italic">Diperbarui</span>
+                                    {{Carbon\Carbon::parse($item->created_at)->format('d
                                     M Y')}}</small>
                                 @endif
                             </div>
@@ -66,9 +66,9 @@
                                 <div class="collapse" id="collapse-{{$item->id}}">
                                     <div class="card card-body">
                                         @if ($item->status == 'pending')
-                                        {{$item->pending_message}}
+                                        {!!$item->pending_message!!}
                                         @else
-                                        {{$item->success_message}}
+                                        {!!$item->success_message!!}
                                         @endif
                                     </div>
                                 </div>

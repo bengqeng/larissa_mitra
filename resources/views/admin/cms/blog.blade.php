@@ -9,8 +9,9 @@
                 <div class="card-header py-3 d-sm-flex align-items-center justify-content-between mb-4">
                     <h6 class="m-0 font-weight-bold text-primary">Artikel</h6>
                     <div>
-                        <a href="{{ route('admin.blogs.export') }}" class="btn btn-sm btn-success shadow-sm mr-3"><i
-                                class="fas fa-download fa-sm text-white-50"></i> Download Excel</a>
+                        {{-- <a href="{{ route('admin.blogs.export') }}"
+                            class="btn btn-sm btn-success shadow-sm mr-3"><i
+                                class="fas fa-download fa-sm text-white-50"></i> Download Excel</a> --}}
                         <a href="{{ route('admin.blogs.create') }}"
                             class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm float-right"><i
                                 class="fa fa-plus-circle fa-sm text-white-50"></i> Tambah Artikel</a>
