@@ -17,6 +17,9 @@
                 <!-- /.card-header -->
                 <div class="card-body">
                     <h1>{{$article->title}}</h1>
+                    <img class="img-thumbnail mb-3" style="max-width:300px"
+                        src="{{(!empty($article->image) && file_exists(public_path('images/blogs/' . $article->image))) ? asset('images/blogs/' . $article->image) : asset('vendor/public/images/larissa/larissa-logo-green-300.png')}}"
+                        alt=""><br>
                     <span>Published : {{ \Carbon\Carbon::parse($article->published_date)->format('d M Y')}}</span><br>
                     <span>Author : {{$article->author->full_name}}</span>
                     <div class="my-3">{!!$article->body!!}</div>

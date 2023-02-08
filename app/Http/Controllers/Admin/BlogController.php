@@ -50,9 +50,9 @@ class BlogController extends Controller
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'title'          => 'required|string|unique:blogs|max:255',
-            'body'           => 'required',
-            'image'          => 'image|mimes:jpeg,png,jpg,gif,svg|max:1080'
+            'title' => 'required|string|unique:blogs|max:255',
+            'body'  => 'required|max:1600',
+            'image' => 'sometimes|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
         if ($validator->fails()) {
@@ -61,16 +61,19 @@ class BlogController extends Controller
                 ->withInput();
         }
 
-        $article = new Blog();
-        $article->title = $request->title;
-        $article->body = $request->body;
+        $article                 = new Blog();
+        $article->title          = $request->title;
+        $article->body           = $request->body;
         $article->published_date = Carbon::now();
-        $article->author_id = Auth::id();
-        $article->slug = Str::slug($article->title);
+        $article->author_id      = Auth::id();
+        $article->slug           = Str::slug($article->title);
 
         if ($request->hasFile('image')) {
-            $path = $request->file('image')->store('public/images/blogs');
-            $article->image = $path;
+            $image = $request->file('image');
+            $filename = $article->slug . '-' . time() . '.' . $image->getClientOriginalExtension();
+            $destinationPath = public_path('images/blogs');
+            $image->move($destinationPath, $filename);
+            $article->image = $filename;
         }
 
         if ($article->save()) {
@@ -119,7 +122,7 @@ class BlogController extends Controller
 
         $validator = Validator::make($request->all(), [
             'title' => 'required|string|max:255',
-            'body' => 'required',
+            'body'  => 'required|max:1600',
             'image' => 'sometimes|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
@@ -129,7 +132,7 @@ class BlogController extends Controller
 
         if ($request->hasFile('image')) {
             $image = $request->file('image');
-            $filename = time() . '.' . $image->getClientOriginalExtension();
+            $filename = $article->slug . '-' . time() . '.' . $image->getClientOriginalExtension();
             $destinationPath = public_path('images/blogs');
             $image->move($destinationPath, $filename);
             $article->image = $filename;

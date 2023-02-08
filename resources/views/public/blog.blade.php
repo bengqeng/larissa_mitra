@@ -20,9 +20,9 @@
 				<div class="entry col-lg-3 col-md-4 col-sm-6 col-12" style="position: absolute; left: 0%; top: 0px;">
 					<div class="grid-inner">
 						<div class="entry-image">
-							<a href="{{	(!empty($item->image) && file_exists(public_path('storage/'.$item->image))) ? asset('storage/'.$item->image) : asset('vendor/public/images/larissa/larissa-logo-green-300.png')}}"
+							<a href="{{	(!empty($item->image) && file_exists(public_path('images/blogs/'.$item->image))) ? asset('images/blogs/'.$item->image) : asset('vendor/public/images/larissa/larissa-logo-green-300.png')}}"
 								data-lightbox="image"><img
-									src="{{	(!empty($item->image) && file_exists(public_path('storage/'.$item->image))) ? asset('storage/'.$item->image) : asset('vendor/public/images/larissa/larissa-logo-green-300.png')}}"
+									src="{{	(!empty($item->image) && file_exists(public_path('images/blogs/'.$item->image))) ? asset('images/blogs/'.$item->image) : asset('vendor/public/images/larissa/larissa-logo-green-300.png')}}"
 									alt="{{ $item->title }}"></a>
 						</div>
 						<div class="entry-title">

@@ -537,7 +537,9 @@
                 <div class="col-md-4">
                     <article class="entry">
                         <div class="entry-title title-xs nott">
-                            <h3><a href="#">{{$item->title}}</a></h3>
+                            <h3><a
+                                    href="{{route('public.blog.show', ['show' => $item->slug])}}">{{$item->title}}">{{$item->title}}</a>
+                            </h3>
                         </div>
                         <div class="entry-content">
                             {!! mb_substr($item->body, 0, 100) !!}...
@@ -582,7 +584,7 @@
                 </div>
             </div>
         </div>
-        <img src="{{asset('vendor/public/images/larissa/gedung_/contact.png')}}" alt="Footer Image" class="footer-img">
+        <img src="{{asset('vendor/public/images/larissa/gedung/contact.png')}}" alt="Footer Image" class="footer-img">
     </div>
 </div>
 <div class="promo promo-dark bg-color promo-full p-4 p-md-5 mb-5">

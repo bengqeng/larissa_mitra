@@ -39,11 +39,12 @@
 
 					<div class="entry-image bottommargin">
 						<a href="#"><img class="img-fluid" style="width:100%; max-width: 300px"
-								src="{{	(!empty($item->image) && file_exists(public_path('storage/'.$item->image))) ? asset('storage/'.$item->image) : asset('vendor/public/images/larissa/larissa-logo-green-300.png')}}"
+								src="{{	(!empty($article->image) && file_exists(public_path('images/blogs/'.$article->image))) ? asset('images/blogs/'.$article->image) : asset('vendor/public/images/larissa/larissa-logo-green-300.png')}}"
 								alt="{{$article->title}}"></a>
 					</div>
 
 					<div class="entry-content mt-0">
+						{{public_path('images/blogs/'.$article->image)}}
 						{!!$article->body!!}
 						<div class="clear"></div>
 
@@ -83,7 +84,7 @@
 								<div class="entry-image">
 									<a href="{{route('public.blog.show', ['show' => $item->slug])}}"><img
 											style="width:100%; max-width: 150px"
-											src="{{	(!empty($item->image) && file_exists(public_path('storage/'.$item->image))) ? asset('storage/'.$item->image) : asset('vendor/public/images/larissa/larissa-logo-green-300.png')}}"
+											src="{{	(!empty($item->image) && file_exists(public_path('images/blogs/'.$item->image))) ? asset('images/blogs/'.$item->image) : asset('vendor/public/images/larissa/larissa-logo-green-300.png')}}"
 											alt="Blog Single"></a>
 								</div>
 							</div>

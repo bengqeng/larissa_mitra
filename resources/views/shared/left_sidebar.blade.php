@@ -36,9 +36,9 @@
                 }}</sup>
             @endif
         </a>
-        <div id="collapseTwo" class="collapse {{ (request()->is('admin/dashboard/mitra*')) ? 'show' : '' }}"
-            aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">Mitra Components:</h6>
                 <a class="collapse-item {{ (request()->is('admin/dashboard/mitra/potential*')) ? 'active' : '' }}"
                     href="{{ route('admin.potential_mitra.index') }}">Pending Request
                     @if (App\Models\Mitra::with('user')->PendingMitra()->count() > 0)
@@ -59,9 +59,9 @@
             <i class="far fa-file-alt"></i>
             <span>Subscriber</span>
         </a>
-        <div id="collapseThree" class="collapse {{ (request()->is('admin/dashboard/subscriber*')) ? 'show' : '' }}"
-            aria-labelledby="headingThree" data-parent="#accordionSidebar">
+        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">Subscriber:</h6>
                 <a class="collapse-item {{ (request()->is('admin/dashboard/subscriber')) ? 'active' : '' }}"
                     href="{{ route('admin.subscriber.index') }}">List</a>
             </div>
@@ -73,9 +73,9 @@
             <i class="far fa-file-alt"></i>
             <span>News Letter</span>
         </a>
-        <div id="collapsefive" class="collapse {{ (request()->is('admin/dashboard/news_letter*')) ? 'show' : '' }}"
-            aria-labelledby="headingfive" data-parent="#accordionSidebar">
+        <div id="collapsefive" class="collapse" aria-labelledby="headingfive" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">News Letter:</h6>
                 <a class="collapse-item {{ (request()->is('admin/dashboard/news_letter')) ? 'active' : '' }}"
                     href="{{ route('admin.news_letter.index') }}">List</a>
             </div>
@@ -87,10 +87,9 @@
             <i class="far fa-file-alt"></i>
             <span>User</span>
         </a>
-        <div id="collapsefour" class="collapse {{ (request()->is('admin/dashboard/users*')) ? 'show' : '' }}"
-            aria-labelledby="headingThree" data-parent="#accordionSidebar">
+        <div id="collapsefour" class="collapse" aria-labelledby="headingThree" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <!-- <h6 class="collapse-header">Custom Components:</h6> -->
+                <h6 class="collapse-header">User Components:</h6>
                 <a class="collapse-item {{ (request()->is('admin/dashboard/users')) ? 'active' : '' }}"
                     href="{{route('admin.users.index')}}">List</a>
             </div>
@@ -113,7 +112,7 @@
         </a>
         <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <!-- <h6 class="collapse-header">Custom Components:</h6> -->
+                <h6 class="collapse-header">CMS Components:</h6>
                 <a class="collapse-item" href="#">Profile Web</a>
                 <a class="collapse-item" href="{{route('admin.blogs.index')}}">Blog</a>
             </div>
