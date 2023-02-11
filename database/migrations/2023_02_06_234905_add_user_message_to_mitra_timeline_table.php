@@ -14,7 +14,7 @@ class AddUserMessageToMitraTimelineTable extends Migration
     public function up()
     {
         Schema::table('mitra_timeline', function (Blueprint $table) {
-            $table->text('user_messages');
+            $table->text('user_messages')->nullable();
         });
     }
 
