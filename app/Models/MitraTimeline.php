@@ -25,8 +25,8 @@ class MitraTimeline extends Model
         'step_id' => 'string',
     ];
     protected $table = 'mitra_timeline';
-    protected $fillable = [ 'mitra_id', 'step_id', 'pending_message', 'success_message', 'status', 'order' ];
-    public const STATUSMITRATIMELINE = [ 'pending', 'success'];
+    protected $fillable = ['mitra_id', 'step_id', 'pending_message', 'success_message', 'status', 'order', 'user_messages'];
+    public const STATUSMITRATIMELINE = ['pending', 'success'];
 
     public function mitra()
     {

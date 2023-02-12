@@ -224,9 +224,9 @@
     <script src="{{ asset('vendor/tinymce/tinymce.min.js') }}" referrerpolicy="origin"></script>
     <script>
         tinymce.init({
-         selector: 'textarea.content', // Replace this CSS selector to match the placeholder element for TinyMCE
-         plugins: 'link anchor',
-         toolbar: "code insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image",
+            selector: 'textarea.content', // Replace this CSS selector to match the placeholder element for TinyMCE
+            plugins: 'link anchor | linkchecker autolink lists checklist',
+            toolbar: "code undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | numlist bullist outdent indent | link image",
        });
     </script>
     @endsection

@@ -39,6 +39,7 @@
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
+                    @include('shared.alert')
                     @yield('content')
                 </div>
                 <!-- /.container-fluid -->

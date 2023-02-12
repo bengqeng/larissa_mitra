@@ -64,11 +64,29 @@
                                         aria-expanded="false" aria-controls="collapse-{{$item->id}}">Lihat
                                     </a></span>
                                 <div class="collapse" id="collapse-{{$item->id}}">
-                                    <div class="card card-body">
+                                    <div class="card d-flex flex-column card-body">
                                         @if ($item->status == 'pending')
-                                        {!!$item->pending_message!!}
+                                        <small>Larissa:</small>
+                                        <span class="ml-3">{!!$item->pending_message!!}</span>
+                                        <small class="">{{Auth::user()->full_name}}:</small>
+                                        <span class="ml-3">
+                                            @isset($item->user_messages)
+                                            {!!$item->user_messages!!}
+                                            @endisset
+                                        </span>
+                                        <form
+                                            action="{{ route('user.mitra_timeline.update', ['mitra' => $item->id, 'timeline' => $item->step_id]) }}"
+                                            method="POST">
+                                            @method('PUT')
+                                            @csrf
+                                            <textarea name="user_messages" id="user_messages" cols="30" rows="10"
+                                                class="form-control mb-3 user-message">
+
+                                            </textarea>
+                                            <button class="btn btn-sm btn-primary mt-3 float-end">Simpan</button>
+                                        </form>
                                         @else
-                                        {!!$item->success_message!!}
+                                        <span class="ml-3">{!!$item->success_message!!}</span>
                                         @endif
                                     </div>
                                 </div>
@@ -86,6 +104,14 @@
     </div>
 </div>
 
+<script src="{{ asset('vendor/tinymce/tinymce.min.js') }}" referrerpolicy="origin"></script>
+<script>
+    tinymce.init({
+        selector: 'textarea.user-message',
+        plugins: 'link anchor | linkchecker autolink lists checklist',
+        toolbar: "code undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | numlist bullist outdent indent | link image",
+       });
+</script>
 
 <!-- /.container-fluid -->
 @endsection
