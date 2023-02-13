@@ -140,6 +140,11 @@
                                         data-target="#profile-{{$timeline->order}}" type="button" role="tab"
                                         aria-controls="profile" aria-selected="false">Accept</button>
                                 </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link p-2" id="mitra-tab-{{$timeline->order}}" data-toggle="tab"
+                                        data-target="#mitra-{{$timeline->order}}" type="button" role="tab"
+                                        aria-controls="mitra" aria-selected="false">Mitra</button>
+                                </li>
                             </ul>
                             <div class="tab-content border border-top-0 mb-2 p-3 rounded-bottom" id="myTabContent">
                                 <div class="tab-pane fade {{ ($timeline->status == 'pending' || $timeline->status == null) ? 'active show' : '' }}"
@@ -161,6 +166,13 @@
                                         <textarea class="form-control border-0 content" name="success_message"
                                             id="success-{{$timeline->order}}" rows="3"
                                             placeholder="Catatan Success">{{ $timeline->success_message }}</textarea>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="mitra-{{$timeline->order}}" role="tabpanel"
+                                    aria-labelledby="mitra-tab-{{$timeline->order}}">
+                                    <div class="form-group my-2">
+                                        <label for="success-{{$timeline->order}}" class="sr-only">Catatan Mitra</label>
+                                        <span>{!!$timeline->user_messages!!}</span>
                                     </div>
                                 </div>
                             </div>
