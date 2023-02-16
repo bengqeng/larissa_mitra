@@ -24,7 +24,7 @@ class UserUpdateMitraTimeline extends FormRequest
     public function rules()
     {
         $rule = [
-            'user_messages' => ['max:255']
+            'user_messages' => ['min:5', 'max:1000']
         ];
         return $rule;
     }

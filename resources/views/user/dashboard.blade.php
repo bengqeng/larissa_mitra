@@ -20,14 +20,14 @@
                     </div>
                 </div>
                 <div class="row">
-                    {{-- {{dd($gerai)}} --}}
+                    @empty($timeline1->status)
                     @if ($gerai->status == 'in_progress')
                     <div class="col-12 mb-4">
                         <div class="card bg-success text-white shadow">
                             <div class="card-body">
-                                Pengajuan Anda berhasil!
-                                <div class="text-white small">Silahkan lihat status pengajuan gerai pada link
-                                    berikut <a class="text-white"
+                                Proses Pengajuan Anda disetujui!
+                                <div class="text-white small">Silakan cek status proses kemitraan pada link berikut ini
+                                    <a class="text-white"
                                         href="{{route('user.gerai.show', ['show' => $gerai->id])}}">Status Pengajuan</a>
                                 </div>
                             </div>
@@ -43,6 +43,8 @@
                         </div>
                     </div>
                     @endif
+                    @endempty
+
                 </div>
             </div>
         </div>

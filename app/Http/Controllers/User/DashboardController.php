@@ -16,19 +16,17 @@ class DashboardController extends Controller
     public function index()
     {
         $gerai = User::with('mitras.timeline')->find(Auth::id());
+        // dd($gerai->mitras->first->timeline->timeline->get(0));
         return view('user.dashboard', [
-            'gerai' => $gerai->mitras->first()
+            'timeline0' => $gerai->mitras->first->timeline->timeline->get(0),
+            'timeline1' => $gerai->mitras->first->timeline->timeline->get(1),
+            'gerai' => $gerai->mitras->first(),
         ]);
     }
 
     public function gerai()
     {
         $gerai = User::with('mitras.timeline')->find(Auth::id());
-        // if ($gerai->mitras->first()->status == 'pending') {
-        //     $data = [];
-        // } else {
-        //     $data = $gerai->mitras;
-        // }
         return view('user.gerai', [
             'gerai' => $gerai,
         ]);

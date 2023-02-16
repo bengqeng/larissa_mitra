@@ -94,14 +94,14 @@
             <div class="col-md-9">
                 <div class="card shadow mb-4" id="step">
                     <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                        <h6 class="m-0 font-weight-bold text-primary">{{ $timeline->stepName() }}</h6>
+                        <h6 class="m-0 font-weight-bold text-dark">{{ $timeline->stepName() }}</h6>
                         <div class="dropdown no-arrow">
                             @if($timeline->status == 'success')
-                            <span class="badge badge-success" data-id="1">success</span>
+                            <span class="badge badge-success">success</span>
                             @elseif($timeline->status == 'pending')
-                            <span class="badge badge-warning" data-id="1">pending</span>
+                            <span class="badge badge-warning">pending</span>
                             @else
-                            <span class="badge" data-id="1">no status</span>
+                            <span class="badge badge-info">no status</span>
                             @endif
                             <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -110,10 +110,12 @@
                             <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
                                 aria-labelledby="dropdownMenuLink" style="">
                                 <div class="dropdown-header">Set status:</div>
-                                <button class="dropdown-item set-status" data-id="1">
+                                <button class="dropdown-item set-status" data-id="1" data-toggle="tab"
+                                    data-target="#home-{{$timeline->order}}" type="button">
                                     Pending
                                 </button>
-                                <button data-id="2" class="dropdown-item set-status">
+                                <button data-id="2" class="dropdown-item set-status" data-toggle="tab"
+                                    data-target="#profile-{{$timeline->order}}" type="button">
                                     Success
                                 </button>
                             </div>
@@ -126,60 +128,63 @@
                         @method('PUT')
                         @csrf
                         <div class="card-body">
-                            <ul class="nav nav-tabs" id="myTab" role="tablist">
-                                <li class="nav-item" role="presentation">
-                                    <button
-                                        class="nav-link p-2 {{ ($timeline->status == 'pending' || $timeline->status == null ) ? 'active' : '' }}"
-                                        id="home-tab-{{$timeline->order}}" data-toggle="tab"
-                                        data-target="#home-{{$timeline->order}}" type="button" role="tab"
-                                        aria-controls="home" aria-selected="true">Pending</button>
-                                </li>
-                                <li class="nav-item" role="presentation">
-                                    <button class="nav-link p-2 {{ $timeline->status == 'success' ? 'active' : '' }}"
-                                        id="profile-tab-{{$timeline->order}}" data-toggle="tab"
-                                        data-target="#profile-{{$timeline->order}}" type="button" role="tab"
-                                        aria-controls="profile" aria-selected="false">Accept</button>
-                                </li>
-                                <li class="nav-item" role="presentation">
-                                    <button class="nav-link p-2" id="mitra-tab-{{$timeline->order}}" data-toggle="tab"
-                                        data-target="#mitra-{{$timeline->order}}" type="button" role="tab"
-                                        aria-controls="mitra" aria-selected="false">Mitra</button>
-                                </li>
-                            </ul>
-                            <div class="tab-content border border-top-0 mb-2 p-3 rounded-bottom" id="myTabContent">
+                            <div class="tab-content mb-2 p-3 rounded-bottom" id="myTabContent">
                                 <div class="tab-pane fade {{ ($timeline->status == 'pending' || $timeline->status == null) ? 'active show' : '' }}"
                                     id="home-{{$timeline->order}}" role="tabpanel"
                                     aria-labelledby="home-tab-{{$timeline->order}}">
+                                    @isset($timeline->status)
+                                    <span class="badge badge-warning">pending
+                                        message</span>
+                                    @endisset
                                     <div class="form-group my-2">
                                         <label for="pending-{{$timeline->order}}" class="sr-only">Catatan
                                             Pending</label>
                                         <textarea class="form-control border-0 content"
-                                            id="pending-{{$timeline->order}}" name="pending_message" rows="3"
+                                            id="pending-{{$timeline->order}}" name="pending_message" rows="1"
                                             placeholder="Catatan Pending.">{{ $timeline->pending_message }}</textarea>
                                     </div>
                                 </div>
                                 <div class="tab-pane fade {{ $timeline->status == 'success' ? 'active show' : '' }}"
                                     id="profile-{{$timeline->order}}" role="tabpanel"
                                     aria-labelledby="profile-tab-{{$timeline->order}}">
+                                    <span class="badge badge-success">success
+                                        message</span>
                                     <div class="form-group my-2">
                                         <label for="success-{{$timeline->order}}" class="sr-only">Catatan Accept</label>
                                         <textarea class="form-control border-0 content" name="success_message"
-                                            id="success-{{$timeline->order}}" rows="3"
+                                            id="success-{{$timeline->order}}" rows="1"
                                             placeholder="Catatan Success">{{ $timeline->success_message }}</textarea>
                                     </div>
                                 </div>
-                                <div class="tab-pane fade" id="mitra-{{$timeline->order}}" role="tabpanel"
-                                    aria-labelledby="mitra-tab-{{$timeline->order}}">
-                                    <div class="form-group my-2">
-                                        <label for="success-{{$timeline->order}}" class="sr-only">Catatan Mitra</label>
-                                        <span>{!!$timeline->user_messages!!}</span>
-                                    </div>
-                                </div>
+                                <button type="submit" class="btn btn-outline-secondary float-right">Simpan</button>
                             </div>
-                            <button type="submit"
-                                class="btn btn-sm btn-outline-secondary float-right mb-3">Simpan</button>
                         </div>
                     </form>
+                    @isset($timeline->user_messages)
+                    <div class="card-body">
+                        <div class="p-3">
+                            <hr>
+                            <a class="btn btn-sm text-bg-light mb-3 position-relative" data-bs-toggle="collapse"
+                                data-bs-target="#collapseMitraReply" role="button">
+                                Mitra's reply
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-chevron-compact-down" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd"
+                                        d="M1.553 6.776a.5.5 0 0 1 .67-.223L8 9.44l5.776-2.888a.5.5 0 1 1 .448.894l-6 3a.5.5 0 0 1-.448 0l-6-3a.5.5 0 0 1-.223-.67z" />
+                                </svg>
+                            </a>
+                            <div class="collapse" id="collapseMitraReply">
+                                <div class="card card-body bg-light">
+                                    {!!$timeline->user_messages!!}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    @else
+                    <div class="p-3">
+                        Note: Mitra hanya dapat membalas pesan jika status pending.
+                    </div>
+                    @endisset
                 </div>
             </div>
         </div>
@@ -223,6 +228,7 @@
                 badge.addClass('badge-warning');
                 selectSuccess.removeClass('disabled');
                 selectPending.addClass('disabled');
+                selectSuccess.removeClass('active');
             } else {
                 $(this).parents('div#step').find("input[type=hidden][name=status]").val('success');
                 badge.html('success');
@@ -230,15 +236,19 @@
                 badge.addClass('badge-success');
                 selectSuccess.addClass('disabled');
                 selectPending.removeClass('disabled');
+                selectPending.removeClass('active');
             }
         })
     </script>
     <script src="{{ asset('vendor/tinymce/tinymce.min.js') }}" referrerpolicy="origin"></script>
     <script>
         tinymce.init({
+            height: 300,
             selector: 'textarea.content', // Replace this CSS selector to match the placeholder element for TinyMCE
             plugins: 'link anchor | linkchecker autolink lists checklist',
             toolbar: "code undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | numlist bullist outdent indent | link image",
+            menubar:false,
+            statusbar: false,
        });
     </script>
     @endsection

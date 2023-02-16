@@ -3,7 +3,6 @@
 @section('content')
 
 <!-- Begin Page Content -->
-
 <!-- Content Row -->
 <div class="container-fluid">
     <h1 class="h3 mb-4 text-gray-800">Status Pengajuan</h1>
@@ -66,27 +65,57 @@
                                 <div class="collapse" id="collapse-{{$item->id}}">
                                     <div class="card d-flex flex-column card-body">
                                         @if ($item->status == 'pending')
-                                        <small>Larissa:</small>
-                                        <span class="ml-3">{!!$item->pending_message!!}</span>
-                                        <small class="">{{Auth::user()->full_name}}:</small>
-                                        <span class="ml-3">
-                                            @isset($item->user_messages)
-                                            {!!$item->user_messages!!}
-                                            @endisset
-                                        </span>
+                                        <div class="message-feed left mb-5">
+                                            <div class="pull-left">
+                                                Larissa:
+                                            </div>
+                                            <div class="media-body">
+                                                <div class="mf-content">
+                                                    {!!$item->pending_message!!}
+                                                </div>
+                                            </div>
+                                        </div>
+                                        @isset($item->user_messages)
+                                        <div class="message-feed right">
+                                            <div class="pull-right">
+                                                {{Auth::user()->full_name}}
+                                            </div>
+                                            <div class="media-body">
+                                                <div class="mf-content">
+                                                    {!!$item->user_messages!!}
+                                                </div>
+                                            </div>
+                                        </div>
+                                        @endisset
                                         <form
                                             action="{{ route('user.mitra_timeline.update', ['mitra' => $item->id, 'timeline' => $item->step_id]) }}"
                                             method="POST">
                                             @method('PUT')
                                             @csrf
-                                            <textarea name="user_messages" id="user_messages" cols="30" rows="10"
-                                                class="form-control mb-3 user-message">
-
-                                            </textarea>
-                                            <button class="btn btn-sm btn-primary mt-3 float-end">Simpan</button>
+                                            <div class="msb-reply">
+                                                <textarea name="user_messages" id="user_messages" class="user-message"
+                                                    placeholder="Isi di sini..."></textarea>
+                                            </div>
+                                            <button class="btn btn-light mt-3 float-end">
+                                                Simpan
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13"
+                                                    fill="currentColor" class="bi bi-save" viewBox="0 0 16 16">
+                                                    <path
+                                                        d="M2 1a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H9.5a1 1 0 0 0-1 1v7.293l2.646-2.647a.5.5 0 0 1 .708.708l-3.5 3.5a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L7.5 9.293V2a2 2 0 0 1 2-2H14a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h2.5a.5.5 0 0 1 0 1H2z" />
+                                                </svg>
+                                            </button>
                                         </form>
                                         @else
-                                        <span class="ml-3">{!!$item->success_message!!}</span>
+                                        <div class="message-feed left">
+                                            <div class="pull-left">
+                                                Larissa:
+                                            </div>
+                                            <div class="media-body">
+                                                <div class="mf-content">
+                                                    {!!$item->success_message!!}
+                                                </div>
+                                            </div>
+                                        </div>
                                         @endif
                                     </div>
                                 </div>
@@ -108,8 +137,11 @@
 <script>
     tinymce.init({
         selector: 'textarea.user-message',
+        height: 200,
         plugins: 'link anchor | linkchecker autolink lists checklist',
         toolbar: "code undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | numlist bullist outdent indent | link image",
+        menubar:false,
+        statusbar: false,
        });
 </script>
 
