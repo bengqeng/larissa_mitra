@@ -17,7 +17,7 @@
         <div class="col-12 mb-4">
             <div class="card border-bottom-success shadow h-100">
                 <div class="card-body">
-                    <form role="form" name="register-form" class="" action="{{ route('join.mitra.store') }}"
+                    <form role="form" name="register-form" class="" action="{{ route('user.join.gerai') }}"
                         method="POST">
                         @csrf
                         <div class="form-group">
@@ -70,7 +70,5 @@
         </div>
     </div>
 </div>
-
-
 
 @endsection

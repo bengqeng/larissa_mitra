@@ -41,10 +41,8 @@ class PublicJoinMitraService
         if ($user === null) {
             $user = $this->createUser(Arr::only($this->data, ['full_name', 'email', 'password', 'phone_number', 'address']));
         } else {
-            if ($user->mitras()->Activemitra()->count() > 0) {
-                $can = false;
-                $message = 'Email yang Anda masukkan telah terdaftar';
-            }
+            $can = false;
+            $message = 'Silahkan tambah gerai melalui dashboard anda';
         }
 
         if ($can && $user->verified == false) {

@@ -3,11 +3,12 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\User\JoinGeraiRequest;
 use App\Http\Requests\UserUpdateMitraTimeline;
 use App\Models\Mitra;
 use App\Models\MitraTimeline;
 use App\Models\User;
-use App\Services\MitraTimelineService;
+use App\Services\User\JoinMitraService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -62,6 +63,20 @@ class DashboardController extends Controller
             flash()->success('Berhasil Update Data');
         } else {
             flash()->danger('Gagal Update Data');
+        }
+
+        return redirect()->back();
+    }
+
+    public function join_gerai(JoinGeraiRequest $request)
+    {
+        $initJoin = new JoinMitraService($request->validated(), auth()->user());
+        $result = $initJoin->call();
+
+        if ($result['success']) {
+            flash()->success('Anda berhasil registrasi mitra baru!');
+        } else {
+            flash()->danger($result['message']);
         }
 
         return redirect()->back();
