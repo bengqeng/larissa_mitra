@@ -8,7 +8,7 @@
     <h1 class="h3 mb-4 text-gray-800">Status Pengajuan</h1>
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="{{route('user.gerai')}}">Gerai</a></li>
+            <li class="breadcrumb-item"><a href="{{route('user.dashboard')}}">Dashboard</a></li>
             <li class="breadcrumb-item active" aria-current="page">{{$gerai->mitras[0]->mitra_name}}</li>
         </ol>
     </nav>

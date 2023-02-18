@@ -20,7 +20,8 @@ class DashboardController extends Controller
         return view('user.dashboard', [
             'timeline0' => $gerai->mitras->first->timeline->timeline->get(0),
             'timeline1' => $gerai->mitras->first->timeline->timeline->get(1),
-            'gerai' => $gerai->mitras->first(),
+            'gerais' => $gerai->mitras->first(),
+            'gerai' => $gerai,
         ]);
     }
 
@@ -29,6 +30,13 @@ class DashboardController extends Controller
         $gerai = User::with('mitras.timeline')->find(Auth::id());
         return view('user.gerai', [
             'gerai' => $gerai,
+        ]);
+    }
+
+    public function add_gerai()
+    {
+        return view('user.add_gerai', [
+            'typeMitra' => $this->listMitra()
         ]);
     }
 

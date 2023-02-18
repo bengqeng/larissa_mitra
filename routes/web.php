@@ -43,6 +43,7 @@ Route::view('/tipe-store', 'public.tipe-store');
 Route::group(['prefix' => 'user',  'middleware' => ['auth', 'registereduser']], function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('user.dashboard');
     Route::get('/gerai', [DashboardController::class, 'gerai'])->name('user.gerai');
+    Route::get('/add_gerai', [DashboardController::class, 'add_gerai'])->name('user.add_gerai');
     Route::get('/gerai/show/{show}', [DashboardController::class, 'gerai_show'])->name('user.gerai.show');
     Route::put('/{mitra}/timeline/{timeline}', [DashboardController::class, 'update_message'])->name('user.mitra_timeline.update');
 });

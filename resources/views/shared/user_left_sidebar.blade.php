@@ -19,17 +19,13 @@
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard</span></a>
     </li>
-
-    <!-- Divider -->
-    <hr class="sidebar-divider">
-
-    <!-- Heading -->
-    <div class="sidebar-heading">
-        Layanan
-    </div>
-
+    <li class="nav-item {{ (request()->is('user/add_gerai')) ? 'active' : '' }}">
+        <a class="nav-link" href="{{ route('user.add_gerai') }}">
+            <i class="fas fa-fw fa-plus-circle"></i>
+            <span>Tambah Gerai</span></a>
+    </li>
     <!-- Nav Item - Pages Collapse Menu -->
-    <li class="nav-item {{ (request()->is('user/gerai')) ? 'active' : '' }}">
+    {{-- <li class="nav-item {{ (request()->is('user/gerai')) ? 'active' : '' }}">
         <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true"
             aria-controls="collapseTwo">
             <i class="far fa-file-alt"></i>
@@ -44,30 +40,10 @@
                 <a class="collapse-item" href="#">Tambah Gerai</a>
             </div>
         </div>
-    </li>
+    </li> --}}
 
     <!-- Divider -->
     <hr class="sidebar-divider">
-
-    <!-- Heading -->
-    {{-- <div class="sidebar-heading">
-        Other
-    </div>
-
-    <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true"
-            aria-controls="collapseThree">
-            <i class="far fa-file-alt"></i>
-            <span>Other</span>
-        </a>
-        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-                <!-- <h6 class="collapse-header">Custom Components:</h6> -->
-                <a class="collapse-item" href="#">Status Other</a>
-                <a class="collapse-item" href="#">Tambah Other</a>
-            </div>
-        </div>
-    </li> --}}
 
     <!-- Divider -->
     <hr class="sidebar-divider">
