@@ -47,7 +47,7 @@ class PublicJoinMitraService
             }
         }
 
-        if ($can) {
+        if ($can && $user->verified == false) {
             try {
                 Mail::to($user->email)->send(new VerifyMail($user, $this->verifyToken($user)));
             } catch (Exception $e) {
