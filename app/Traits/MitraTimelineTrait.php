@@ -1,15 +1,17 @@
 <?php
+
 namespace App\Traits;
 
 use App\Models\MitraTimeline;
 
-trait MitraTimelineTrait {
-    public function defineTimelineMitra()
+trait MitraTimelineTrait
+{
+    public static function defineTimelineMitra()
     {
         return MitraTimeline::MITRATIMELINE;
     }
 
-    public function validMitraTimeline($value)
+    public static function validMitraTimeline($value)
     {
         return isset(MitraTimelineTrait::defineTimelineMitra()[(int)$value]);
     }

@@ -44,6 +44,7 @@ Route::group(['prefix' => 'user',  'middleware' => ['auth', 'registereduser']], 
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('user.dashboard');
     Route::get('/gerai', [DashboardController::class, 'gerai'])->name('user.gerai');
     Route::get('/gerai/show/{show}', [DashboardController::class, 'gerai_show'])->name('user.gerai.show');
+    Route::put('/{mitra}/timeline/{timeline}', [DashboardController::class, 'update_message'])->name('user.mitra_timeline.update');
 });
 
 Route::prefix('mitra')->group(function () {

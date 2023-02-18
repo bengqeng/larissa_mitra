@@ -4,6 +4,13 @@
 <div class="content-wrap pt-3 pb-0">
     <div class="section bg-transparent py-2">
         <div class="container">
+            @if (session('subscribe'))
+            <div class="style-msg successmsg">
+                <div class="sb-msg"><i class="icon-thumbs-up"></i><strong>Terima kasih!</strong>
+                    {{ session('subscribe') }}
+                </div>
+            </div>
+            @endif
             <div class="row">
                 <div class="col-md-7">
                     <h2 class="display-4 fw-semibold ls--2">Pilihan mitra kerja sama <span class="text-rotater"
@@ -601,4 +608,33 @@
         </div>
     </div>
 </div>
+
+
+<!-- Modal -->
+@if (!session('subscriber'))
+<div class="modal-on-load" data-target="#myModal1"></div>
+
+<div class="modal1" id="myModal1">
+    <div class="block dark mx-auto"
+        style="background: url('{{asset('vendor/public/images/larissa/gedung_/tegalismail1.webp')}}') no-repeat;box-shadow: inset 0 0 0 2000px rgba(0, 0, 0, 0.5); background-size: cover; max-width: 700px;"
+        data-height-xl="400">
+        <div style="padding: 50px;">
+            <div class="heading-block border-bottom-0 bottommargin-sm" style="max-width:500px;">
+                <h3>Newsletter Subscribe</h3>
+                <span>Dapatkan Update &amp; Penawaran terbaru</span>
+            </div>
+            <div class="widget-subscribe-form-result"></div>
+            <form action="{{ route('public.news_letter.store') }}" method="post" style="max-width: 350px;">
+                @csrf
+                <input type="email" name="email" class="form-control form-control-lg not-dark required email"
+                    placeholder="Masukkan Email Anda">
+                <button class="button button-rounded button-border button-light ms-0" type="submit"
+                    style="margin-top:15px;">Subscribe</button>
+            </form>
+            <p class="mb-0"><small><em>*We hate Spam &amp; Junk Emails.</em></small></p>
+        </div>
+    </div>
+</div>
+@endif
+
 @endsection

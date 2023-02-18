@@ -22,11 +22,11 @@ class MitraTimelineService
     public function createTimeLine()
     {
         $attribute = [];
-        foreach ($this->modelMitraTimeline::MITRATIMELINE as $order => $value){
+        foreach ($this->modelMitraTimeline::MITRATIMELINE as $order => $value) {
             array_push($attribute, [
                 'step_id' => $order,
                 'mitra_id' => $this->mitra->id,
-                'status' => ($order == 1 ? 'success' : null),
+                'status' => ($order == 1 ? 'pending' : null),
                 'order' => $order
             ]);
         }
@@ -36,10 +36,14 @@ class MitraTimelineService
 
     public function updateStatusTimeline($timeline, $attribute)
     {
-        if (!(MitraTimelineTrait::validMitraTimeline((int)$timeline))) { return false; }
+        if (!(MitraTimelineTrait::validMitraTimeline((int)$timeline))) {
+            return false;
+        }
 
         $mitraTimeline = MitraTimeline::where('step_id', $timeline)->where('mitra_id', $this->mitra->id)->first();
-        if ($mitraTimeline->count() == 0) { return false; }
+        if ($mitraTimeline->count() == 0) {
+            return false;
+        }
 
         if ($mitraTimeline->update($attribute)) {
             $this->updateMitraStatus();
@@ -49,9 +53,10 @@ class MitraTimelineService
         return false;
     }
 
-    private function updateMitraStatus(){
+    private function updateMitraStatus()
+    {
         $timeLineStatus = array_unique($this->mitra->timeline()->get()->pluck('status')->toArray());
-        $status = (count(array_diff($timeLineStatus, ['success'])) > 0 ) ? 'in_progress' : 'success';
+        $status = (count(array_diff($timeLineStatus, ['success'])) > 0) ? 'in_progress' : 'success';
         $this->mitra->update(['status' => $status]);
     }
 }

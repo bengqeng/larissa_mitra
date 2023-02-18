@@ -2,10 +2,9 @@
 
 namespace App\Http\Requests;
 
-use App\Rules\MitraTimelineStatus;
 use Illuminate\Foundation\Http\FormRequest;
 
-class AdminUpdateMitraTimeline extends FormRequest
+class UserUpdateMitraTimeline extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,13 +24,8 @@ class AdminUpdateMitraTimeline extends FormRequest
     public function rules()
     {
         $rule = [
-            'status' => [],
-            'pending_message' => ['max:1000'],
-            'success_message' => ['max:1000']
+            'user_messages' => ['min:5', 'max:1000']
         ];
-        if (isset($this->status)) {
-            $rule['status'] = [new MitraTimelineStatus()];
-        }
         return $rule;
     }
 }
