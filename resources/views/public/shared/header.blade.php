@@ -39,9 +39,15 @@
 
                     <ul class="menu-container">
                         @auth
-                        <li class="menu-item zoomInUp animated"><a class="menu-link" href="{{route('user.dashboard')}}">
+                        @if (Auth::user()->is_admin == 1)
+                        <li class="menu-item bounce animated"><a class="menu-link" href="{{route('admin.dashboard')}}">
                                 <div> <i class="icon-dashboard"></i> Dashboard</div>
                             </a></li>
+                        @else
+                        <li class="menu-item bounce animated"><a class="menu-link" href="{{route('user.dashboard')}}">
+                                <div> <i class="icon-dashboard"></i> Dashboard</div>
+                            </a></li>
+                        @endif
                         @endauth
                         <li class="menu-item {{ (request()->is('/')) ? 'current' : '' }}"><a class="menu-link" href="/">
                                 <div>Home</div>
