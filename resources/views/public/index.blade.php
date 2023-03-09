@@ -130,16 +130,20 @@
                         <img src="{{asset('vendor/public/images/larissa/gedung_/klaten1.webp')}}" alt="Featured image 1"
                             class="card-img-top">
                         <div class="card-body">
-                            <h5 class="card-title fw-semibold color">Larrissa Aesthetic Center</h5>
-                            <p class="card-text">Some quick example text to build on the card title.</p>
+                            <h5 class="card-title fw-semibold color">Klinik Larissa Aesthetic Center</h5>
+                            <p class="card-text">Paket kemitraan yang bisa membuka pelayanan treatment Organic, Fruit
+                                sampai treatment Hi-Tech yang membutuhkan tenaga
+                                dokter serta dapat menjual produk produk Larissa.</p>
                         </div>
                     </div>
                     <div class="card shadow-sm border-light mt-4">
                         <img src="{{asset('vendor/public/images/larissa/gedung_/tegalismail3.webp')}}"
                             alt="Featured image 2" class="card-img-top">
                         <div class="card-body">
-                            <h5 class="card-title fw-semibold color">Salon Premium Larissa</h5>
-                            <p class="card-text">Some quick example text. similique reprehenderit ab voluptatibus eaque.
+                            <h5 class="card-title fw-semibold color">Larissa Nature</h5>
+                            <p class="card-text">Paket kemitraan yang fokus pada pelayanan treatment Organic, Fruit
+                                sampai Hi-Tech yang tidak memerlukan tindakan khusus
+                                oleh dokter.
                             </p>
                         </div>
                     </div>
@@ -149,10 +153,9 @@
                         <img src="{{asset('vendor/public/images/larissa/gedung_/galeria1.webp')}}"
                             alt="Featured image 3" class="card-img-top">
                         <div class="card-body">
-                            <h5 class="card-title fw-semibold color">Store (Organic Story)</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
-                                of the
-                                card's content.</p>
+                            <h5 class="card-title fw-semibold color">Toko Kosmetik Organic Story</h5>
+                            <p class="card-text">Paket kemitraan yang fokus pada penjualan produk Larissa yang sudah
+                                berlisensi BPOM, CPKB dan MUI.</p>
                         </div>
                     </div>
                 </div>
@@ -168,17 +171,37 @@
                             ============================================= -->
             <div class="col-lg-4 col-md-6 my-4">
                 <i class="icon-wifi-full color ms-0 mb-4 i-plain d-block float-none"></i>
-                <h4 class="mb-3">Pengalaman</h4>
+                <h4 class="mb-3">Berpengalaman 39 Tahun</h4>
                 <p class="text-muted">PT Larissa Karunia Sejahtera telah memiliki pengalaman untuk mengelola bisnis di
-                    bidang kecantikan selama puluhan tahun,
-                    dan sampai saat ini masih bertahan dan berkarya untuk masyarakat Indonesia</p>
+                    bidang kecantikan sejak 1984, dan
+                    sampai saat ini masih bertahan dan berkarya untuk masyarakat Indonesia</p>
             </div>
 
             <!-- Feature Box
                             ============================================= -->
             <div class="col-lg-4 col-md-6 my-4">
                 <i class="icon-line2-cup color ms-0 mb-3 i-plain d-block float-none"></i>
-                <h4 class="mb-3">Branding</h4>
+                <h4 class="mb-3">Dukungan Manajemen dan Tim Support</h4>
+                <p class="text-muted">Tim PT Larissa Karunia Sejahtera yang memiliki kemampuan dan pengalaman untuk
+                    memberikan pendampingan kepada Mitra untuk
+                    melakukan pengelolaan bisnis Larissa.</p>
+            </div>
+
+            <!-- Feature Box
+                            ============================================= -->
+            <div class="col-lg-4 col-md-6 my-4">
+                <i class="icon-line2-screen-desktop color ms-0 mb-3 i-plain d-block float-none"></i>
+                <h4 class="mb-3">Produk Aman & Bersertifikat</h4>
+                <p class="text-muted">Produk-produk sangat aman dan sudah bersertifikat CPKB (Cara Pembuatan Kosmetik
+                    yang Baik) dari BPOM, serta telah
+                    memiliki serififikat halal dari MUI.</p>
+            </div>
+
+            <!-- Feature Box
+                            ============================================= -->
+            <div class="col-lg-4 col-md-6 my-4">
+                <i class="icon-line2-lock color ms-0 mb-3 i-plain d-block float-none"></i>
+                <h4 class="mb-3">Brand yang sudah Terdaftar</h4>
                 <p class="text-muted">Merek Larissa Aesthetic Center, Merek Salon Premium by Larissa dan Merek Organic
                     Story telah terdaftar di Direktorat
                     Jenderal Kekayaan Intelektual.</p>
@@ -187,47 +210,21 @@
             <!-- Feature Box
                             ============================================= -->
             <div class="col-lg-4 col-md-6 my-4">
-                <i class="icon-line2-screen-desktop color ms-0 mb-3 i-plain d-block float-none"></i>
-                <h4 class="mb-3">Support</h4>
-                <p class="text-muted">Tim PT Larissa Karunia Sejahtera yang memiliki kemampuan dan pengalaman untuk
-                    memberikan pendampingan kepada Mitra untuk
-                    melakukan pengelolaan bisnis Larissa</p>
-            </div>
-
-            <!-- Feature Box
-                            ============================================= -->
-            <div class="col-lg-4 col-md-6 my-4">
-                <i class="icon-line2-lock color ms-0 mb-3 i-plain d-block float-none"></i>
-                <h4 class="mb-3">Dukungan Promosi</h4>
-                <p class="text-muted">Pembuatan konten, promosi baik online maupun offline secara terpusat dilakukan
-                    secara rutin. Apabila Mitra meminta
-                    dukungan/bantuan, PT Larissa Karunia Sejahtera dapat memberikan arahan, panduan dan pendampingan
-                    saat
-                    Mitra melakukan
-                    kegiatan promosi lokal. .</p>
-            </div>
-
-            <!-- Feature Box
-                            ============================================= -->
-            <div class="col-lg-4 col-md-6 my-4">
                 <i class="icon-line-bag color ms-0 mb-3 i-plain d-block float-none"></i>
-                <h4 class="mb-3">Produk</h4>
-                <p class="text-muted">Produk-produk yang digunakan dan dijual di Larissa, merupakan produk dengan
-                    kualitas
-                    tinggi dengan perpaduan bahan-bahan
-                    alami yang diproduksi oleh PT Larissa Anugerah Sejahtera dan PT Puji Anugerah Sejahtera.</p>
+                <h4 class="mb-3">Dukungan Promosi / Marketing</h4>
+                <p class="text-muted">Larissa memberikan dukungan arahan dan pendampingan dalam pembuatan konten,
+                    promosi baik online maupun offline secara
+                    terpusat dilakukan secara rutin.</p>
             </div>
 
             <!-- Feature Box
                                         ============================================= -->
             <div class="col-lg-4 col-md-6 my-4">
                 <i class="icon-line-bag color ms-0 mb-3 i-plain d-block float-none"></i>
-                <h4 class="mb-3">Produk</h4>
-                <p class="text-muted">Produk-produk yang digunakan dan dijual di Larissa, merupakan produk dengan
-                    kualitas
-                    tinggi
-                    dengan perpaduan bahan-bahan
-                    alami yang diproduksi oleh PT Larissa Anugerah Sejahtera dan PT Puji Anugerah Sejahtera.</p>
+                <h4 class="mb-3">Harga Terjangkau</h4>
+                <p class="text-muted">Harga layanan dan produk di Larissa sangat terjangkau bahkan untuk kalangan
+                    pelajar dan mahasiswa, sehingga Larissa
+                    dapat melayani segmen konsumen yang lebih luas.</p>
             </div>
 
         </div>
