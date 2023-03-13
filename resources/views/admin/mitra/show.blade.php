@@ -41,7 +41,7 @@
                         <td class="align-top font-weight-bold">{{ $mitra->type }}</td>
                     </tr>
                     <tr>
-                        <td class="align-top">Gerai Terdaftar</td>
+                        <td class="align-top">Tanggal Pengajuan</td>
                         <td class="text-center align-top" width="20px">:</td>
                         <td class="align-top font-weight-bold">{{ $mitra->created_at->format('d F Y') }}</td>
                     </tr>
