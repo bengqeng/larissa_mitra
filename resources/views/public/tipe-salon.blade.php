@@ -57,7 +57,7 @@
 			</div>
 		</div>
 		<div class="text-center .d-sm-none .d-md-block">
-			<a href="mitra-register.html" class="button button-desc text-center">
+			<a href="{{url('/mitra/join')}}" class="button button-desc text-center">
 				<div>Daftar Gerai</div><span>Salon Premium Larissa</span>
 			</a>
 		</div>
@@ -70,7 +70,8 @@
 					<span>Login di sini dan cek timeline kemitraan Anda</span>
 				</div>
 				<div class="col-12 col-lg-auto mt-4 mt-lg-0">
-					<a href="mitra-login.html" class="button button-border button-light button-rounded m-0">Login</a>
+					<a href="{{ route('public.login_form') }}"
+						class="button button-border button-light button-rounded m-0">Login</a>
 				</div>
 			</div>
 		</div>
